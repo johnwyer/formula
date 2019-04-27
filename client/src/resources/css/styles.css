@@ -926,4 +926,99 @@ main>.container-fluid {
     color: #e10600;
 }
 
+.race-map-wrapper {
+    padding: 60px 0 0 0;
+}
+
+.race-map {
+    border: 0;
+    padding: 0;
+    border-top-right-radius: 25px;
+    padding: 20px 20px 0 0;
+    border-top: 10px solid #e10600;
+    border-right: 10px solid #e10600;
+}
+
+.race-map legend {
+    font-family: "F1Bold";
+    position: relative;
+    font-size: 25px;
+    line-height: 1;
+    text-align: left;
+    margin: 0 20px 0 0;
+    padding: 0 20px 0 0;
+    width: auto;
+}
+
+.race-map .f1-flag-wrapper {
+    left: 0;
+    position: absolute;
+    top: -10px;
+    width: 60px;
+}
+
+.race-map .f1-flag-wrapper picture {
+    background-color: #ffffff;
+    text-transform: none;
+}
+
+.race-map .f1-flag-wrapper picture img {
+    border-radius: 5px;
+}
+
+.race-map .f1-track-name {
+    margin-left: 70px;
+}
+
+.race-map .f1-race-map-wrapper picture {
+    background-color: #ffffff;
+    text-transform: none;
+}
+
+.race-map .f1-race-map-track-name {
+    display: none;
+    font-family: "F1Bold";
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.race-map .f1-stat {
+    border-bottom-right-radius: 15px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-right: 2px solid #d0d0d2;
+    border-bottom: 2px solid #d0d0d2;
+}
+
+.race-map .f1-stat:not(.no-margin) {
+    margin-bottom: 20px;
+}
+
+.race-map .f1-stat-label {
+    font-family: "Titillium Web";
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.5px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.race-map .f1-stat-value {
+    font-family: "F1Bold";
+    font-size: 36px;
+    line-height: 36px;
+}
+
+.race-map .f1-stat-value span {
+    font-family: "Titillium Web";
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.5px;
+    font-weight: normal;
+}
+
+.race-map .f1-stat p:last-of-type {
+    margin-bottom: 0;
+}
+
 @import url("responsive.css");

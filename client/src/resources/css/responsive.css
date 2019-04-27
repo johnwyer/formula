@@ -1,3 +1,4 @@
+@import url("bootstrap.overrided.css");
 @media only screen and (max-width:1023px) {
     .page-title {
         font-size: 30px;
@@ -53,6 +54,18 @@
     }
     .calendar-list-item:hover .race-teaser-info {
         height: 220px;
+    }
+    .race-map .f1-flag-wrapper {
+        position: static;
+    }
+    .race-map .f1-flag-wrapper picture img {
+        width: 60px;
+    }
+    .race-map .f1-track-name {
+        display: none;
+    }
+    .race-map .f1-race-map-track-name {
+        display: block;
     }
 }
 
@@ -184,8 +197,17 @@
     .f1-podium-driver .f1-podium-firstname {
         display: none;
     }
+    .race-review {
+        padding: 10px 10px 0 0;
+    }
     .race-review .race-review-ctas .btn {
         display: block;
+    }
+    .race-map {
+        padding: 10px 10px 0 0;
+    }
+    .race-map .f1-race-map-track-name {
+        font-size: 20px;
     }
 }
 
