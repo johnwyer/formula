@@ -1,0 +1,271 @@
+@font-face {
+    font-family: 'icomoon-legacy';
+    src: url('fonts/icomoon.legacy.eot');
+    src: url('fonts/icomoon.legacy.eot#iefix') format('embedded-opentype'), url('fonts/icomoon.legacy.woff') format('woff'), url('fonts/icomoon.legacy.ttf') format('truetype'), url('fonts/icomoon.legacy.svg#icomoon.legacy') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+/*[class^="icon-"]:before,
+[class*=" icon-"]:before*/
+
+.icon:before {
+    font-family: 'icomoon-legacy';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon-base:before {
+    content: "\e633"
+}
+
+.icon-circle-icon:before {
+    content: "\e62c"
+}
+
+.icon-ad-expand:before {
+    content: "\e628"
+}
+
+.icon-arrow-down:before {
+    content: "\e629"
+}
+
+.icon-play-large:before {
+    content: "\e62a"
+}
+
+.icon-tick2:before {
+    content: "\e62b"
+}
+
+.icon-info-off:before {
+    content: "\e626"
+}
+
+.icon-info-on:before {
+    content: "\e627"
+}
+
+.icon-checkered_flag:before {
+    content: "\e625"
+}
+
+.icon-play3:before {
+    content: "\ea1c"
+}
+
+.icon-pause2:before {
+    content: "\ea1d"
+}
+
+.icon-youtube:before {
+    content: "\ea97"
+}
+
+.icon-facebook:before {
+    content: "\e619"
+}
+
+.icon-audio2:before {
+    content: "\e61a"
+}
+
+.icon-drs2:before {
+    content: "\e61b"
+}
+
+.icon-error2:before {
+    content: "\e61c"
+}
+
+.icon-flag2:before {
+    content: "\e61d"
+}
+
+.icon-image2:before {
+    content: "\e61e"
+}
+
+.icon-overtake2:before {
+    content: "\e61f"
+}
+
+.icon-repost2:before {
+    content: "\e620"
+}
+
+.icon-safety_car2:before {
+    content: "\e621"
+}
+
+.icon-text2:before {
+    content: "\e622"
+}
+
+.icon-tv_image2:before {
+    content: "\e623"
+}
+
+.icon-video2:before {
+    content: "\e624"
+}
+
+.icon-audio:before {
+    content: "\e60e"
+}
+
+.icon-drs:before {
+    content: "\e60f"
+}
+
+.icon-error:before {
+    content: "\e610"
+}
+
+.icon-flag:before {
+    content: "\e611"
+}
+
+.icon-image:before {
+    content: "\e612"
+}
+
+.icon-overtake:before {
+    content: "\e613"
+}
+
+.icon-repost:before {
+    content: "\e614"
+}
+
+.icon-safety_car:before {
+    content: "\e615"
+}
+
+.icon-text:before {
+    content: "\e616"
+}
+
+.icon-tv_image:before {
+    content: "\e617"
+}
+
+.icon-video:before {
+    content: "\e618"
+}
+
+.icon-enlarge:before {
+    content: "\e60d"
+}
+
+.icon-helmet:before {
+    content: "\e609"
+}
+
+.icon-first-race:before {
+    content: "\e60a"
+}
+
+.icon-podiums:before {
+    content: "\e60b"
+}
+
+.icon-titles:before {
+    content: "\e60c"
+}
+
+.icon-winner:before {
+    content: "\e608"
+}
+
+.icon-arrow-up:before {
+    content: "\e607"
+}
+
+.icon-tick:before {
+    content: "\e606"
+}
+
+.icon-arrow:before {
+    content: "\e600"
+}
+
+.icon-clock:before {
+    content: "\e601"
+}
+
+.icon-close:before {
+    content: "\e602"
+}
+
+.icon-person:before {
+    content: "\e603"
+}
+
+.icon-search:before {
+    content: "\e604"
+}
+
+.icon-twitter:before {
+    content: "\e605"
+}
+
+.icon-fullscreen:before {
+    content: "\e62d"
+}
+
+.icon-volume:before {
+    content: "\e62e"
+}
+
+.icon-mute:before {
+    content: "\e62f"
+}
+
+.icon-wifi-car:before {
+    content: "\e630"
+}
+
+.icon-smartphone:before {
+    content: "\e631"
+}
+
+.icon-trophy-lines:before {
+    content: "\e632"
+}
+
+.icon-volume-high:before {
+    content: "\ea26"
+}
+
+.icon-volume-medium:before {
+    content: "\ea27"
+}
+
+.icon-volume-low:before {
+    content: "\ea28"
+}
+
+.icon-volume-mute:before {
+    content: "\ea29"
+}
+
+.icon-volume-mute2:before {
+    content: "\ea2a"
+}
+
+.icon-google-plus:before {
+    content: "\ea88"
+}
+
+.icon-share2:before {
+    content: "\ea82"
+}

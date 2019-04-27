@@ -1,0 +1,193 @@
+@font-face {
+    font-family: "icomoon";
+    src: url("fonts/icomoon.eot?ppo7ry");
+    src: url("fonts/icomoon.eot?ppo7ry#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?ppo7ry") format("truetype"), url("fonts/icomoon.woff?ppo7ry") format("woff"), url("fonts/icomoon.svg?ppo7ry#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon2 {
+    font-family: "icomoon" !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Bullet:before {
+    content: "\e928";
+}
+
+.icon-Tick:before,
+.stf1-feature-listing .stf1-plan--details-features li .tickList:before,
+.stf1-feature-listing .stf1-plan--details .features-bottom--live-timing .tickList:before {
+    content: "\e925";
+}
+
+.icon-Arrow-down:before {
+    content: "\e926";
+}
+
+.icon-Map-pin:before {
+    content: "\e927";
+}
+
+.icon-Globe:before {
+    content: "\e924";
+}
+
+.icon-Flag:before {
+    content: "\e923";
+}
+
+.icon-warning:before {
+    content: "\e922";
+}
+
+.icon-Rain:before {
+    content: "\e91f";
+}
+
+.icon-sign-out:before {
+    content: "\e920";
+}
+
+.icon-finish-flag:before {
+    content: "\e921";
+}
+
+.icon-active-tick:before {
+    content: "\e90c";
+}
+
+.icon-plus-circle:before {
+    content: "\e91c";
+}
+
+.icon-minus-circle:before {
+    content: "\e91d";
+}
+
+.icon-speech-bubble:before {
+    content: "\e918";
+}
+
+.icon-slash-2:before {
+    content: "\e919";
+}
+
+.icon-slash-3:before {
+    content: "\e91a";
+}
+
+.icon-slash-1:before {
+    content: "\e91b";
+}
+
+.icon-stopwatch:before {
+    content: "\e916";
+}
+
+.icon-external-link:before {
+    content: "\e917";
+}
+
+.icon-breaking-news:before {
+    content: "\e915";
+}
+
+.icon-twitter:before {
+    content: "\e910";
+}
+
+.icon-google-plus:before {
+    content: "\e911";
+}
+
+.icon-facebook:before {
+    content: "\e912";
+}
+
+.icon-close:before {
+    content: "\e913";
+}
+
+.icon-Chevron-Left:before {
+    content: "\e91e";
+}
+
+.icon-chevron-right:before {
+    content: "\e914";
+}
+
+.icon-full-screen:before {
+    content: "\e90d";
+}
+
+.icon-arrow-left:before {
+    content: "\e90e";
+}
+
+.icon-arrow-right:before {
+    content: "\e90f";
+}
+
+.icon-star:before {
+    content: "\e908";
+}
+
+.icon-burger:before {
+    content: "\e909";
+}
+
+.icon-star-outline:before {
+    content: "\e90a";
+}
+
+.icon-snapchat:before {
+    content: "\e90b";
+}
+
+.icon-user:before {
+    content: "\e900";
+}
+
+.icon-share:before {
+    content: "\e901";
+}
+
+.icon-audio:before {
+    content: "\e902";
+}
+
+.icon-chevron-down:before {
+    content: "\e903";
+}
+
+.icon-camera:before {
+    content: "\e904";
+}
+
+.icon-link-arrow:before {
+    content: "\e905";
+}
+
+.icon-more:before {
+    content: "\e906";
+}
+
+.icon-play:before {
+    content: "\e907";
+}
+
+.icon-instagram:before {
+    content: "\ea92";
+}
+
+.icon-youtube:before {
+    content: "\ea9d";
+}

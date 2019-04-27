@@ -1,0 +1,224 @@
+@media only screen and (max-width:1023px) {
+    .page-title {
+        font-size: 30px;
+    }
+    .team-list-item-details {
+        padding: 0 5.46% 0 18px;
+        width: 52.6%;
+    }
+    .team-list-item-image {
+        width: 47.4%;
+    }
+    .team-list-item-details .panel-left {
+        width: 58.41%;
+        padding-top: 35px;
+    }
+    .team-list-item-details .stat-list {
+        width: 41.59%;
+        margin-top: 35px;
+    }
+    .team-list-item-title {
+        font-size: 20px;
+    }
+    .team-list-item-details .stat-key .icon {
+        display: none;
+    }
+    .team-list-item-image .team-adaptiveimage .image {
+        width: auto;
+        height: 100%;
+    }
+    .team-details .team-stats {
+        padding: 40px 20px 0 20px;
+    }
+    .team-details .driver-number {
+        font-size: 28px;
+    }
+    .team-details .driver-name {
+        font-size: 20px;
+    }
+    .team-details .driver-team {
+        font-size: 14px;
+    }
+    .calendar-list-item {
+        width: 50%;
+    }
+    .calendar-list-item .race-teaser {
+        height: 400px;
+    }
+    .calendar-list-item .race-teaser-image {
+        height: 210px;
+    }
+    .calendar-list-item .race-teaser-info {
+        height: 210px;
+    }
+    .calendar-list-item:hover .race-teaser-info {
+        height: 220px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .page-title {
+        font-size: 24px;
+        margin: 30px 0 30px 0;
+    }
+    .team-list-item-wrapper {
+        display: inline-block;
+        position: relative;
+        padding-bottom: 0;
+    }
+    .team-list-item-details {
+        display: block;
+        position: relative;
+        width: 100%;
+        margin-top: 200px;
+        padding: 0 20px 22px;
+    }
+    .team-list-item-details .panel-left {
+        min-height: 195px;
+        padding-top: 30px;
+        width: 50%;
+    }
+    .team-list-item-title {
+        font-size: 15px;
+    }
+    .team-list-item-driver {
+        font-size: 10px;
+    }
+    .team-list-item-details .panel-right {
+        width: 50%;
+        margin-top: 30px;
+        padding-right: 0;
+    }
+    .team-list-item-details .stat-value,
+    .team-list-item-details .stat-key {
+        padding: 12px 5px;
+    }
+    .team-list-item-details .stat-key {
+        font-size: 7px;
+    }
+    .team-list-item-details .stat-key .icon {
+        display: inline-block;
+        width: 15px;
+        margin-right: 10px;
+        font-size: 12.5px;
+    }
+    .team-list-item-details .stat-value {
+        font-size: 15px;
+    }
+    .team-list-item-image {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        top: 0;
+        left: 0;
+    }
+    .team-list-item-image .team-color {
+        height: 5px;
+        bottom: 0;
+        top: auto;
+        width: 100%;
+    }
+    .team-list-item-image .team-adaptiveimage .image {
+        width: 100%;
+        height: auto;
+    }
+    .team-details .stats,
+    .team-details .profile {
+        position: static;
+        float: none;
+        padding: 0;
+        width: 100%;
+    }
+    .team-details .stats {
+        margin: 2px 0 0;
+    }
+    .team-details .team-stats {
+        padding: 15px;
+    }
+    .team-details .team-stats .extra-info {
+        padding: 0 0 20px 0;
+    }
+    .team-details .team-stats .stat-list {
+        font-size: 11px;
+    }
+    .team-details .team-stats .stat-key {
+        padding: 0;
+        line-height: 1.442;
+    }
+    .team-details .profile .drivers li:first-child {
+        border-left-width: 0;
+        border-top-width: 2px;
+    }
+    .team-details .profile .drivers li:last-child {
+        border-top-width: 2px;
+    }
+    .team-details .driver-image {
+        height: 300px;
+    }
+    .team-details .driver-details {
+        padding: 45px 15px;
+    }
+    .team-details .driver-number {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    .team-details .driver-name {
+        font-size: 18px;
+    }
+    .team-details .driver-team {
+        font-size: 13px;
+    }
+    .calendar-list-item .race-teaser-info {
+        padding: 15px;
+    }
+    .calendar-list-item .race-teaser-date {
+        font-size: 12px;
+    }
+    .calendar-list-item .race-teaser-title {
+        font-size: 12px;
+    }
+    .calendar-list-item .race-teaser-winner {
+        font-size: 10px;
+    }
+    .f1-podium-driver .f1-podium-firstname {
+        display: none;
+    }
+    .race-review .race-review-ctas .btn {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 639px) {
+    .calendar-list-item .race-teaser {
+        height: 320px;
+    }
+    .calendar-list-item .race-teaser-image {
+        height: 160px;
+    }
+    .calendar-list-item .race-teaser-info {
+        height: 170px;
+    }
+    .calendar-list-item:hover .race-teaser-info {
+        height: 180px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .calendar-list-item {
+        float: none;
+        width: 100%;
+    }
+    .calendar-list-item .race-teaser {
+        height: 280px;
+    }
+    .calendar-list-item .race-teaser-image {
+        height: 150px;
+    }
+    .calendar-list-item .race-teaser-info {
+        height: 160px;
+    }
+    .calendar-list-item:hover .race-teaser-info {
+        height: 170px;
+    }
+}
