@@ -3,7 +3,9 @@ import {
     SITE_GET_TEAMS,
     SITE_GET_TEAM_BY_SLUG,
     SITE_GET_RACES,
-    SITE_GET_DRIVERS_LIST
+    SITE_GET_DRIVERS_LIST,
+    SITE_GET_TEAMS_DRIVERS,
+    SITE_GET_RACE_BY_SLUG
 } from './types';
 import { SITE_SERVER } from '../../components/utils/misc';
 
@@ -13,6 +15,15 @@ export function getDriversList() {
 
     return {
         type: SITE_GET_DRIVERS_LIST,
+        payload: request
+    };
+};
+
+export function getTeamsDrivers() {
+    const request = axios.get(`${SITE_SERVER}/teams-drivers`).then((response) => response.data);
+
+    return {
+        type: SITE_GET_TEAMS_DRIVERS,
         payload: request
     };
 };
@@ -40,6 +51,15 @@ export function getRaces() {
 
     return {
         type: SITE_GET_RACES,
+        payload: request
+    };
+};
+
+export function getRaceBySlug(slug) {
+    const request = axios.get(`${SITE_SERVER}/race?slug=${slug}`).then((response) => response.data);
+
+    return {
+        type: SITE_GET_RACE_BY_SLUG,
         payload: request
     };
 };

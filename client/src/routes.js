@@ -13,7 +13,7 @@ import ResetUser from './components/Reset_user';
 import TeamsIndex from './components/Teams';
 import TeamsDetailIndex from './components/Teams/detail-index';
 import CalendarIndex from './components/Calendar';
-import CalendarDetailIndex from './components/Calendar/detail.js';
+import CalendarDetailIndex from './components/Calendar/detail-index.js';
 
 import UserDashboard from './components/User';
 import AdminDriversIndex from './components/User/Admin/Drivers';

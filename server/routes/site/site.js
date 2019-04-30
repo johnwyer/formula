@@ -49,15 +49,54 @@ router.get('/races', (req, res) => {
                 $unwind: '$track'
             }
         ])
-        //Race.find({})
-        //.populate('country')
-        //.populate('track')
         .exec((error, races) => {
             if (error) {
                 return res.status(400).send(error);
             }
 
             res.status(200).send(races);
+        });
+});
+
+router.get('/race', (req, res) => {
+    console.log('get race');
+    Race.aggregate([
+            { $match: { slug: req.query.slug } },
+            {
+                $lookup: {
+                    from: "results",
+                    localField: "_id",
+                    foreignField: "race",
+                    as: "result"
+                }
+            },
+            {
+                $lookup: {
+                    from: "countries",
+                    localField: "country",
+                    foreignField: "_id",
+                    as: "country"
+                }
+            },
+            {
+                $lookup: {
+                    from: "tracks",
+                    localField: "track",
+                    foreignField: "_id",
+                    as: "track"
+                }
+            },
+            { $unwind: '$country' },
+            { $unwind: '$track' },
+            { $unwind: '$result' },
+            { $limit: 1 }
+        ])
+        .exec((error, race) => {
+            if (error) {
+                return res.status(400).send(error);
+            }
+
+            res.status(200).send(race[0]);
         });
 });
 
@@ -89,6 +128,20 @@ router.get('/team', (req, res) => {
             }
 
             res.status(200).send(team);
+        });
+});
+
+router.get('/teams-drivers', (req, res) => {
+    Team.find({})
+        .select(['id', 'teamColor', 'officialName', 'driver_1', 'driver_2'])
+        .populate('driver_1')
+        .populate('driver_2')
+        .exec((error, teams) => {
+            if (error) {
+                return res.status(400).send(error);
+            }
+
+            res.status(200).send(teams);
         });
 });
 

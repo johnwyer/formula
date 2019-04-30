@@ -194,6 +194,20 @@
     .calendar-list-item .race-teaser-winner {
         font-size: 10px;
     }
+    .hero-header {
+        height: 215px;
+    }
+    .hero-content-wrapper .race-location {
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .hero-content-wrapper .hero-image {
+        width: 110px;
+    }
+    .race-review-wrapper .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
     .f1-podium-driver .f1-podium-firstname {
         display: none;
     }
