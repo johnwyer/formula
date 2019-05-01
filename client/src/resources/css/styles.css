@@ -1036,4 +1036,96 @@ main>.container-fluid {
     margin-bottom: 0;
 }
 
+.drivers-page {}
+
+.drivers-list {}
+
+.drivers-list .driver-teaser {
+    display: block;
+    float: left;
+    overflow: hidden;
+    background-color: #fff;
+    width: 25%;
+    height: 374px;
+    border: 2px solid #efefed;
+    border-left: 0;
+    border-top: 0;
+    text-decoration: none;
+    transition: all 0.4s ease-out;
+}
+
+.drivers-list .driver-teaser:hover {
+    background-color: #000;
+}
+
+.driver-teaser-image-wrapper {
+    overflow: hidden;
+    height: 200px;
+}
+
+.driver-teaser-image-outer {
+    overflow: visible;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.driver-teaser-image-inner {
+    position: relative;
+}
+
+.driver-teaser-image-inner .driver-teaser-image img {
+    position: relative;
+    transition: all 0.4s ease-out;
+    transform: scale(1);
+    width: 500px;
+    left: 50%;
+    margin-left: -250px;
+}
+
+.drivers-list .driver-teaser:hover .driver-teaser-image img {
+    transform: scale(1.05);
+}
+
+.drivers-list .driver-details {
+    padding: 35px 40px;
+}
+
+.drivers-list .driver-number {
+    letter-spacing: -1px;
+    margin: 0 0 25px;
+    color: #000;
+    line-height: 1.142;
+    font-size: 42px;
+    font-weight: 700;
+    font-family: 'F1BoldRegular', Helvetica, sans-serif;
+    transition: all 0.4s ease-out;
+}
+
+.drivers-list .driver-name {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
+    line-height: 1.222;
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'F1BoldRegular', Helvetica, sans-serif;
+    transition: all 0.4s ease-out;
+}
+
+.drivers-list .driver-teaser:hover .driver-number,
+.drivers-list .driver-teaser:hover .driver-name {
+    color: #fff;
+}
+
+.drivers-list .driver-team {
+    text-transform: uppercase;
+    color: gray;
+    line-height: 1.166;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Titillium Web", Helvetica, sans-serif;
+    margin: 0 0 20px 0;
+}
+
 @import url("responsive.css");

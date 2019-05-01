@@ -4,7 +4,8 @@ import {
     SITE_GET_RACES,
     SITE_GET_DRIVERS_LIST,
     SITE_GET_TEAMS_DRIVERS,
-    SITE_GET_RACE_BY_SLUG
+    SITE_GET_RACE_BY_SLUG,
+    SITE_GET_DRIVERS
 } from '../actions/site/types';
 
 export default function(state = {}, action) {
@@ -39,6 +40,11 @@ export default function(state = {}, action) {
             return {
                 ...state,
                 race: action.payload
+            };
+        case SITE_GET_DRIVERS:
+            return {
+                ...state,
+                drivers: action.payload
             };
         default:
             return state;

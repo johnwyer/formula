@@ -5,7 +5,8 @@ import {
     SITE_GET_RACES,
     SITE_GET_DRIVERS_LIST,
     SITE_GET_TEAMS_DRIVERS,
-    SITE_GET_RACE_BY_SLUG
+    SITE_GET_RACE_BY_SLUG,
+    SITE_GET_DRIVERS
 } from './types';
 import { SITE_SERVER } from '../../components/utils/misc';
 
@@ -60,6 +61,15 @@ export function getRaceBySlug(slug) {
 
     return {
         type: SITE_GET_RACE_BY_SLUG,
+        payload: request
+    };
+};
+
+export function getDrivers() {
+    const request = axios.get(`${SITE_SERVER}/drivers`).then((response) => response.data);
+
+    return {
+        type: SITE_GET_DRIVERS,
         payload: request
     };
 };
