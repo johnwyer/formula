@@ -61,11 +61,23 @@
     .race-map .f1-flag-wrapper picture img {
         width: 60px;
     }
+    .f1-podium-driver {
+        width: 200px;
+    }
     .race-map .f1-track-name {
         display: none;
     }
     .race-map .f1-race-map-track-name {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .f1-podium-driver-team-full {
+        display: none;
+    }
+    .f1-podium-driver-team-short {
+        display: inline;
     }
 }
 
@@ -208,6 +220,9 @@
         padding-left: 0;
         padding-right: 0;
     }
+    .f1-podium-driver {
+        width: 160px;
+    }
     .f1-podium-driver .f1-podium-firstname {
         display: none;
     }
@@ -237,6 +252,12 @@
     }
     .calendar-list-item:hover .race-teaser-info {
         height: 180px;
+    }
+    .f1-podium-driver {
+        width: auto;
+    }
+    .f1-podium-driver-team {
+        display: none;
     }
 }
 

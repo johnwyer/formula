@@ -852,6 +852,7 @@ main>.container-fluid {
     font-family: "F1Regular";
     font-size: 14px;
     line-height: 17px;
+    width: 220px;
 }
 
 .f1-podium-driver .f1-podium-firstname {
@@ -863,6 +864,20 @@ main>.container-fluid {
     font-family: "F1Bold";
     font-weight: 700;
     text-transform: uppercase;
+}
+
+.f1-podium-driver-team {
+    font-family: "F1Regular";
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.f1-podium-driver-team-full {
+    display: inline;
+}
+
+.f1-podium-driver-team-short {
+    display: none;
 }
 
 .f1-podium-time {

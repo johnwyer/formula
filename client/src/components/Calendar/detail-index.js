@@ -24,7 +24,7 @@ class CalendarDetailIndex extends Component {
                     this.props.site.race.isExpired = moment(dateEnd) < moment() ? true : false;
                     this.props.site.race.track.trackConfiguration = (track.trackConfiguration.length > 0) ? track.trackConfiguration[0].url : '';
 
-                    if(this.props.site.race.isExpired) {
+                    if(this.props.site.race.isExpired && this.props.site.race.result.length !== 0) {
                         this.props.dispatch(getTeamsDrivers()).then(() => {
                             Array.from({ length: this.props.site.teamsDrivers.length * 2 }).forEach((item, i) => {
                                 let key = `position_${i + 1}`;
@@ -38,30 +38,46 @@ class CalendarDetailIndex extends Component {
                                             firstName: element.driver_1.firstName,
                                             lastName: element.driver_1.lastName,
                                             teamOfficialName: element.officialName,
+                                            teamShortName: element.shortName,
                                             teamColor: element.teamColor
                                         };                                        
                                     }
                                     if(element.driver_2.id === driverId) {
                                         driver = {
-                                            id: element.driver_1.id,
+                                            id: element.driver_2.id,
                                             firstName: element.driver_2.firstName,
                                             lastName: element.driver_2.lastName,
                                             teamOfficialName: element.officialName,
+                                            teamShortName: element.shortName,
                                             teamColor: element.teamColor
                                         };                                        
                                     }                                 
 
                                     this.props.site.race.result[key].driver = driver;
-                                }); 
+                                });
                             });
-                        });
-                    }
 
-                    setTimeout(() => {
-                        this.setState({
-                            loading: false
+                            let results = [];
+                            for(let key in this.props.site.race.result) {
+                                if(/position_/i.test(key)) {
+                                    results.push(this.props.site.race.result[key]);
+                                }                                
+                            }
+                            this.props.site.race.result = results;
+
+                            setTimeout(() => {
+                                this.setState({
+                                    loading: false
+                                });
+                            }, 1000);
                         });
-                    }, 1000);
+                    } else {
+                        setTimeout(() => {
+                            this.setState({
+                                loading: false
+                            });
+                        }, 1000);
+                    }
                 }
             });
         } else {

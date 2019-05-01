@@ -64,14 +64,6 @@ router.get('/race', (req, res) => {
             { $match: { slug: req.query.slug } },
             {
                 $lookup: {
-                    from: "results",
-                    localField: "_id",
-                    foreignField: "race",
-                    as: "result"
-                }
-            },
-            {
-                $lookup: {
                     from: "countries",
                     localField: "country",
                     foreignField: "_id",
@@ -86,9 +78,16 @@ router.get('/race', (req, res) => {
                     as: "track"
                 }
             },
+            {
+                $lookup: {
+                    from: "results",
+                    localField: "_id",
+                    foreignField: "race",
+                    as: "result"
+                }
+            },
             { $unwind: '$country' },
             { $unwind: '$track' },
-            { $unwind: '$result' },
             { $limit: 1 }
         ])
         .exec((error, race) => {
@@ -96,7 +95,12 @@ router.get('/race', (req, res) => {
                 return res.status(400).send(error);
             }
 
-            res.status(200).send(race[0]);
+            let raceNew = (race.length !== 0) ? race[0] : race;
+            if (raceNew.result.length !== 0) {
+                raceNew.result = raceNew.result[0];
+            }
+
+            return res.status(200).send(raceNew);
         });
 });
 
@@ -133,9 +137,9 @@ router.get('/team', (req, res) => {
 
 router.get('/teams-drivers', (req, res) => {
     Team.find({})
-        .select(['id', 'teamColor', 'officialName', 'driver_1', 'driver_2'])
-        .populate('driver_1')
-        .populate('driver_2')
+        .select(['id', 'teamColor', 'officialName', 'shortName', 'driver_1', 'driver_2'])
+        .populate({ path: 'driver_1', select: 'id firstName lastName' })
+        .populate({ path: 'driver_2', select: 'id firstName lastName' })
         .exec((error, teams) => {
             if (error) {
                 return res.status(400).send(error);

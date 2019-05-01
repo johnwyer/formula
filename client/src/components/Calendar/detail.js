@@ -11,7 +11,9 @@ const CalendarDetail = ({ race }) => {
             <div className="race-review-wrapper">
                 <div className="container">
                     <h2 className="page-title">{race.fullName}</h2>
-                    <CalendarDetailResults result={race.result} />
+                    {
+                        race.isExpired ? <CalendarDetailResults results={race.result} /> : null
+                    }                    
                     <CalendarDetailTrackInfo track={race.track} />
                 </div>
             </div>
