@@ -102,6 +102,35 @@ router.get('/drivers', (req, res) => {
         });
 });
 
+router.get('/driver', (req, res) => {
+    Driver.aggregate([
+            { $match: { slug: req.query.slug } },
+            {
+                $lookup: {
+                    from: "teams",
+                    localField: "_id",
+                    foreignField: "driver_1",
+                    as: "team_1"
+                }
+            },
+            {
+                $lookup: {
+                    from: "teams",
+                    localField: "_id",
+                    foreignField: "driver_2",
+                    as: "team_2"
+                }
+            }
+        ])
+        .exec((error, driver) => {
+            if (error) {
+                return res.status(400).send(error);
+            }
+
+            return res.status(200).send(driver);
+        });
+});
+
 //calendar routes
 router.get('/races', (req, res) => {
     console.log('get races');
