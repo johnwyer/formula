@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import SiteLayout from '../../hoc/site';
 
 import LoadingIndicator from '../utils/loading-indicator';
-import { getRaces, getDriversList } from '../../actions/site/site_actions';
+import { getRaces } from '../../actions/site/site_actions';
 import CalendarList from './calendar-list';
-import moment from 'moment';
+//import moment from 'moment';
 
 import { connect } from 'react-redux';
 
@@ -15,6 +15,7 @@ class CalendarIndex extends Component {
 
     componentDidMount(){
         this.props.dispatch(getRaces()).then(() => {
+            /*
             this.props.dispatch(getDriversList()).then(() => {
 
                 this.props.site.races.map((item) => {
@@ -32,7 +33,7 @@ class CalendarIndex extends Component {
 
                     return item;                
                 });
-            });
+            });*/
             
             setTimeout(() => {
                 this.setState({

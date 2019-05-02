@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const moment = require('moment');
 const { Team } = require('../../models/team');
 const { Race } = require('../../models/race');
 const { Driver } = require('../../models/driver');
@@ -148,12 +149,34 @@ router.get('/races', (req, res) => {
                 $unwind: '$track'
             }
         ])
-        .exec((error, races) => {
-            if (error) {
-                return res.status(400).send(error);
-            }
+        .then(async(races2) => {
+            let races = [];
+            const driversList = await Driver.find({}, 'id firstName lastName').exec();
 
-            res.status(200).send(races);
+            races2.forEach((race) => {
+                let item = {
+                    ...race,
+                    track: {},
+                    raceWinner: ''
+                };
+                item.isExpired = moment(race.dateEnd) < moment() ? true : false;
+                item.track.trackImage = (race.track.trackImage.length > 0) ? race.track.trackImage[0].url : '';
+
+                if (race.result.length !== 0) {
+                    driversList.forEach((element) => {
+                        if (element.id == race.result[0].position_1.driver) {
+                            item.raceWinner = element.name;
+                        }
+                    });
+                }
+
+                races.push(item);
+            });
+
+            return res.status(200).send(races);
+        })
+        .catch((error) => {
+            return res.status(400).send(error);
         });
 });
 

@@ -16,6 +16,7 @@ import CalendarIndex from './components/Calendar';
 import CalendarDetailIndex from './components/Calendar/detail-index.js';
 import DriversIndex from './components/Drivers';
 import DriversDetailIndex from './components/Drivers/detail-index.js';
+import ResultsIndex from './components/Results';
 
 import UserDashboard from './components/User';
 import AdminDriversIndex from './components/User/Admin/Drivers';
@@ -68,6 +69,8 @@ const Routes = () => {
 
                 <Route path="/drivers/:slug" exact component={Auth(DriversDetailIndex, null)} />
                 <Route path="/drivers" exact component={Auth(DriversIndex, null)} />
+
+                <Route path="/results" exact component={Auth(ResultsIndex, null)} />                
 
                 <Route path="/" exact component={Auth(Home, null)} />
                 
