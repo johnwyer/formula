@@ -16,66 +16,6 @@ router.get('/drivers-list', (req, res) => {
 });
 
 router.get('/drivers', (req, res) => {
-    /*
-    const getQuery = async() => {
-        let query = await Driver.aggregate([{
-                $lookup: {
-                    from: "teams",
-                    localField: "_id",
-                    foreignField: "driver_1",
-                    as: "team1"
-                }
-            },
-            {
-                $lookup: {
-                    from: "teams",
-                    localField: "_id",
-                    foreignField: "driver_2",
-                    as: "team2"
-                }
-            }
-        ]).exec();
-
-        return query;
-    };
-
-    let query = getQuery();
-    query.then((drivers) => {
-        drivers.map((item) => {
-            console.log(item.team1.length, item.team2.length);
-            return obj = {
-                ...item,
-                team: []
-            };
-        });
-
-        return res.status(200).send(drivers);
-    }).catch((error) => {
-        return res.status(400).send(error);
-    });
-    */
-
-    /*
-    query.exec(function(error, drivers) {
-        if (error) {
-            return res.status(400).send(error);
-        }
-
-        drivers.map((item) => {
-            let obj = {
-                ...item,
-                team: []
-            };
-            console.log(item.team1.length, item.team2.length);
-
-            (item.team1.length === 0) ? obj.team.push(item.team2): obj.team.push(item.team1);
-
-            return obj;
-        });
-
-        return res.status(200).send(drivers);
-    });*/
-
     Driver.aggregate([{
                 $lookup: {
                     from: "teams",
@@ -91,15 +31,45 @@ router.get('/drivers', (req, res) => {
                     foreignField: "driver_2",
                     as: "team_2"
                 }
+            },
+            {
+                $project: {
+                    "_id": true,
+                    "firstName": true,
+                    "lastName": true,
+                    "number": true,
+                    "driverImage": true,
+                    "slug": true,
+                    "team_1.shortName": true,
+                    "team_2.shortName": true
+                }
             }
         ])
-        .exec((error, drivers) => {
-            if (error) {
-                return res.status(400).send(error);
-            }
+        .exec()
+        .then((drivers) => {
+            drivers.map((driver) => {
+                driver.driverImage = (driver.driverImage.length > 0) ? driver.driverImage[0].url : '';
+                driver.team = driver.team_1.length !== 0 ? driver.team_1[0] : driver.team_2[0];
+                driver.id = driver._id;
+                delete driver.team_1;
+                delete driver.team_2;
+                return driver;
+            });
 
             return res.status(200).send(drivers);
+        })
+        .catch((error) => {
+            return res.status(400).send(error);
         });
+    /*
+    .exec((error, drivers) => {
+        if (error) {
+            return res.status(400).send(error);
+        }
+
+        return res.status(200).send(drivers);
+    });
+    */
 });
 
 router.get('/driver', (req, res) => {

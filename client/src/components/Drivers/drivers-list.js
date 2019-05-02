@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const DriversIndexList = ({drivers}) => {
     return (
         drivers.map((driver) => (
-            <Link to={`/drivers/${driver.slug}`} className="driver-teaser">
+            <Link to={`/drivers/${driver.slug}`} className="driver-teaser" key={driver.id}>
                 <figure>
                     <div className="driver-teaser-image-wrapper">
                         <div className="driver-teaser-image-outer">

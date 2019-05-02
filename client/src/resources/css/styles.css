@@ -70,6 +70,11 @@ svg {
     height: auto;
 }
 
+figure,
+figcaption {
+    margin: 0;
+}
+
 .btn-rounded {
     border-radius: 60px;
     padding: 7px 18px;

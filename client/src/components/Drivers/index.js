@@ -13,16 +13,7 @@ class DriversIndex extends Component {
     };
 
     componentDidMount(){
-        this.props.dispatch(getDrivers()).then(() => {
-            this.props.site.drivers.map((item) => {
-                item.driverImage = (item.driverImage.length > 0) ? item.driverImage[0].url : '';
-                item.team = (item.team_1.length > 0) ? item.team_1[0] : item.team_2[0];
-                delete item.team_1;
-                delete item.team_2;
-
-                return item;                
-            });
-                
+        this.props.dispatch(getDrivers()).then(() => {               
             setTimeout(() => {
                 this.setState({
                     loading: false

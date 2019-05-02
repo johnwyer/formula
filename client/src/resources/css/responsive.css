@@ -1,4 +1,10 @@
 @import url("bootstrap.overrided.css");
+@media only screen and (max-width:1191px) {
+    .drivers-list .driver-teaser {
+        width: 33.333%;
+    }
+}
+
 @media only screen and (max-width:1023px) {
     .page-title {
         font-size: 30px;
@@ -69,6 +75,22 @@
     }
     .race-map .f1-race-map-track-name {
         display: block;
+    }
+    .drivers-list .driver-teaser {
+        height: 400px;
+        width: 50%;
+    }
+    .drivers-list .driver-details {
+        padding: 30px;
+    }
+    .drivers-list .driver-number {
+        font-size: 28px;
+    }
+    .drivers-list .driver-name {
+        font-size: 20px;
+    }
+    .drivers-list .driver-team {
+        font-size: 14px;
     }
 }
 
@@ -238,6 +260,25 @@
     .race-map .f1-race-map-track-name {
         font-size: 20px;
     }
+    .drivers-list .driver-teaser {
+        height: 350px;
+    }
+    .drivers-list .driver-details {
+        padding: 15px 14px;
+    }
+    .drivers-list .driver-number {
+        font-size: 28px;
+        margin-bottom: 15px;
+        line-height: 1.125;
+    }
+    .drivers-list .driver-name {
+        font-size: 18px;
+        line-height: 1.142;
+    }
+    .drivers-list .driver-team {
+        font-size: 13px;
+        line-height: 1.272;
+    }
 }
 
 @media only screen and (max-width: 639px) {
@@ -259,6 +300,20 @@
     .f1-podium-driver-team {
         display: none;
     }
+    .drivers-list .driver-teaser {
+        float: none;
+        width: 100%;
+        height: 360px;
+        border-right: 0;
+    }
+    .driver-teaser-image-wrapper {
+        height: 210px;
+    }
+    .driver-teaser-image-inner .driver-teaser-image img {
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+    }
 }
 
 @media only screen and (max-width: 479px) {
@@ -277,5 +332,11 @@
     }
     .calendar-list-item:hover .race-teaser-info {
         height: 170px;
+    }
+    .drivers-list .driver-teaser {
+        height: 350px;
+    }
+    .driver-teaser-image-wrapper {
+        height: 200px;
     }
 }
