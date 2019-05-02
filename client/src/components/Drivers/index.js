@@ -25,8 +25,7 @@ class DriversIndex extends Component {
     render() {
         return (
             <SiteLayout classes="drivers-page">
-                <h2 className="page-title">Formula 1&reg; Drivers</h2>
-                <div className="drivers-list clearfix">
+                <h2 className="page-title">Formula 1&reg; Drivers</h2>                
                 {
                     this.state.loading ? 
                     (
@@ -36,8 +35,7 @@ class DriversIndex extends Component {
                     ( 
                         <DriversIndexList drivers={this.props.site.drivers} />
                     )                    
-                }  
-                </div>
+                }                
             </SiteLayout>
         )
     }

@@ -92,6 +92,19 @@
     .drivers-list .driver-team {
         font-size: 14px;
     }
+    .drivers-detail-page .stats-list-component {
+        padding: 30px;
+    }
+    .drivers-detail-page .extra-info {
+        padding: 0 0 10px 0;
+    }
+    .drivers-detail-page .brand-logo {
+        height: 85px;
+    }
+    .drivers-detail-page .brand-logo img {
+        max-width: 129px;
+        max-height: 85px;
+    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -278,6 +291,60 @@
     .drivers-list .driver-team {
         font-size: 13px;
         line-height: 1.272;
+    }
+    .drivers-detail-page .profile {
+        position: static;
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+    .drivers-detail-page .stats {
+        position: static;
+        float: none;
+        width: 100%;
+        padding: 0;
+        margin: 2px 0 0 0;
+        border-top: 1px solid #b0b0b0;
+    }
+    .drivers-detail-page .driver-detail {
+        padding: 15px 14px;
+    }
+    .drivers-detail-page .driver-number {
+        line-height: 1.125;
+        font-size: 24px;
+    }
+    .drivers-detail-page .driver-flag {
+        top: 0;
+        width: 30px;
+        height: 21px;
+    }
+    .drivers-detail-page .driver-name {
+        font-size: 24px;
+        line-height: 1.125;
+    }
+    .drivers-detail-page .stats-list-component {
+        padding: 15px;
+    }
+    .drivers-detail-page .extra-info {
+        padding: 0 0 40px 0;
+    }
+    .drivers-detail-page .brand-logo {
+        height: 125px;
+    }
+    .drivers-detail-page .brand-logo img {
+        max-width: 190px;
+        max-height: 125px;
+    }
+    .drivers-detail-page .stat-list {
+        font-size: 11px;
+    }
+    .drivers-detail-page .stat-key {
+        padding: 0;
+        font-size: 12px;
+        line-height: 1.9;
+    }
+    .drivers-detail-page .stat-value {
+        font-size: 13px;
     }
 }
 
