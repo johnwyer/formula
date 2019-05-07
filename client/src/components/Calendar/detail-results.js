@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@material-ui/core';
 
-const CalendarDetailResults = ({ results }) => {
+const CalendarDetailResults = ({ results, slug }) => {
     const renderResult = (result, i) => {
         return (
             i < 3 ?
@@ -34,7 +34,7 @@ const CalendarDetailResults = ({ results }) => {
                             }                                                                              
                         </ul>
                         <p className="race-review-ctas">
-                            <Link to={`/results/`} className="btn">Results <i className="icon2 icon-chevron-right"></i></Link>
+                            <Link to={`/results/${slug}`} className="btn">Results<i className="icon2 icon-chevron-right"></i></Link>
                         </p>
                     </div>
                 </div>

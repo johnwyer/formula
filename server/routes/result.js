@@ -30,9 +30,9 @@ router.get('/results', async(req, res) => {
     ]).exec(function(error, results) {
         if (error) {
             return res.status(400).send(error);
+        } else {
+            return res.status(200).send(results);
         }
-
-        return res.status(200).send(results);
     });
 });
 
@@ -61,11 +61,9 @@ router.get('/get', auth, admin, (req, res) => {
         .exec((error, result) => {
             if (error) {
                 return res.status(400).send(error);
+            } else {
+                return res.send(result);
             }
-
-            console.log(result);
-            console.log(req.query.id);
-            return res.send(result);
         });
 });
 
@@ -75,12 +73,12 @@ router.post('/add', auth, admin, (req, res) => {
     result.save((error, doc) => {
         if (error) {
             return res.json({ success: false, error });
+        } else {
+            return res.status(200).json({
+                success: true,
+                result: doc
+            });
         }
-
-        res.status(200).json({
-            success: true,
-            result: doc
-        });
     });
 });
 
@@ -88,12 +86,12 @@ router.post('/update', auth, admin, (req, res) => {
     Result.findOneAndUpdate({ race: req.body.race }, { "$set": req.body }, { new: true }, (error, doc) => {
         if (error) {
             return res.json({ success: false, error });
+        } else {
+            return res.status(200).json({
+                success: true,
+                result: doc
+            });
         }
-
-        res.status(200).json({
-            success: true,
-            result: doc
-        });
     });
 });
 
@@ -125,9 +123,9 @@ router.post('/delete', auth, admin, (req, res) => {
         ]).exec(function(error, results) {
             if (error) {
                 return res.status(400).send(error);
+            } else {
+                return res.status(200).send(results);
             }
-
-            return res.status(200).send(results);
         });
     });
 });

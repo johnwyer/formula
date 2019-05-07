@@ -11,3 +11,4 @@ export const DATA_SERVER = '/api/data';
 export const SITE_DRIVER_SERVER = '/site/driver';
 export const SITE_TEAM_SERVER = '/site/team';
 export const SITE_CALENDAR_SERVER = '/site/calendar';
+export const SITE_RESULT_SERVER = '/site/result';

@@ -50,6 +50,7 @@ app.use('/api/data', routes.data);
 app.use('/site/team', siteRoutes.team);
 app.use('/site/driver', siteRoutes.driver);
 app.use('/site/calendar', siteRoutes.calendar);
+app.use('/site/result', siteRoutes.result);
 
 //user routes
 /*

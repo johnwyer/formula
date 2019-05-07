@@ -12,7 +12,7 @@ const CalendarDetail = ({ race }) => {
                 <div className="container">
                     <h2 className="page-title">{race.fullName}</h2>
                     {
-                        race.isExpired ? <CalendarDetailResults results={race.result} /> : null
+                        race.isExpired ? <CalendarDetailResults results={race.result} slug={race.slug} /> : null
                     }                    
                     <CalendarDetailTrackInfo track={race.track} />
                 </div>

@@ -1274,4 +1274,51 @@ main>.container-fluid {
     padding-left: 30px;
 }
 
+.results-page .table-wrap {}
+
+.results-page .resultsarchive-table {
+    width: 100%;
+    margin: 0 0 25px 0;
+    font-family: "Titillium Web", Helvetica, sans-serif;
+}
+
+.results-page .resultsarchive-table tr th {
+    font-size: 11px;
+    font-weight: 500;
+    color: gray;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 18px 20px 14px;
+}
+
+.results-page .resultsarchive-table tbody tr:nth-child(2n+1) {
+    background: #f4f4f4;
+}
+
+.results-page .resultsarchive-table td {
+    font-size: 13px;
+    text-align: left;
+    padding: 18px 20px 14px;
+}
+
+.results-page .resultsarchive-table .bold {
+    font-weight: 700;
+}
+
+.results-page .resultsarchive-table .semi-bold {
+    font-weight: 600;
+}
+
+.results-page .resultsarchive-table .dark {
+    color: #4a4a4a;
+}
+
+.results-page .resultsarchive-table .uppercase {
+    text-transform: uppercase;
+}
+
+.results-page .resultsarchive-table .hide-for-desktop {
+    display: none;
+}
+
 @import url("responsive.css");

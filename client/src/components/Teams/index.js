@@ -12,15 +12,7 @@ class TeamsIndex extends Component {
     };
 
     componentDidMount(){
-        this.props.dispatch(getTeams()).then(() => {
-            /*
-            this.props.site.teams.map((item) => {
-                item.teamLogo = (item.teamLogo.length > 0) ? item.teamLogo[0].url : '';
-                item.teamCarImage = (item.teamCarImage.length > 0) ? item.teamCarImage[0].url : '';
-                return item;
-            });
-            */
-            
+        this.props.dispatch(getTeams()).then(() => {           
             setTimeout(() => {
                 this.setState({
                     loading: false

@@ -6,9 +6,9 @@ router.get('/list', (req, res) => {
     Driver.find({}, 'id firstName lastName', function(error, drivers) {
         if (error) {
             return res.status(400).send(error);
+        } else {
+            return res.status(200).send(drivers);
         }
-
-        return res.status(200).send(drivers);
     });
 });
 
