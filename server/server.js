@@ -47,7 +47,9 @@ app.use('/api/calendar', routes.calendar);
 app.use('/api/result', routes.result);
 app.use('/api/data', routes.data);
 
-app.use('/site', siteRoutes.site);
+app.use('/site/team', siteRoutes.team);
+app.use('/site/driver', siteRoutes.driver);
+app.use('/site/calendar', siteRoutes.calendar);
 
 //user routes
 /*

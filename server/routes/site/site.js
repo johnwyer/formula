@@ -151,7 +151,9 @@ router.get('/races', (req, res) => {
         ])
         .then(async(races2) => {
             let races = [];
-            const driversList = await Driver.find({}, 'id firstName lastName').exec();
+            const driversList = await Driver
+                .find({}, 'id firstName lastName')
+                .exec();
 
             races2.forEach((race) => {
                 let item = {
@@ -304,5 +306,4 @@ router.get('/teams-drivers', (req, res) => {
         });
 });
 
-module.exports = router;
 module.exports = router;

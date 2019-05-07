@@ -8,4 +8,6 @@ export const TRACK_SERVER = '/api/track';
 export const RESULT_SERVER = '/api/result';
 export const DATA_SERVER = '/api/data';
 
-export const SITE_SERVER = '/site';
+export const SITE_DRIVER_SERVER = '/site/driver';
+export const SITE_TEAM_SERVER = '/site/team';
+export const SITE_CALENDAR_SERVER = '/site/calendar';

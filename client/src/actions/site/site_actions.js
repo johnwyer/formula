@@ -1,13 +1,13 @@
 import axios from 'axios';
 import {
-    SITE_GET_TEAMS,
-    SITE_GET_TEAM_BY_SLUG,
+    //SITE_GET_TEAMS,
+    //SITE_GET_TEAM_BY_SLUG,
     SITE_GET_RACES,
     SITE_GET_DRIVERS_LIST,
     SITE_GET_TEAMS_DRIVERS,
-    SITE_GET_RACE_BY_SLUG,
-    SITE_GET_DRIVERS,
-    SITE_GET_DRIVER_BY_SLUG
+    SITE_GET_RACE_BY_SLUG
+    //SITE_GET_DRIVERS,
+    //SITE_GET_DRIVER_BY_SLUG
 } from './types';
 import { SITE_SERVER } from '../../components/utils/misc';
 
@@ -29,7 +29,7 @@ export function getTeamsDrivers() {
         payload: request
     };
 };
-
+/*
 export function getTeams() {
     const request = axios.get(`${SITE_SERVER}/teams`).then((response) => response.data);
 
@@ -46,8 +46,9 @@ export function getTeamBySlug(slug) {
         type: SITE_GET_TEAM_BY_SLUG,
         payload: request
     };
-};
+};*/
 
+/*
 export function getRaces() {
     const request = axios.get(`${SITE_SERVER}/races`).then((response) => response.data);
 
@@ -65,7 +66,8 @@ export function getRaceBySlug(slug) {
         payload: request
     };
 };
-
+*/
+/*
 export function getDrivers() {
     const request = axios.get(`${SITE_SERVER}/drivers`).then((response) => response.data);
 
@@ -82,4 +84,4 @@ export function getDriverBySlug(slug) {
         type: SITE_GET_DRIVER_BY_SLUG,
         payload: request
     };
-};
+};*/

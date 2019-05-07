@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SiteLayout from '../../hoc/site';
 
 import LoadingIndicator from '../utils/loading-indicator';
-import { getRaces } from '../../actions/site/site_actions';
+import { getRaces } from '../../actions/site/calendar_actions';
 import CalendarList from './calendar-list';
 //import moment from 'moment';
 

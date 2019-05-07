@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SiteLayout from '../../hoc/site';
 import LoadingIndicator from '../utils/loading-indicator';
-import { getTeams } from '../../actions/site/site_actions';
+import { getTeams } from '../../actions/site/team_actions';
 import TeamsList from './list';
 
 import { connect } from 'react-redux';

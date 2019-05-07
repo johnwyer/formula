@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SiteLayout from '../../hoc/site';
 import LoadingIndicator from '../utils/loading-indicator';
-import { getRaceBySlug, getTeamsDrivers} from '../../actions/site/site_actions';
+import { getRaceBySlug, getTeamsDrivers } from '../../actions/site/calendar_actions';
 import moment from 'moment';
 import CalendarDetail from './detail';
 

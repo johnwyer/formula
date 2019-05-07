@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SiteLayout from '../../hoc/site';
 import LoadingIndicator from '../utils/loading-indicator';
-import { getDriverBySlug } from '../../actions/site/site_actions';
+import { getDriverBySlug } from '../../actions/site/driver_actions';
 import DriverDetailList from './detail-list';
 
 import { connect } from 'react-redux';
