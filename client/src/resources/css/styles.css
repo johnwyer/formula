@@ -1305,6 +1305,10 @@ main>.container-fluid {
     font-weight: 700;
 }
 
+.results-page .resultsarchive-table .archive-link {
+    text-decoration: none;
+}
+
 .results-page .resultsarchive-table .semi-bold {
     font-weight: 600;
 }
