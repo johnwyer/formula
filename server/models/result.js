@@ -17,6 +17,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -31,6 +35,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -47,6 +55,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -61,6 +73,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -77,6 +93,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -91,6 +111,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -107,6 +131,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -121,6 +149,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -137,6 +169,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -151,6 +187,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -167,6 +207,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -181,6 +225,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -197,6 +245,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -211,6 +263,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -227,6 +283,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -241,6 +301,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -257,6 +321,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -271,6 +339,10 @@ const resultSchema = mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: 'Driver',
             required: true
+        },
+        laps: {
+            required: true,
+            type: Number
         },
         result: {
             required: true,
@@ -287,6 +359,10 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
@@ -302,14 +378,17 @@ const resultSchema = mongoose.Schema({
             ref: 'Driver',
             required: true
         },
+        laps: {
+            required: true,
+            type: Number
+        },
         result: {
             required: true,
             type: String
         }
     }
-},
-{
-timestamps: true
+}, {
+    timestamps: true
 });
 
 resultSchema.set("toJSON", { virtuals: true });

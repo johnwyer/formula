@@ -56,7 +56,7 @@ export const generateData = (formdata, formname) => {
     let dataToSubmit = {};
 
     for (let key in formdata) {
-        if (Object.keys(formdata[key]).length > 3) {
+        if (Object.keys(formdata[key]).length > 4) {
             if (key !== 'confirmPassword') {
                 dataToSubmit[key] = formdata[key].value;
             }
@@ -75,7 +75,7 @@ export const isFormValid = (formdata, formname) => {
     let formIsValid = true;
 
     for (let key in formdata) {
-        if (Object.keys(formdata[key]).length > 3) {
+        if (Object.keys(formdata[key]).length > 4) {
             //console.log(formdata[key], formdata[key].valid && formIsValid);
             formIsValid = formdata[key].valid && formIsValid;
         } else {
@@ -93,7 +93,7 @@ export const resetFields = (formdata, formname) => {
     const newFormdata = { ...formdata };
 
     for (let key in newFormdata) {
-        if (Object.keys(newFormdata[key]).length > 3) {
+        if (Object.keys(newFormdata[key]).length > 4) {
             if (key === 'images') {
                 newFormdata[key].value = []
             } else {
@@ -136,7 +136,7 @@ export const populateOptionFields = (formdata, arrayData = [], field) => {
 
 export const populateFields = (formdata, fields) => {
     for (let key in formdata) {
-        if (Object.keys(formdata[key]).length > 3) {
+        if (Object.keys(formdata[key]).length > 4) {
             formdata[key].value = fields[key];
             if(formdata[key].value !== "" || Object.keys(formdata[key].value).length !== 0) {
                 formdata[key].valid = true;

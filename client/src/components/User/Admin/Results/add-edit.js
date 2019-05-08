@@ -62,13 +62,30 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required:true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_1_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                
                 result: {
                     element: 'input',
                     value: '',
@@ -94,7 +111,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_2_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -111,11 +128,28 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_2_driver_input',
                         options: []
                     },
                     validation:{
                         required:true,
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_2_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -127,7 +161,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_2_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -147,7 +181,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_3_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -164,7 +198,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_3_driver_input',
                         options: []
                     },
                     validation:{
@@ -175,12 +209,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_3_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                  
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_3_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -200,7 +251,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_4_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -217,7 +268,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_4_driver_input',
                         options: []
                     },
                     validation:{
@@ -228,12 +279,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_4_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                  
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_4_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -253,7 +321,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_5_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -270,7 +338,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_5_driver_input',
                         options: []
                     },
                     validation:{
@@ -281,12 +349,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_5_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_5_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -306,7 +391,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_6_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -323,7 +408,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_6_driver_input',
                         options: []
                     },
                     validation:{
@@ -334,12 +419,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_6_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_6_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -359,7 +461,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_7_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -376,7 +478,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_7_driver_input',
                         options: []
                     },
                     validation:{
@@ -387,12 +489,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_7_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_7_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -412,7 +531,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_8_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -429,7 +548,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_8_driver_input',
                         options: []
                     },
                     validation:{
@@ -440,12 +559,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_8_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_8_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -465,7 +601,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_9_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -482,7 +618,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_9_driver_input',
                         options: []
                     },
                     validation:{
@@ -493,12 +629,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_9_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_9_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -518,7 +671,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_10_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -535,7 +688,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_10_driver_input',
                         options: []
                     },
                     validation:{
@@ -546,12 +699,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_10_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_10_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -571,7 +741,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_11_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -588,7 +758,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_11_driver_input',
                         options: []
                     },
                     validation:{
@@ -599,12 +769,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_11_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_11_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -624,7 +811,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_12_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -641,7 +828,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_12_driver_input',
                         options: []
                     },
                     validation:{
@@ -652,12 +839,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_12_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_12_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -677,7 +881,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_13_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -694,7 +898,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_13_driver_input',
                         options: []
                     },
                     validation:{
@@ -705,12 +909,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_13_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_13_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -730,7 +951,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_14_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -747,7 +968,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_14_driver_input',
                         options: []
                     },
                     validation:{
@@ -758,12 +979,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_14_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_14_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -783,7 +1021,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_15_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -800,7 +1038,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_15_driver_input',
                         options: []
                     },
                     validation:{
@@ -811,12 +1049,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_15_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_15_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -836,7 +1091,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_16_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -853,7 +1108,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_16_driver_input',
                         options: []
                     },
                     validation:{
@@ -864,12 +1119,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_16_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_16_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -889,7 +1161,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_17_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -906,7 +1178,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_17_driver_input',
                         options: []
                     },
                     validation:{
@@ -917,12 +1189,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_17_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_17_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -942,7 +1231,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_18_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -959,7 +1248,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_18_driver_input',
                         options: []
                     },
                     validation:{
@@ -970,12 +1259,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_18_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_18_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -995,7 +1301,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_19_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -1012,7 +1318,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_19_driver_input',
                         options: []
                     },
                     validation:{
@@ -1023,12 +1329,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_19_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_19_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -1048,7 +1371,7 @@ class AdminAddEditResult extends Component {
                     config: {
                         disabled: true,
                         label: '',
-                        name: 'position_1_position_input',
+                        name: 'position_20_position_input',
                         type: 'text',
                         placeholder: ''
                     },
@@ -1065,7 +1388,7 @@ class AdminAddEditResult extends Component {
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_driver_input',
+                        name: 'position_20_driver_input',
                         options: []
                     },
                     validation:{
@@ -1076,12 +1399,29 @@ class AdminAddEditResult extends Component {
                     validationMessage: '',
                     showLabel: false
                 },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_20_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
                 result: {
                     element: 'input',
                     value: '',
                     config: {
                         label: '',
-                        name: 'position_1_result_input',
+                        name: 'position_20_result_input',
                         type: 'text',
                         placeholder: 'Result'
                     },
@@ -1203,32 +1543,39 @@ class AdminAddEditResult extends Component {
     };
 
     renderFormWithoutResults = () => (
-        Array.from({ length: this.state.formLength }).map((item,i)=> {
+        Array.from({ length: this.state.formLength }).map((item, i) => {
             let key = `position_${i + 1}`;
             return (
-            <div className="row" key={key}>
-                <div className="col-md-1">
-                    <FormField 
-                        id={`${key}.position`}
-                        formdata={this.state.formdata[key].position}
-                        change={(element) => this.updateForm(element)}
-                    />                                 
-                </div>
-                <div className="col-md-6">
-                    <FormField 
-                        id={`${key}.driver`}
-                        formdata={this.state.formdata[key].driver}
-                        change={(element) => this.updateForm(element)}
-                    />                     
-                </div>
-                <div className="col-md-5">
-                    <FormField 
-                        id={`${key}.result`}
-                        formdata={this.state.formdata[key].result}
-                        change={(element) => this.updateForm(element)}
-                    />                     
-                </div>                             
-            </div>  
+                <div className="row" key={key}>
+                    <div className="col-md-1">
+                        <FormField 
+                            id={`${key}.position`}
+                            formdata={this.state.formdata[key].position}
+                            change={(element) => this.updateForm(element)}
+                        />                                 
+                    </div>
+                    <div className="col-md-5">
+                        <FormField 
+                            id={`${key}.driver`}
+                            formdata={this.state.formdata[key].driver}
+                            change={(element) => this.updateForm(element)}
+                        />                     
+                    </div>
+                    <div className="col-md-1">
+                        <FormField 
+                            id={`${key}.laps`}
+                            formdata={this.state.formdata[key].laps}
+                            change={(element) => this.updateForm(element)}
+                        />                     
+                    </div>                    
+                    <div className="col-md-5">
+                        <FormField 
+                            id={`${key}.result`}
+                            formdata={this.state.formdata[key].result}
+                            change={(element) => this.updateForm(element)}
+                        />                     
+                    </div>                             
+                </div>  
             )
         })
     );

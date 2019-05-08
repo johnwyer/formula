@@ -1274,6 +1274,45 @@ main>.container-fluid {
     padding-left: 30px;
 }
 
+.results-page .site-page {
+    background-color: #fff;
+}
+
+.resultsarchive-wrapper {
+    margin: 0 0 40px 0;
+    padding: 40px 26px 45px 26px;
+}
+
+.resultsarchive-wrapper .page-title {
+    margin-top: 0;
+}
+
+.resultsarchive-wrapper .date {
+    color: #171717;
+    font-size: 13px;
+    font-family: "Titillium Web", Helvetica, sans-serif;
+    margin-top: .9rem;
+    line-height: 1.35rem;
+}
+
+.resultsarchive-wrapper .date span {
+    padding-bottom: 10px;
+}
+
+.resultsarchive-wrapper .date .start-date {
+    font-weight: 700;
+}
+
+.resultsarchive-wrapper .date .full-date {
+    font-weight: 700;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.resultsarchive-wrapper .date .circuit-info {
+    color: gray;
+}
+
 .results-page .table-wrap {}
 
 .results-page .resultsarchive-table {

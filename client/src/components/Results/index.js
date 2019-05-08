@@ -25,17 +25,19 @@ class ResultsIndex extends Component {
     render() {
         return (
             <SiteLayout classes={`results-page`}>
-                <h2 className="page-title">2019 RACE RESULTS</h2>
-                {
-                    this.state.loading ? 
-                    (
-                        <LoadingIndicator />
-                    )
-                    :
-                    ( 
-                        <ResultsList results={this.props.site.results} />
-                    )                    
-                }  
+                <div className="resultsarchive-wrapper">
+                    <h2 className="page-title">2019 RACE RESULTS</h2>
+                    {
+                        this.state.loading ? 
+                        (
+                            <LoadingIndicator />
+                        )
+                        :
+                        ( 
+                            <ResultsList results={this.props.site.results} />
+                        )                    
+                    }  
+                </div>
             </SiteLayout>
         )
     };

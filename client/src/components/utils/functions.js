@@ -7,3 +7,11 @@ export const getRaceDate = (dateStart, dateEnd) => {
 
     return date;
 };
+
+export const getRaceFullDate = (dateStart, dateEnd) => {
+    let start = moment(dateStart).format("MMM-DD").toLowerCase().split('-');
+    let end = moment(dateEnd).format("MMM-DD-YYYY").toLowerCase().split('-');
+    let date = (start[0] === end[0]) ? `${start[1]} - ${end[1]} ${start[0]} ${end[2]}` : `${start[1]} ${start[0]} - ${end[1]} ${end[0]} ${end[2]}`;
+
+    return date;
+};

@@ -9,7 +9,7 @@ const ResultsIndexList = ({results}) => {
             </td>
             <td className="dark hide-for-mobile">{result.dateEnd}</td>
             <td className="dark bold">
-                <span className="hide-for-tablet">{result.result.driver.firstName}</span> <span className="hide-for-mobile">{result.result.driver.lastName}</span> <span className="uppercase hide-for-desktop">BOT</span>
+                <span className="hide-for-tablet">{result.result.driver.firstName}</span> <span className="hide-for-mobile">{result.result.driver.lastName}</span> <span className="uppercase hide-for-desktop">{result.result.driver.lastNameShort}</span>
             </td>    
             <td className="semi-bold uppercase ">{result.result.driver.teamShortName}</td>
             <td className="bold hide-for-mobile">{result.numberOfLaps}</td>
@@ -26,7 +26,7 @@ const ResultsIndexList = ({results}) => {
                         <th>Winner</th>
                         <th>Car</th>
                         <th className="hide-for-mobile">Laps</th>
-                        <th className="hide-for-mobile">Time</th>
+                        <th className="hide-for-tablet">Time</th>
                     </tr>
                 </thead>
                 <tbody>
