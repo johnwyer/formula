@@ -1313,6 +1313,13 @@ main>.container-fluid {
     color: gray;
 }
 
+.resultsarchive-wrapper .note {
+    color: #545454;
+    line-height: 1.5;
+    font-size: 14px;
+    font-family: "Titillium Web", Helvetica, sans-serif;
+}
+
 .results-page .table-wrap {}
 
 .results-page .resultsarchive-table {

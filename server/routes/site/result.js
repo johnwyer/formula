@@ -149,7 +149,7 @@ router.get('/result', (req, res) => {
                 .populate({ path: 'driver_2', select: 'id firstName lastName number' })
                 .exec();
 
-            const pointsSystem = [25, 20, 18, 15, 12, 10, 8, 6, 4, 2, 1];
+            const pointsSystem = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
 
             Array.from({ length: teamsDrivers.length * 2 }).forEach((team, i) => {
                 let key = `position_${i + 1}`;
@@ -192,13 +192,60 @@ router.get('/result', (req, res) => {
                 });
             });
 
+            let driver = {};
+            teamsDrivers.forEach((element) => {
+                if (element.driver_1.id == result.result.fastestLap.driver) {
+                    driver = {
+                        id: element.driver_1.id,
+                        firstName: element.driver_1.firstName,
+                        lastName: element.driver_1.lastName,
+                        lastNameShort: element.driver_1.lastName.substring(0, 3),
+                        number: element.driver_1.number,
+                        teamOfficialName: element.officialName,
+                        teamShortName: element.shortName,
+                        teamColor: element.teamColor,
+                        powerUnit: element.powerUnit,
+                        chassisNumber: element.chassisNumber,
+                        points: 1
+                    };
+                }
+                if (element.driver_2.id == result.result.fastestLap.driver) {
+                    driver = {
+                        id: element.driver_2.id,
+                        firstName: element.driver_2.firstName,
+                        lastName: element.driver_2.lastName,
+                        lastNameShort: element.driver_2.lastName.substring(0, 3),
+                        number: element.driver_2.number,
+                        teamOfficialName: element.officialName,
+                        teamShortName: element.shortName,
+                        teamColor: element.teamColor,
+                        powerUnit: element.powerUnit,
+                        chassisNumber: element.chassisNumber,
+                        points: 1
+                    };
+                }
+            });
+            result.result.fastestLap.driver = driver;
+
             let results = [];
+            let fastestLap = {};
             for (let key in result.result) {
                 if (/position_/i.test(key)) {
                     results.push(result.result[key]);
                 }
+                if (/fastest/i.test(key)) {
+                    fastestLap = result.result[key];
+                }
             }
             result.result = results;
+            result.fastestLap = fastestLap;
+
+            result.result.map((item) => {
+                if (item.driver.id === result.fastestLap.driver.id) {
+                    item.driver.points = item.driver.points + result.fastestLap.driver.points
+                }
+                return item;
+            });
 
             return res.status(200).send(result);
         })

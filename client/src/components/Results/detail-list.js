@@ -43,6 +43,7 @@ const ResultsDetailList = ({ result }) => {
                     }
                     </tbody>
                 </table>
+                <p className="note">Note - {result.fastestLap.driver.firstName} {result.fastestLap.driver.lastName} scored an additional point for setting the fastest lap of the race.</p>
             </div>
         </React.Fragment>
     );
