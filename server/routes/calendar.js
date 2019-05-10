@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const moment = require('moment');
 const { Race } = require('../models/race');
 
 const { auth } = require('../middleware/auth');
@@ -32,33 +33,24 @@ router.get('/races', (req, res) => {
             res.status(200).send(races);
         });
 });
-/*
-router.get('/races-with-results', (req, res) => {
-    Race.find({})
-        .populate('country')
-        .populate('result')
-        .populate('resultDetail')
-        .exec((error, races) => {
-            if (error) {
-                return res.status(400).send(error);
-            }
-
-            res.status(200).send(races);
-        });
-});
-*/
 
 router.get('/get-by-id', auth, admin, (req, res) => {
-    let id = req.query.id;
+    //let id = req.query.id;
     Race.findOne({ '_id': req.query.id })
         .populate('country')
         .populate('track')
-        .exec((error, race) => {
-            if (error) {
-                return res.status(400).send(error);
-            }
+        .exec()
+        .then((doc) => {
+            let race = {
+                ...doc.toObject(),
+                dateStart: moment(doc.dateStart).format('YYYY/MM/DD HH:mm'),
+                dateEnd: moment(doc.dateEnd).format('YYYY/MM/DD HH:mm')
+            };
 
-            res.send(race);
+            return res.status(200).send(race);
+        })
+        .catch((error) => {
+            return res.status(400).send(error);
         });
 });
 

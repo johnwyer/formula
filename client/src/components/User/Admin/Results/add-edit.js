@@ -3,8 +3,8 @@ import UserLayout from '../../../../hoc/user';
 import FormField from '../../../utils/Form/formfield';
 import { update, generateData, isFormValid, populateFields, populateOptionFields, resetFields } from '../../../utils/Form/formActions';
 import { addResult, getResult, updateResult, getDrivers, getResultTemplate } from '../../../../actions/admin/result_actions';
-//import moment from 'moment';
 
+//import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '../../../utils/breadcrumbs';
 
@@ -27,7 +27,7 @@ class AdminAddEditResult extends Component {
                     placeholder: ''
                 },
                 validation: {
-                    required: true,
+                    required: true
                 },
                 valid: false,
                 touched: false,
@@ -46,7 +46,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -62,7 +62,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -102,7 +102,32 @@ class AdminAddEditResult extends Component {
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_1_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required:true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },
             position_2: {
                 position: {
@@ -172,7 +197,32 @@ class AdminAddEditResult extends Component {
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_2_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },
             position_3: {
                 position: {
@@ -186,7 +236,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -202,7 +252,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -236,13 +286,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_3_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },   
             position_4: {
                 position: {
@@ -256,7 +331,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -272,7 +347,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -306,13 +381,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_4_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },  
             position_5: {
                 position: {
@@ -326,7 +426,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -382,7 +482,32 @@ class AdminAddEditResult extends Component {
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_5_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },   
             position_6: {
                 position: {
@@ -396,7 +521,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -412,7 +537,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required:true
                     },
                     valid: false,
                     touched: false,
@@ -446,13 +571,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_6_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },  
             position_7: {
                 position: {
@@ -466,7 +616,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -482,7 +632,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -516,13 +666,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_7_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },     
             position_8: {
                 position: {
@@ -536,7 +711,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -552,7 +727,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -586,13 +761,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_8_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },   
             position_9: {
                 position: {
@@ -606,7 +806,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -622,7 +822,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -656,13 +856,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_9_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },  
             position_10: {
                 position: {
@@ -676,7 +901,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -692,7 +917,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -726,13 +951,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_10_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },  
             position_11: {
                 position: {
@@ -746,7 +996,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -762,7 +1012,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -796,13 +1046,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_11_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             }, 
             position_12: {
                 position: {
@@ -816,7 +1091,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -832,7 +1107,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -866,13 +1141,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_12_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },  
             position_13: {
                 position: {
@@ -886,7 +1186,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -902,7 +1202,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -936,13 +1236,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_13_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },       
             position_14: {
                 position: {
@@ -956,7 +1281,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -972,7 +1297,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1006,13 +1331,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_14_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },      
             position_15: {
                 position: {
@@ -1026,7 +1376,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1042,7 +1392,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1076,13 +1426,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_15_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },   
             position_16: {
                 position: {
@@ -1096,7 +1471,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1112,7 +1487,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1146,13 +1521,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_16_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },  
             position_17: {
                 position: {
@@ -1166,7 +1566,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1182,7 +1582,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1216,13 +1616,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_17_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },   
             position_18: {
                 position: {
@@ -1236,7 +1661,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1252,7 +1677,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1286,13 +1711,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_18_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },   
             position_19: {
                 position: {
@@ -1306,7 +1756,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1322,7 +1772,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1356,13 +1806,38 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_19_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
             },
             position_20: {
                 position: {
@@ -1376,7 +1851,7 @@ class AdminAddEditResult extends Component {
                         placeholder: ''
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1392,7 +1867,7 @@ class AdminAddEditResult extends Component {
                         options: []
                     },
                     validation:{
-                        required:true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
@@ -1426,22 +1901,141 @@ class AdminAddEditResult extends Component {
                         placeholder: 'Result'
                     },
                     validation: {
-                        required: true,
+                        required: true
                     },
                     valid: false,
                     touched: false,
                     validationMessage: '',
                     showLabel: false
-                }              
-            }                                                                                                                                                                                 
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'position_20_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
+            },
+            fastestLap: {
+                position: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        disabled: true,
+                        label: '',
+                        name: 'fastestLap_position_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },
+                driver: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'fastestLap_driver_input',
+                        options: []
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },
+                laps: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'fastestLap_laps_input',
+                        type: 'text',
+                        placeholder: ''
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },                   
+                result: {
+                    element: 'input',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'fastestLap_result_input',
+                        type: 'text',
+                        placeholder: 'Result'
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                },
+                type: {
+                    element: 'select',
+                    value: '',
+                    config: {
+                        label: '',
+                        name: 'fastestLap_type_input',
+                        options: [
+                            {
+                                key: 'race',
+                                value: 'Race'
+                            },                        
+                            {
+                                key: 'fastest-lap',
+                                value: 'Fastest Lap'
+                            }
+                        ]
+                    },
+                    validation:{
+                        required: true
+                    },
+                    valid: false,
+                    touched: false,
+                    validationMessage: '',
+                    showLabel: false
+                }
+            }            
         }
     };
 
     _breadcrumbsLinks = [{
         title: '< Back To Results',
         linkTo: '/admin/results'
-    }];    
-    //child = React.createRef();
+    }];
 
     componentDidMount() {
         const raceId = this.props.match.params.id;
@@ -1465,10 +2059,12 @@ class AdminAddEditResult extends Component {
         const formdata = this.state.formdata;
         this.props.dispatch(getDrivers()).then((response) => {
             Array.from({ length: this.state.formLength }).forEach((item, i)=> {
-                let key = `position_${i + 1}.driver`;
-                let newFormdata = populateOptionFields(formdata, this.props.result.drivers, key);
+                let newFormdata = populateOptionFields(formdata, this.props.result.drivers, `position_${i + 1}.driver`);
                 this.updateFields(newFormdata);
             });
+
+            let newFormdata = populateOptionFields(formdata, this.props.result.drivers, `fastestLap.driver`);
+            this.updateFields(newFormdata);
         });
     };
 
@@ -1554,7 +2150,7 @@ class AdminAddEditResult extends Component {
                             change={(element) => this.updateForm(element)}
                         />                                 
                     </div>
-                    <div className="col-md-5">
+                    <div className="col-md-4">
                         <FormField 
                             id={`${key}.driver`}
                             formdata={this.state.formdata[key].driver}
@@ -1568,17 +2164,66 @@ class AdminAddEditResult extends Component {
                             change={(element) => this.updateForm(element)}
                         />                     
                     </div>                    
-                    <div className="col-md-5">
+                    <div className="col-md-4">
                         <FormField 
                             id={`${key}.result`}
                             formdata={this.state.formdata[key].result}
                             change={(element) => this.updateForm(element)}
                         />                     
-                    </div>                             
+                    </div>
+                    <div className="col-md-2">
+                        <FormField 
+                            id={`${key}.type`}
+                            formdata={this.state.formdata[key].type}
+                            change={(element) => this.updateForm(element)}
+                        />                     
+                    </div>                    
                 </div>  
             )
         })
     );
+
+    renderFastestLap = () => {
+        return (
+            <div className="row" key='fastestLap'>
+                <div className="col-md-1">
+                    <FormField 
+                        id={`fastestLap.position`}
+                        formdata={this.state.formdata.fastestLap.position}
+                        change={(element) => this.updateForm(element)}
+                    />                                 
+                </div>
+                <div className="col-md-4">
+                    <FormField 
+                        id={`fastestLap.driver`}
+                        formdata={this.state.formdata.fastestLap.driver}
+                        change={(element) => this.updateForm(element)}
+                    />                     
+                </div>
+                <div className="col-md-1">
+                    <FormField 
+                        id={`fastestLap.laps`}
+                        formdata={this.state.formdata.fastestLap.laps}
+                        change={(element) => this.updateForm(element)}
+                    />                     
+                </div>                    
+                <div className="col-md-4">
+                    <FormField 
+                        id={`fastestLap.result`}
+                        formdata={this.state.formdata.fastestLap.result}
+                        change={(element) => this.updateForm(element)}
+                    />                     
+                </div>
+                <div className="col-md-2">
+                    <FormField 
+                        id={`fastestLap.type`}
+                        formdata={this.state.formdata.fastestLap.type}
+                        change={(element) => this.updateForm(element)}
+                    />
+                </div>                    
+            </div>            
+        );
+    };
 
     render() {
         return (
@@ -1591,9 +2236,13 @@ class AdminAddEditResult extends Component {
                             change={(element) => this.updateForm(element)}
                         />                                      
                     <fieldset>
-                        <Typography variant="h6" style={{margin:'1em 0'}}>{ this.state.isEdit ? 'Edit' : 'Add' } Result</Typography>
+                        <Typography variant="h6" style={{margin:'1em 0'}}>{ this.state.isEdit ? 'Edit' : 'Add' } Race Result</Typography>
 
                         { this.renderFormWithoutResults() }
+
+                        <Typography variant="h6" style={{margin:'1em 0'}}>{ this.state.isEdit ? 'Edit' : 'Add' } Fastest Lap</Typography>
+
+                        { this.renderFastestLap() }
    
                         {
                             this.state.formError ?
@@ -1610,8 +2259,8 @@ class AdminAddEditResult extends Component {
                 </form>           
             </UserLayout>
         )
-    }
-}
+    };
+};
                                                                                                                                         
 const mapStateToProps = (state) => {
     return {

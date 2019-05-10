@@ -11,7 +11,7 @@ const FormField = ({formdata, change, id}) => {
         }
 
         return errorMessage;
-    }
+    };
 
     const renderTemplate = () => {
         let formTemplate = null;
@@ -40,7 +40,7 @@ const FormField = ({formdata, change, id}) => {
             case 'select':
                 wrapperClasses = (formdata.validation && !formdata.valid) ? "form-group has-danger" : "form-group";
                 inputClasses = (formdata.validation && !formdata.valid && formdata.touched) ? "custom-select is-invalid" : "custom-select";
-                let value = formdata.value !== undefined ? formdata.value.id : '';
+                let value = formdata.value !== undefined ? (typeof formdata.value === 'string' ? formdata.value : formdata.value.id) : '';
                 formTemplate = (
                     <div className={wrapperClasses}>
                         {
@@ -73,7 +73,7 @@ const FormField = ({formdata, change, id}) => {
         }
 
         return formTemplate;
-    }
+    };
 
     return (
         <React.Fragment>

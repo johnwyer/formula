@@ -26,7 +26,7 @@ class AdminAddEditCalendar extends Component {
                     placeholder: 'Slug'
                 },
                 validation: {
-                    required: true,
+                    required: true
                 },
                 valid: false,
                 touched: false,
@@ -43,7 +43,7 @@ class AdminAddEditCalendar extends Component {
                     placeholder: 'Race short name'
                 },
                 validation: {
-                    required: true,
+                    required: true
                 },
                 valid: false,
                 touched: false,
@@ -60,7 +60,7 @@ class AdminAddEditCalendar extends Component {
                     placeholder: 'Race full name'
                 },
                 validation: {
-                    required: true,
+                    required: true
                 },
                 valid: false,
                 touched: false,
@@ -76,7 +76,7 @@ class AdminAddEditCalendar extends Component {
                     options: []
                 },
                 validation:{
-                    required:true,
+                    required:true
                 },
                 valid: false,
                 touched: false,
@@ -92,7 +92,7 @@ class AdminAddEditCalendar extends Component {
                     options: []
                 },
                 validation:{
-                    required:true,
+                    required:true
                 },
                 valid: false,
                 touched: false,
@@ -109,7 +109,7 @@ class AdminAddEditCalendar extends Component {
                     placeholder: 'Race start date'
                 },
                 validation: {
-                    required: true,
+                    required: true
                 },
                 valid: false,
                 touched: false,
@@ -126,7 +126,7 @@ class AdminAddEditCalendar extends Component {
                     placeholder: 'Race end date'
                 },
                 validation: {
-                    required: true,
+                    required: true
                 },
                 valid: false,
                 touched: false,
@@ -139,7 +139,7 @@ class AdminAddEditCalendar extends Component {
                     label: 'Race Heading Image'
                 },
                 validation: {
-                    required:false
+                    required: false
                 },
                 valid: true,
                 touched: false,
@@ -368,13 +368,13 @@ class AdminAddEditCalendar extends Component {
                 </form>             
             </UserLayout>
         )
-    }
-}
+    };
+};
 
 const mapStateToProps = (state) => {
     return {
         calendar: state.calendar
-    }
+    };
 };
 
 export default connect(mapStateToProps)(AdminAddEditCalendar);

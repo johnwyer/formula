@@ -24,6 +24,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_2: {
@@ -41,6 +45,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -62,6 +70,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_4: {
@@ -79,6 +91,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -100,6 +116,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_6: {
@@ -117,6 +137,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -138,6 +162,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_8: {
@@ -155,6 +183,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -176,6 +208,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_10: {
@@ -193,6 +229,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -214,6 +254,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_12: {
@@ -231,6 +275,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -252,6 +300,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_14: {
@@ -269,6 +321,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -290,6 +346,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_16: {
@@ -307,6 +367,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -328,6 +392,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_18: {
@@ -345,6 +413,10 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }
@@ -366,6 +438,10 @@ const resultSchema = mongoose.Schema({
         result: {
             required: true,
             type: String
+        },
+        type: {
+            required: true,
+            type: String
         }
     },
     position_20: {
@@ -383,6 +459,33 @@ const resultSchema = mongoose.Schema({
             type: Number
         },
         result: {
+            required: true,
+            type: String
+        },
+        type: {
+            required: true,
+            type: String
+        }
+    },
+    fastestLap: {
+        position: {
+            required: true,
+            type: Number
+        },
+        driver: {
+            type: Schema.Types.ObjectId,
+            ref: 'Driver',
+            required: true
+        },
+        laps: {
+            required: true,
+            type: Number
+        },
+        result: {
+            required: true,
+            type: String
+        },
+        type: {
             required: true,
             type: String
         }

@@ -58,6 +58,7 @@ router.get('/get', auth, admin, (req, res) => {
         .populate({ path: 'position_18.driver', select: 'id firstName lastName' })
         .populate({ path: 'position_19.driver', select: 'id firstName lastName' })
         .populate({ path: 'position_20.driver', select: 'id firstName lastName' })
+        .populate({ path: 'fastestLap.driver', select: 'id firstName lastName' })
         .exec((error, result) => {
             if (error) {
                 return res.status(400).send(error);
