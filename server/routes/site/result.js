@@ -161,7 +161,7 @@ router.get('/drivers', (req, res) => {
             });
 
             let teamsDrivers = await Team.find({})
-                .select(['id', 'shortName', 'driver_1', 'driver_2'])
+                .select(['id', 'shortName', 'driver_1', 'driver_2', 'slug', 'teamColor'])
                 .populate({ path: 'driver_1', select: 'id firstName lastName number country' })
                 .populate({ path: 'driver_2', select: 'id firstName lastName number country' })
                 .populate('driver_2.country')
@@ -177,6 +177,8 @@ router.get('/drivers', (req, res) => {
                     lastNameShort: element.driver_1.lastName.substring(0, 3),
                     slug: element.driver_1.slug,
                     teamShortName: element.shortName,
+                    teamColor: element.teamColor,
+                    teamSlug: element.slug,
                     countryId: element.driver_1.country,
                     country: {},
                     points: 0
@@ -189,6 +191,8 @@ router.get('/drivers', (req, res) => {
                     lastNameShort: element.driver_2.lastName.substring(0, 3),
                     slug: element.driver_2.slug,
                     teamShortName: element.shortName,
+                    teamColor: element.teamColor,
+                    teamSlug: element.slug,
                     countryId: element.driver_2.country,
                     country: {},
                     points: 0

@@ -85,6 +85,10 @@ table {
     padding: 7px 18px;
 }
 
+.hidden {
+    display: none;
+}
+
 #root {
     margin: 0;
     position: relative;
@@ -1272,6 +1276,179 @@ main>.container-fluid {
 .drivers-detail-page .stat-value {
     font-family: "Titillium Web", Helvetica, sans-serif;
     padding-left: 30px;
+}
+
+.driver-index-aside {
+    height: 748px;
+    float: right;
+    width: 50%;
+    background-color: #fff;
+}
+
+.driver-index-standings {
+    height: 748px;
+    padding-top: 30px;
+}
+
+.drivers-championship {
+    background-color: #fff;
+}
+
+.driver-index-aside .standings {
+    font-size: 13px;
+    line-height: 1;
+    color: #4a4a4a;
+    padding: 0 30px 15px;
+}
+
+.driver-index-aside .standings-title {
+    color: gray;
+    text-transform: uppercase;
+    font-family: 'F1BoldRegular', Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.214;
+    margin-bottom: 30px;
+}
+
+.driver-index-aside table {
+    width: 100%;
+    font-family: "Titillium Web", Helvetica, sans-serif;
+}
+
+.driver-index-aside .standings th {
+    color: #222b2f;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.driver-index-aside .standings thead .number {
+    font-weight: 700;
+    width: 55px;
+    text-align: center;
+    padding: 0 10px 15px;
+}
+
+.driver-index-aside .standings .name {
+    text-transform: none;
+    padding-left: 6px;
+    font-family: 'F1BoldRegular', Helvetica, sans-serif;
+    font-size: 13px;
+    color: #15151e;
+}
+
+.driver-index-aside .standings thead .country {
+    color: #222b2f;
+    font-weight: 700;
+}
+
+.driver-index-aside .standings thead .team {
+    padding: 0 10px 15px;
+    color: #222b2f;
+    font-weight: 700;
+}
+
+.driver-index-aside .standings .car {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.driver-index-aside .standings .points {
+    font-weight: 700;
+    text-align: right;
+}
+
+.driver-index-aside .standings td {
+    padding: 14px 10px 13px;
+    vertical-align: middle;
+}
+
+.driver-index-aside .standings .position {
+    font-weight: 700;
+    width: 55px;
+    text-align: center;
+}
+
+.driver-index-aside .standings .team-number {
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    background: #b0b0b0;
+    color: #fff;
+    padding: 7px 10px 7px 0;
+    width: 40px;
+    text-align: center;
+    -webkit-transform: skew(-30deg);
+    -moz-transform: skew(-30deg);
+    -o-transform: skew(-30deg);
+    -ms-transform: skew(-30deg);
+    transform: skew(-30deg);
+}
+
+.driver-index-aside .standings .team-number .text {
+    display: inline-block;
+    -webkit-transform: skew(30deg);
+    -moz-transform: skew(30deg);
+    -o-transform: skew(30deg);
+    -ms-transform: skew(30deg);
+    transform: skew(30deg);
+}
+
+.driver-index-aside .standings .team-number .color {
+    width: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: #000;
+}
+
+.driver-index-aside .standings .last-name {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.driver-index-aside .standings .tla {
+    display: none;
+}
+
+.driver-index-aside .standings tbody .country {
+    text-transform: uppercase;
+    color: gray;
+}
+
+.driver-index-aside .standings tbody .team {
+    font-weight: 600;
+    color: gray;
+    text-transform: uppercase;
+}
+
+.driver-index-aside .standings .car img {
+    display: block;
+    width: 126px;
+}
+
+.driver-index-aside .standings .morelink {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 18px;
+    font-family: "Titillium Web", Helvetica, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.driver-index-aside .standings .morelink .driver-standings-more-link {
+    color: #000;
+    text-decoration: none;
+}
+
+.driver-index-aside .standings .morelink .driver-standings-more-link:hover {
+    color: #cc1800;
 }
 
 .results-page .site-page {

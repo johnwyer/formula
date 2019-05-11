@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const ResultsDriversList = ({results}) => {
-    const renderResult = (result, i) => (
+    const renderResult = (result, position) => (
         <tr key={result.id}>
-            <td className="dark">{i}</td>
+            <td className="dark">{position}</td>
             <td className="dark bold">
                 <span className="hide-for-tablet">{result.firstName}</span> <span className="hide-for-mobile">{result.lastName}</span> <span className="uppercase hide-for-desktop">{result.lastNameShort}</span>
             </td>    
