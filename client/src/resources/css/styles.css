@@ -1359,6 +1359,10 @@ main>.container-fluid {
     font-weight: 600;
 }
 
+.results-page .resultsarchive-table .grey {
+    color: grey;
+}
+
 .results-page .resultsarchive-table .dark {
     color: #4a4a4a;
 }

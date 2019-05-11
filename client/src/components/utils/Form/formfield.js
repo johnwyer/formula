@@ -3,7 +3,6 @@ import React from 'react';
 const FormField = ({formdata, change, id}) => {
     const showError = () => {
         let errorMessage = null;
-        //console.log('showError ', id, formdata.validation && !formdata.valid);
         if(formdata.validation && !formdata.valid){
             errorMessage = (
                 <div className="invalid-feedback">{formdata.validationMessage}</div>
@@ -15,11 +14,12 @@ const FormField = ({formdata, change, id}) => {
 
     const renderTemplate = () => {
         let formTemplate = null;
-        let wrapperClasses, inputClasses;
+        let wrapperClasses, inputClasses, value;
         switch(formdata.element){
             case 'input':
                 wrapperClasses = (formdata.validation && !formdata.valid) ? "form-group has-danger" : "form-group";
                 inputClasses = (formdata.validation && !formdata.valid && formdata.touched) ? "form-control is-invalid" : "form-control";
+                value = formdata.value !== undefined ? formdata.value : '';
                 formTemplate = (
                     <div className={wrapperClasses}>
                         {
@@ -27,7 +27,7 @@ const FormField = ({formdata, change, id}) => {
                         }
                         <input
                             {...formdata.config}                            
-                            value={formdata.value} 
+                            value={value} 
                             className={inputClasses}
                             onBlur={(event) => {change({event, id, blur: true})}}
                             onChange={(event) => change({event, id})}
@@ -40,7 +40,7 @@ const FormField = ({formdata, change, id}) => {
             case 'select':
                 wrapperClasses = (formdata.validation && !formdata.valid) ? "form-group has-danger" : "form-group";
                 inputClasses = (formdata.validation && !formdata.valid && formdata.touched) ? "custom-select is-invalid" : "custom-select";
-                let value = formdata.value !== undefined ? (typeof formdata.value === 'string' ? formdata.value : formdata.value.id) : '';
+                value = formdata.value !== undefined ? (typeof formdata.value === 'string' ? formdata.value : formdata.value.id) : '';
                 formTemplate = (
                     <div className={wrapperClasses}>
                         {

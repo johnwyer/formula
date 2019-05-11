@@ -18,6 +18,7 @@ import DriversIndex from './components/Drivers';
 import DriversDetailIndex from './components/Drivers/detail-index.js';
 import ResultsIndex from './components/Results';
 import ResultsDetailIndex from './components/Results/detail-index';
+import ResultsDriversIndex from './components/Results/drivers';
 
 import UserDashboard from './components/User';
 import AdminDriversIndex from './components/User/Admin/Drivers';
@@ -71,7 +72,8 @@ const Routes = () => {
                 <Route path="/drivers/:slug" exact component={Auth(DriversDetailIndex, null)} />
                 <Route path="/drivers" exact component={Auth(DriversIndex, null)} />
 
-                <Route path="/results/:slug" exact component={Auth(ResultsDetailIndex, null)} />
+                <Route path="/results/drivers" exact component={Auth(ResultsDriversIndex, null)} />
+                <Route path="/results/:slug" exact component={Auth(ResultsDetailIndex, null)} />                
                 <Route path="/results" exact component={Auth(ResultsIndex, null)} />
 
                 <Route path="/" exact component={Auth(Home, null)} />

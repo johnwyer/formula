@@ -33,7 +33,7 @@ class AdminAddEditResult extends Component {
                 touched: false,
                 validationMessage: '',
                 showLabel: false
-            },            
+            },
             position_1: {
                 position: {
                     element: 'input',
@@ -76,7 +76,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_1_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -171,7 +171,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_2_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -266,7 +266,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_3_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -361,7 +361,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_4_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -456,7 +456,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_5_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -551,7 +551,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_6_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -646,7 +646,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_7_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -741,7 +741,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_8_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -836,7 +836,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_9_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -931,7 +931,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_10_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1026,7 +1026,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_11_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1121,7 +1121,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_12_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1216,7 +1216,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_13_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1311,7 +1311,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_14_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1406,7 +1406,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_15_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1501,7 +1501,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_16_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1596,7 +1596,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_17_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1691,7 +1691,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_18_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1786,7 +1786,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_19_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1881,7 +1881,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'position_20_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Laps'
                     },
                     validation: {
                         required: true
@@ -1976,7 +1976,7 @@ class AdminAddEditResult extends Component {
                         label: '',
                         name: 'fastestLap_laps_input',
                         type: 'text',
-                        placeholder: ''
+                        placeholder: 'Lap'
                     },
                     validation: {
                         required: true

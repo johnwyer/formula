@@ -489,6 +489,11 @@ const resultSchema = mongoose.Schema({
             required: true,
             type: String
         }
+    },
+    published: {
+        required: true,
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true

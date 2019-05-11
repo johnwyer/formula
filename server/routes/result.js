@@ -71,16 +71,29 @@ router.get('/get', auth, admin, (req, res) => {
 router.post('/add', auth, admin, (req, res) => {
     const result = new Result(req.body);
 
-    result.save((error, doc) => {
-        if (error) {
-            return res.json({ success: false, error });
-        } else {
+    result.save()
+        .then(async(result) => {
+            /*
+            let teamsDrivers = await Team.find({})
+                .select(['id', 'shortName', 'officialName', 'powerUnit', 'chassisNumber', 'teamColor', 'driver_1', 'driver_2'])
+                .populate({ path: 'driver_1', select: 'id firstName lastName number' })
+                .populate({ path: 'driver_2', select: 'id firstName lastName number' })
+                .exec();
+
+            console.log(teamsDrivers);
+            */
+
             return res.status(200).json({
                 success: true,
-                result: doc
+                result: result
             });
-        }
-    });
+        })
+        .catch((error) => {
+            return res.json({
+                success: false,
+                error
+            });
+        });
 });
 
 router.post('/update', auth, admin, (req, res) => {
