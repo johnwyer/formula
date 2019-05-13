@@ -9,7 +9,7 @@ const { auth } = require('../middleware/auth');
 const { admin } = require('../middleware/admin');
 //const { cloudinary } = require('../middleware/cloudinary');
 
-router.get('/results', async(req, res) => {
+router.get('/results', auth, admin, async(req, res) => {
     Race.aggregate([{
             $lookup: {
                 from: "results",
@@ -38,7 +38,7 @@ router.get('/results', async(req, res) => {
     });
 });
 
-router.get('/get', (req, res) => {
+router.get('/get', auth, admin, (req, res) => {
     Result.findOne({ 'race': req.query.id })
         .populate({ path: 'position_1.driver', select: 'id firstName lastName' })
         .populate({ path: 'position_2.driver', select: 'id firstName lastName' })
