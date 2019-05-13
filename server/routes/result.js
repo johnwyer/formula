@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { Race } = require('../models/race');
 const { Result } = require('../models/result');
+const { Driver } = require('../models/driver');
+const { Team } = require('../models/team');
 
 const { auth } = require('../middleware/auth');
 const { admin } = require('../middleware/admin');
@@ -36,7 +38,7 @@ router.get('/results', async(req, res) => {
     });
 });
 
-router.get('/get', auth, admin, (req, res) => {
+router.get('/get', (req, res) => {
     Result.findOne({ 'race': req.query.id })
         .populate({ path: 'position_1.driver', select: 'id firstName lastName' })
         .populate({ path: 'position_2.driver', select: 'id firstName lastName' })
@@ -73,15 +75,118 @@ router.post('/add', auth, admin, (req, res) => {
 
     result.save()
         .then(async(result) => {
-            /*
-            let teamsDrivers = await Team.find({})
-                .select(['id', 'shortName', 'officialName', 'powerUnit', 'chassisNumber', 'teamColor', 'driver_1', 'driver_2'])
-                .populate({ path: 'driver_1', select: 'id firstName lastName number' })
-                .populate({ path: 'driver_2', select: 'id firstName lastName number' })
-                .exec();
+            const pointsSystem = {
+                '1': 25,
+                '2': 18,
+                '3': 15,
+                '4': 12,
+                '5': 10,
+                '6': 8,
+                '7': 6,
+                '8': 4,
+                '9': 2,
+                '10': 1
+            };
 
-            console.log(teamsDrivers);
-            */
+            const entries = Object.entries(result.toObject());
+            let driversList = await Driver.find({}).exec();
+            let teamsList = await Team.find({}).exec();
+
+            let inc = {},
+                set = {};
+
+            //update drivers
+            entries.forEach(async(entry) => {
+                inc = {};
+                set = {};
+                if (/position_/i.test(entry[0])) {
+                    if (entry[1].position == 1) {
+                        inc.numberOfWictories = 1;
+                        set.highestRaceFinish = 1;
+                    }
+                    if (entry[1].position < 4) {
+                        inc.podiums = 1;
+                    }
+                    if (entry[1].position < 11) {
+                        inc.points = pointsSystem[entry[1].position];
+                    }
+                    inc.grandPrix = 1;
+
+                    driversList.forEach((driver) => {
+                        if (driver.id == entry[1].driver) {
+                            if (driver.highestRaceFinish > entry[1].position) {
+                                if (driver.numberOfWictories == 0 && entry[1].position != 1) {
+                                    set.highestRaceFinish = entry[1].position;
+                                }
+                            }
+                        }
+                    });
+
+                    await Driver.findOneAndUpdate({ _id: entry[1].driver }, {
+                            $inc: inc,
+                            $set: set
+                        }, { new: true })
+                        .exec();
+                }
+
+                if (/fastest/i.test(entry[0])) {
+                    await Driver.findOneAndUpdate({ _id: entry[1].driver }, {
+                            $inc: { points: 1 },
+                            $set: { polePositions: 1 }
+                        }, { new: true })
+                        .exec();
+                }
+            });
+
+            //update teams
+            entries.forEach(async(entry) => {
+                inc = {};
+                set = {};
+                if (/position_/i.test(entry[0])) {
+                    teamsList.forEach(async(team) => {
+                        if (team.driver_1.toString() == entry[1].driver.toString() || team.driver_2.toString() == entry[1].driver.toString()) {
+                            if (entry[1].position == 1) {
+                                inc.numberOfWictories = 1;
+                                set.highestRaceFinish = 1;
+                            }
+                            if (entry[1].position < 4) {
+                                inc.podiums = 1;
+                            }
+                            if (entry[1].position < 11) {
+                                inc.points = pointsSystem[entry[1].position];
+                            }
+
+                            if (team.highestRaceFinish > entry[1].position) {
+                                if (team.numberOfWictories == 0 && entry[1].position != 1) {
+                                    set.highestRaceFinish = entry[1].position;
+                                }
+                            }
+
+                            if (Object.keys(inc).length > 0 || Object.keys(set).length > 0) {
+                                await Team.findOneAndUpdate({ _id: team.id }, {
+                                        $inc: inc,
+                                        $set: set
+                                    }, { new: true })
+                                    .exec();
+                            }
+                        }
+                    });
+                }
+
+                if (/fastest/i.test(entry[0])) {
+                    teamsList.forEach(async(team) => {
+                        if (team.driver_1.toString() == entry[1].driver.toString() || team.driver_2.toString() == entry[1].driver.toString()) {
+
+                            await Team.findOneAndUpdate({ _id: team.id }, {
+                                    $inc: { "fastestLaps": 1 }
+                                }, { new: true })
+                                .exec();
+                        }
+                    });
+                }
+            });
+
+            await Result.findOneAndUpdate({ _id: result.id }, { $set: { "published": true } }).exec();
 
             return res.status(200).json({
                 success: true,

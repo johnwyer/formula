@@ -160,7 +160,7 @@ router.get('/drivers', (req, res) => {
                 }
             });
 
-            let teamsDrivers = await Team.find({})
+            const teamsDrivers = await Team.find({})
                 .select(['id', 'shortName', 'driver_1', 'driver_2', 'slug', 'teamColor'])
                 .populate({ path: 'driver_1', select: 'id firstName lastName number country' })
                 .populate({ path: 'driver_2', select: 'id firstName lastName number country' })
@@ -200,7 +200,9 @@ router.get('/drivers', (req, res) => {
                 drivers.push(driver);
             });
 
-            const countries = await Country.find({}).exec();
+            const countries = await Country.find({})
+                .exec();
+
             drivers.map((driver) => {
                 countries.forEach((country) => {
                     if (driver.countryId.toString() === country._id.toString()) {
