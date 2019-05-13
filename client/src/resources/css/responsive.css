@@ -1,7 +1,13 @@
 @import url("bootstrap.overrided.css");
-@media only screen and (max-width:1191px) {
-    .drivers-list .driver-teaser {
-        width: 33.333%;
+@media only screen and (max-width:1294px) {
+    .driver-index-aside .standings tbody .country {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:1102px) {
+    .driver-index-aside .standings tbody .car {
+        display: none;
     }
 }
 
@@ -104,6 +110,9 @@
     .drivers-detail-page .brand-logo img {
         max-width: 129px;
         max-height: 85px;
+    }
+    .driver-index-aside {
+        height: 800px;
     }
     .results-page .resultsarchive-table tr th,
     .results-page .resultsarchive-table tr td {
@@ -299,6 +308,26 @@
         font-size: 13px;
         line-height: 1.272;
     }
+    .driver-index-aside {
+        width: 100%;
+        float: none;
+        height: auto;
+    }
+    .driver-index-standings {
+        height: auto;
+    }
+    .driver-index-aside .standings-title {
+        line-height: 1.2;
+        letter-spacing: 0;
+        padding-bottom: 16px;
+        margin-bottom: 20px;
+    }
+    .driver-index-aside .standings tbody .country {
+        display: table-cell;
+    }
+    .driver-index-aside .standings tbody .car {
+        display: table-cell;
+    }
     .drivers-detail-page .profile {
         position: static;
         float: none;
@@ -409,6 +438,15 @@
         left: 0;
         margin-left: 0;
     }
+    .driver-index-aside .standings tbody .country {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 551px) {
+    .driver-index-aside .standings tbody .car {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 479px) {
@@ -433,5 +471,18 @@
     }
     .driver-teaser-image-wrapper {
         height: 200px;
+    }
+}
+
+@media only screen and (max-width: 391px) {
+    .driver-index-aside .standings .first-name {
+        display: none;
+    }
+    .driver-index-aside .standings .last-name {
+        display: none;
+    }
+    .driver-index-aside .standings .tla {
+        display: block;
+        text-transform: uppercase;
     }
 }

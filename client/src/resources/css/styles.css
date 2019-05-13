@@ -1052,6 +1052,10 @@ main>.container-fluid {
 
 .drivers-page {}
 
+.drivers-page-inner {
+    background-color: #fff;
+}
+
 .drivers-list {}
 
 .drivers-list .driver-teaser {

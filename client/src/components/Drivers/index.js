@@ -37,10 +37,10 @@ class DriversIndex extends Component {
                     )
                     :
                     ( 
-                        <React.Fragment>
+                        <div className="drivers-page-inner">
                             <DriversIndexStandingsList drivers={this.props.site.driverStandings} />
                             <DriversIndexList drivers={this.props.site.drivers} />
-                        </React.Fragment>
+                        </div>
                     )                    
                 }                
             </SiteLayout>
