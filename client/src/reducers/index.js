@@ -1,5 +1,6 @@
-//admin reducers
 import { combineReducers } from 'redux';
+
+//admin reducers
 import user from './user_reducer';
 import driver from './driver_reducer';
 import calendar from './calendar_reducer';

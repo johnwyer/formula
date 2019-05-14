@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const CalendarDetailResults = ({ results, slug }) => {
     const renderResult = (result, i) => {
@@ -20,6 +20,8 @@ const CalendarDetailResults = ({ results, slug }) => {
         )
     };
 
+    const resultLink = `/results/${slug}`;
+
     return (        
         <React.Fragment>            
             <fieldset className="race-review">
@@ -34,7 +36,7 @@ const CalendarDetailResults = ({ results, slug }) => {
                             }                                                                              
                         </ul>
                         <p className="race-review-ctas">
-                            <Link to={`/results/${slug}`} className="btn">Results<i className="icon2 icon-chevron-right"></i></Link>
+                            <Link to={resultLink} className="btn">Results<i className="icon2 icon-chevron-right"></i></Link>
                         </p>
                     </div>
                 </div>

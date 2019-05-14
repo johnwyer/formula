@@ -61,6 +61,7 @@ body {
     height: 100%;
     position: relative;
     background-color: #f7f4f1;
+    font-family: "Titillium Web", Helvetica, sans-serif;
 }
 
 img,
@@ -114,6 +115,19 @@ main>.container-fluid {
 
 #header .fixed-top {
     z-index: 1300;
+}
+
+.navbar-brand {
+    display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-brand span {
+    display: inline-block;
+    width: 148px;
+    height: 38.5px;
+    transition: all 0.25s linear;
 }
 
 .admin-panel {
@@ -189,6 +203,10 @@ main>.container-fluid {
     border: 1px solid #eaeaea;
 }
 
+.register-login {
+    padding: 40px 0;
+}
+
 .site-page {
     width: 100%;
     max-width: 1440px;
@@ -202,6 +220,15 @@ main>.container-fluid {
     margin: 40px 0 40px 0;
     line-height: 1.125;
     transition: all 0.2s ease-out;
+}
+
+.team-page-wrapper .site-page,
+.team-page .site-page {
+    padding-top: 40px;
+}
+
+.team-page .page-title {
+    margin-top: 0;
 }
 
 .teams-list {}
@@ -803,6 +830,11 @@ main>.container-fluid {
     font-weight: 400;
     background-color: #15151e;
     color: #fff;
+}
+
+.calendar-detail-page>.loading-indicator,
+.calendar-detail-page .site-page .loading-indicator {
+    padding: 40px 0;
 }
 
 .calendar-detail-page .site-page {

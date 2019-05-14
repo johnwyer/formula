@@ -153,67 +153,69 @@ class Register extends Component {
     render() {
         return ( 
             <div className="container">
-                <form onSubmit={ (event) => this.submitForm(event) }>
-                    <fieldset>
-                        <h4>Personal information</h4> 
-                        <div className="row">
-                            <div className="col-md-6">
-                                <FormField id={'firstname'}
-                                    formdata={ this.state.formdata.firstname }
-                                    change={ (element) => this.updateForm(element) }
-                                />                     
+                <div className="register-login">    
+                    <form onSubmit={ (event) => this.submitForm(event) }>
+                        <fieldset>
+                            <h4>Personal information</h4> 
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <FormField id={'firstname'}
+                                        formdata={ this.state.formdata.firstname }
+                                        change={ (element) => this.updateForm(element) }
+                                    />                     
+                                </div> 
+                                <div className="col-md-6">
+                                    <FormField id = { 'lastname' }
+                                        formdata = { this.state.formdata.lastname }
+                                        change = { (element) => this.updateForm(element) }
+                                    /> 
+                                </div> 
                             </div> 
-                            <div className="col-md-6">
-                                <FormField id = { 'lastname' }
-                                    formdata = { this.state.formdata.lastname }
-                                    change = { (element) => this.updateForm(element) }
-                                /> 
+                            <div className="row">
+                                <div className = "col-md-6" >
+                                    <FormField 
+                                        id={'email'}
+                                        formdata={ this.state.formdata.email }
+                                        change={ (element) => this.updateForm(element) }
+                                    />                         
+                                </div> 
                             </div> 
-                        </div> 
-                        <div className="row">
-                            <div className = "col-md-6" >
-                                <FormField 
-                                    id={'email'}
-                                    formdata={ this.state.formdata.email }
-                                    change={ (element) => this.updateForm(element) }
-                                />                         
-                            </div> 
-                        </div> 
-                    </fieldset> 
-                    <fieldset>
-                        <h4>Verify password</h4> 
-                        <div className = "row">
-                            <div className = "col-md-6">
-                                <FormField 
-                                    id={'password'}
-                                    formdata={ this.state.formdata.password }
-                                    change={ (element) => this.updateForm(element) }
-                                /> 
-                            </div> 
-                            <div className = "col-md-6">
-                                <FormField 
-                                    id={'confirmPassword'}
-                                    formdata={ this.state.formdata.confirmPassword }
-                                    change={ (element) => this.updateForm(element) }
-                                />                         
-                            </div> 
-                        </div>
-                        {
-                            this.state.formError ?
-                                <div className="alert alert-dismissible alert-danger">Please check your data</div> 
-                            : null
-                        } 
-                        <button className = "btn btn-primary" onClick = { (event) => this.submitForm(event) }>Create an account</button> 
-                    </fieldset> 
-                </form> 
-                <Dialog open={ this.state.formSuccess }>
-                    <DialogTitle id="alert-dialog-title">{ "Congratulation!" }</DialogTitle> 
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                            You will ve redirected to the LOGIN in a couple of seconds... 
-                        </DialogContentText> 
-                    </DialogContent> 
-                </Dialog> 
+                        </fieldset> 
+                        <fieldset>
+                            <h4>Verify password</h4> 
+                            <div className = "row">
+                                <div className = "col-md-6">
+                                    <FormField 
+                                        id={'password'}
+                                        formdata={ this.state.formdata.password }
+                                        change={ (element) => this.updateForm(element) }
+                                    /> 
+                                </div> 
+                                <div className = "col-md-6">
+                                    <FormField 
+                                        id={'confirmPassword'}
+                                        formdata={ this.state.formdata.confirmPassword }
+                                        change={ (element) => this.updateForm(element) }
+                                    />                         
+                                </div> 
+                            </div>
+                            {
+                                this.state.formError ?
+                                    <div className="alert alert-dismissible alert-danger">Please check your data</div> 
+                                : null
+                            } 
+                            <button className = "btn btn-primary" onClick = { (event) => this.submitForm(event) }>Create an account</button> 
+                        </fieldset> 
+                    </form> 
+                    <Dialog open={ this.state.formSuccess }>
+                        <DialogTitle id="alert-dialog-title">{ "Congratulation!" }</DialogTitle> 
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                You will ve redirected to the LOGIN in a couple of seconds... 
+                            </DialogContentText> 
+                        </DialogContent> 
+                    </Dialog> 
+                </div>
             </div>
         )
     }

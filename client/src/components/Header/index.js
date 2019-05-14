@@ -6,12 +6,7 @@ import { logoutUser } from '../../actions/admin/user_actions';
 
 class Header extends Component {
     state = {
-        page: [
-            {
-                name: 'Home',
-                linkTo: '/',
-                public: true
-            },          
+        page: [         
             {
                 name: 'Drivers',
                 linkTo: '/drivers',
@@ -29,8 +24,29 @@ class Header extends Component {
             },
             {
                 name: 'Standings',
-                linkTo: '/results',
-                public: true
+                linkTo: '#',
+                public: true,
+                id: "standings",
+                submenu: [
+                    {
+                        name: 'Season Standings',
+                        linkTo: '/results',
+                        public: true,
+                        aria: "standings"
+                    },
+                    {
+                        name: 'Driver Standings',
+                        linkTo: '/results/drivers',
+                        public: true,
+                        aria: "standings"
+                    },
+                    {
+                        name: 'Constructor Standings',
+                        linkTo: '/results/teams',
+                        public: true,
+                        aria: "standings"
+                    }
+                ]
             }           
         ],
         user: [
@@ -63,6 +79,40 @@ class Header extends Component {
         });
     };
 
+    renderSublinkItem = (item, key) => (
+        <Link className="dropdown-item" to={item.linkTo} key={key}>{item.name}</Link>
+    );
+
+    renderLinkItem = (item, key, hasSubmenu) => {
+        let listClasses = hasSubmenu ? 'nav-item dropdown' : 'nav-item';
+        let linkClasses = hasSubmenu ? 'nav-link dropdown-toggle' : 'nav-link';
+
+        if(hasSubmenu) { 
+            return (
+                <li className={listClasses} key={key}>
+                    <a href={item.linkTo} 
+                        className={linkClasses} 
+                        id={`${item.id}Button`} 
+                        data-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false"
+                    >
+                        {item.name} <span className="caret"></span>
+                    </a>
+                    <div className="dropdown-menu" aria-labelledby={item.id}>
+                        { item.submenu.map((link, key) => this.renderSublinkItem(link, key * 10)) }
+                    </div>
+                </li>                
+            )
+        } else {
+            return (
+                <li className={listClasses} key={key}>
+                    <Link to={item.linkTo} className={linkClasses}>{item.name}</Link>
+                </li>
+            )
+        }
+    };
+
     renderLink = (item, i) => {
         return item.name === 'Log out' ? 
             (
@@ -71,11 +121,10 @@ class Header extends Component {
                 </li>
             )
         : 
-            (
-                <li className="nav-item" key={i}>
-                    <Link to={item.linkTo} className={'nav-link'}>{item.name}</Link>
-                </li>
-            )
+            item.hasOwnProperty('submenu') ?
+                this.renderLinkItem(item, i, true)
+                : this.renderLinkItem(item, i, false)
+            
     };
 
     showLinks = (type) => {
@@ -104,7 +153,9 @@ class Header extends Component {
             <header id="header">
                 <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="/">Navbar</a>
+                        <Link className="navbar-brand" to="/">
+                            <span><img src="/images/f1_logo.svg" alt="Formula 1" /></span>
+                        </Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
