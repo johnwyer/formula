@@ -9,3 +9,4 @@ export const SITE_GET_DRIVER_BY_SLUG = 'site_get_driver_by_slug';
 export const SITE_GET_RESULTS = 'site_get_results';
 export const SITE_GET_RESULT_BY_SLUG = 'site_get_result_by_slug';
 export const SITE_GET_DRIVER_STANDINGS_RESULTS = 'site_get_driver_standings_results';
+export const SITE_GET_TEAM_STANDINGS_RESULTS = 'site_gey_team_standings_results';

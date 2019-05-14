@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     SITE_GET_RESULTS,
     SITE_GET_RESULT_BY_SLUG,
-    SITE_GET_DRIVER_STANDINGS_RESULTS
+    SITE_GET_DRIVER_STANDINGS_RESULTS,
+    SITE_GET_TEAM_STANDINGS_RESULTS
 } from './types';
 import { SITE_RESULT_SERVER } from '../../components/utils/misc';
 
@@ -29,6 +30,15 @@ export function getDriverStandings() {
 
     return {
         type: SITE_GET_DRIVER_STANDINGS_RESULTS,
+        payload: request
+    };
+};
+
+export function getTeamStandings() {
+    const request = axios.get(`${SITE_RESULT_SERVER}/teams`).then((response) => response.data);
+
+    return {
+        type: SITE_GET_TEAM_STANDINGS_RESULTS,
         payload: request
     };
 };

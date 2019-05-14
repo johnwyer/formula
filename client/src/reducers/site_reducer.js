@@ -2,14 +2,13 @@ import {
     SITE_GET_TEAMS,
     SITE_GET_TEAM_BY_SLUG,
     SITE_GET_RACES,
-    //SITE_GET_DRIVERS_LIST,
-    //SITE_GET_TEAMS_DRIVERS,
     SITE_GET_RACE_BY_SLUG,
     SITE_GET_DRIVERS,
     SITE_GET_DRIVER_BY_SLUG,
     SITE_GET_RESULTS,
     SITE_GET_RESULT_BY_SLUG,
-    SITE_GET_DRIVER_STANDINGS_RESULTS
+    SITE_GET_DRIVER_STANDINGS_RESULTS,
+    SITE_GET_TEAM_STANDINGS_RESULTS
 } from '../actions/site/types';
 
 export default function(state = {}, action) {
@@ -30,16 +29,6 @@ export default function(state = {}, action) {
                 ...state,
                 races: action.payload
             };
-            /*case SITE_GET_DRIVERS_LIST:
-                return {
-                    ...state,
-                    driversList: action.payload
-                };
-            case SITE_GET_TEAMS_DRIVERS:
-                return {
-                    ...state,
-                    teamsDrivers: action.payload
-                };*/
         case SITE_GET_RACE_BY_SLUG:
             return {
                 ...state,
@@ -69,6 +58,11 @@ export default function(state = {}, action) {
             return {
                 ...state,
                 driverStandings: action.payload
+            };
+        case SITE_GET_TEAM_STANDINGS_RESULTS:
+            return {
+                ...state,
+                teamStandings: action.payload
             };
         default:
             return state;

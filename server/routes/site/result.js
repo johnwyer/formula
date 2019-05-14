@@ -96,162 +96,6 @@ router.get('/results', (req, res) => {
         });
 });
 
-router.get('/drivers', (req, res) => {
-    console.log('/results/drivers');
-    Race.aggregate([{
-                $lookup: {
-                    from: "results",
-                    localField: "_id",
-                    foreignField: "race",
-                    as: "result"
-                }
-            },
-            {
-                $lookup: {
-                    from: "countries",
-                    localField: "country",
-                    foreignField: "_id",
-                    as: "country"
-                }
-            },
-            {
-                $lookup: {
-                    from: "tracks",
-                    localField: "track",
-                    foreignField: "_id",
-                    as: "track"
-                }
-            },
-            {
-                $unwind: '$country'
-            },
-            {
-                $unwind: '$track'
-            }
-        ])
-        .exec()
-        .then(async(results2) => {
-            let results = [];
-            const pointsSystem = {
-                '1': 25,
-                '2': 18,
-                '3': 15,
-                '4': 12,
-                '5': 10,
-                '6': 8,
-                '7': 6,
-                '8': 4,
-                '9': 2,
-                '10': 1
-            };
-
-            results2.forEach((item, i) => {
-                let result = {
-                    id: item._id,
-                    countryName: item.country.name,
-                    slug: item.slug,
-                    dateEnd: moment(item.dateEnd).format('DD MMM YYYY'),
-                    numberOfLaps: item.track.numberOfLaps,
-                    result: item.result.length > 0 ? item.result : {}
-                };
-
-                if (Object.keys(result.result).length) {
-                    results.push(result);
-                }
-            });
-
-            const teamsDrivers = await Team.find({})
-                .select(['id', 'shortName', 'driver_1', 'driver_2', 'slug', 'teamColor'])
-                .populate({ path: 'driver_1', select: 'id firstName lastName number country' })
-                .populate({ path: 'driver_2', select: 'id firstName lastName number country' })
-                .populate('driver_2.country')
-                .exec();
-
-            let drivers = [],
-                driver;
-            teamsDrivers.forEach((element) => {
-                driver = {
-                    id: element.driver_1.id,
-                    firstName: element.driver_1.firstName,
-                    lastName: element.driver_1.lastName,
-                    lastNameShort: element.driver_1.lastName.substring(0, 3),
-                    slug: element.driver_1.slug,
-                    teamShortName: element.shortName,
-                    teamColor: element.teamColor,
-                    teamSlug: element.slug,
-                    countryId: element.driver_1.country,
-                    country: {},
-                    points: 0
-                };
-                drivers.push(driver);
-                driver = {
-                    id: element.driver_2.id,
-                    firstName: element.driver_2.firstName,
-                    lastName: element.driver_2.lastName,
-                    lastNameShort: element.driver_2.lastName.substring(0, 3),
-                    slug: element.driver_2.slug,
-                    teamShortName: element.shortName,
-                    teamColor: element.teamColor,
-                    teamSlug: element.slug,
-                    countryId: element.driver_2.country,
-                    country: {},
-                    points: 0
-                };
-                drivers.push(driver);
-            });
-
-            const countries = await Country.find({})
-                .exec();
-
-            drivers.map((driver) => {
-                countries.forEach((country) => {
-                    if (driver.countryId.toString() === country._id.toString()) {
-                        driver.country = country;
-
-                        return driver;
-                    }
-                });
-            });
-
-            results.forEach((result, key2) => {
-                result.result.forEach((resultDriver, key) => {
-                    let entries = Object.entries(resultDriver);
-
-                    entries.forEach((entry) => {
-                        if (/position_/i.test(entry[0])) {
-                            if (entry[1].position <= 10) {
-                                drivers.map((driver) => {
-                                    if (entry[1].driver == driver.id) {
-                                        driver.points = driver.points + pointsSystem[entry[1].position];
-                                    }
-
-                                    return driver;
-                                });
-                            }
-                        }
-
-                        if (/fastest/i.test(entry[0])) {
-                            drivers.map((driver) => {
-                                if (entry[1].driver == driver.id) {
-                                    driver.points += 1;
-                                }
-
-                                return driver;
-                            });
-                        }
-                    });
-                })
-            });
-
-            drivers.sort((a, b) => (a.points > b.points) ? 1 : -1).reverse();
-
-            return res.status(200).send(drivers);
-        })
-        .catch((error) => {
-            return res.status(400).send(error);
-        });
-});
-
 router.get('/result', (req, res) => {
     Race.aggregate([
             { $match: { slug: req.query.slug } },
@@ -404,6 +248,274 @@ router.get('/result', (req, res) => {
             });
 
             return res.status(200).send(result);
+        })
+        .catch((error) => {
+            return res.status(400).send(error);
+        });
+});
+
+router.get('/drivers', (req, res) => {
+    console.log('/results/drivers');
+    Race.aggregate([{
+                $lookup: {
+                    from: "results",
+                    localField: "_id",
+                    foreignField: "race",
+                    as: "result"
+                }
+            },
+            {
+                $lookup: {
+                    from: "countries",
+                    localField: "country",
+                    foreignField: "_id",
+                    as: "country"
+                }
+            },
+            {
+                $lookup: {
+                    from: "tracks",
+                    localField: "track",
+                    foreignField: "_id",
+                    as: "track"
+                }
+            },
+            {
+                $unwind: '$country'
+            },
+            {
+                $unwind: '$track'
+            }
+        ])
+        .exec()
+        .then(async(results2) => {
+            let results = [];
+            const pointsSystem = {
+                '1': 25,
+                '2': 18,
+                '3': 15,
+                '4': 12,
+                '5': 10,
+                '6': 8,
+                '7': 6,
+                '8': 4,
+                '9': 2,
+                '10': 1
+            };
+
+            results2.forEach((item, i) => {
+                let result = {
+                    id: item._id,
+                    countryName: item.country.name,
+                    slug: item.slug,
+                    dateEnd: moment(item.dateEnd).format('DD MMM YYYY'),
+                    numberOfLaps: item.track.numberOfLaps,
+                    result: item.result.length > 0 ? item.result : {}
+                };
+
+                if (Object.keys(result.result).length) {
+                    results.push(result);
+                }
+            });
+
+            const teamsDrivers = await Team.find({})
+                .select(['id', 'shortName', 'driver_1', 'driver_2', 'slug', 'teamColor'])
+                .populate({ path: 'driver_1', select: 'id firstName lastName number country' })
+                .populate({ path: 'driver_2', select: 'id firstName lastName number country' })
+                .exec();
+
+            let drivers = [],
+                driver;
+            teamsDrivers.forEach((element) => {
+                driver = {
+                    id: element.driver_1.id,
+                    firstName: element.driver_1.firstName,
+                    lastName: element.driver_1.lastName,
+                    lastNameShort: element.driver_1.lastName.substring(0, 3),
+                    slug: element.driver_1.slug,
+                    teamShortName: element.shortName,
+                    teamColor: element.teamColor,
+                    teamSlug: element.slug,
+                    countryId: element.driver_1.country,
+                    country: {},
+                    points: 0
+                };
+                drivers.push(driver);
+                driver = {
+                    id: element.driver_2.id,
+                    firstName: element.driver_2.firstName,
+                    lastName: element.driver_2.lastName,
+                    lastNameShort: element.driver_2.lastName.substring(0, 3),
+                    slug: element.driver_2.slug,
+                    teamShortName: element.shortName,
+                    teamColor: element.teamColor,
+                    teamSlug: element.slug,
+                    countryId: element.driver_2.country,
+                    country: {},
+                    points: 0
+                };
+                drivers.push(driver);
+            });
+
+            const countries = await Country.find({})
+                .exec();
+
+            drivers.map((driver) => {
+                countries.forEach((country) => {
+                    if (driver.countryId.toString() === country._id.toString()) {
+                        driver.country = country;
+
+                        return driver;
+                    }
+                });
+            });
+
+            results.forEach((result, key2) => {
+                result.result.forEach((resultDriver, key) => {
+                    let entries = Object.entries(resultDriver);
+
+                    entries.forEach((entry) => {
+                        if (/position_/i.test(entry[0])) {
+                            if (entry[1].position <= 10) {
+                                drivers.map((driver) => {
+                                    if (entry[1].driver == driver.id) {
+                                        driver.points = driver.points + pointsSystem[entry[1].position];
+                                    }
+
+                                    return driver;
+                                });
+                            }
+                        }
+
+                        if (/fastest/i.test(entry[0])) {
+                            drivers.map((driver) => {
+                                if (entry[1].driver == driver.id) {
+                                    driver.points += 1;
+                                }
+
+                                return driver;
+                            });
+                        }
+                    });
+                })
+            });
+
+            drivers.sort((a, b) => (a.points > b.points) ? 1 : -1).reverse();
+
+            return res.status(200).send(drivers);
+        })
+        .catch((error) => {
+            return res.status(400).send(error);
+        });
+});
+
+router.get('/teams', (req, res) => {
+    console.log('/results/teams');
+    Race.aggregate([{
+                $lookup: {
+                    from: "results",
+                    localField: "_id",
+                    foreignField: "race",
+                    as: "result"
+                }
+            },
+            {
+                $lookup: {
+                    from: "countries",
+                    localField: "country",
+                    foreignField: "_id",
+                    as: "country"
+                }
+            },
+            {
+                $lookup: {
+                    from: "tracks",
+                    localField: "track",
+                    foreignField: "_id",
+                    as: "track"
+                }
+            },
+            {
+                $unwind: '$country'
+            },
+            {
+                $unwind: '$track'
+            }
+        ])
+        .exec()
+        .then(async(results2) => {
+            let results = [];
+            const pointsSystem = {
+                '1': 25,
+                '2': 18,
+                '3': 15,
+                '4': 12,
+                '5': 10,
+                '6': 8,
+                '7': 6,
+                '8': 4,
+                '9': 2,
+                '10': 1
+            };
+
+            results2.forEach((item, i) => {
+                let result = {
+                    result: item.result.length > 0 ? item.result : {}
+                };
+
+                if (Object.keys(result.result).length) {
+                    results.push(result);
+                }
+            });
+
+            let teamsList = await Team.aggregate([{
+                $project: {
+                    "id": "$_id",
+                    "shortName": "$shortName",
+                    "officialName": "$officialName",
+                    "driver_1": "$driver_1",
+                    "driver_2": "$driver_2",
+                    "teamColor": "$teamColor"
+                }
+            }, {
+                $addFields: {
+                    points: 0
+                }
+            }]).exec();
+
+            results.forEach((result) => {
+                result.result.forEach((resultDriver) => {
+                    let entries = Object.entries(resultDriver);
+
+                    entries.forEach((entry) => {
+                        if (/position_/i.test(entry[0])) {
+                            if (entry[1].position <= 10) {
+                                teamsList.map((team) => {
+                                    if (entry[1].driver.toString() == team.driver_1.toString() || entry[1].driver.toString() == team.driver_2.toString()) {
+                                        team.points = team.points + pointsSystem[entry[1].position];
+                                    }
+
+                                    return team;
+                                });
+                            }
+                        }
+
+                        if (/fastest/i.test(entry[0])) {
+                            teamsList.map((team) => {
+                                if (entry[1].driver.toString() == team.driver_1.toString() || entry[1].driver.toString() == team.driver_2.toString()) {
+                                    team.points += 1;
+                                }
+
+                                return team;
+                            });
+                        }
+                    });
+                })
+            });
+
+            teamsList.sort((a, b) => (a.points > b.points) ? 1 : -1).reverse();
+
+            return res.status(200).send(teamsList);
         })
         .catch((error) => {
             return res.status(400).send(error);
