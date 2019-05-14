@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 
 const SiteLayout = (props) => {
     const classes = props.classes !== undefined ? props.classes : '';
@@ -11,11 +11,13 @@ const SiteLayout = (props) => {
         </div>
     );
 };
-
+/*
 const mapStateToProps = (state) => {
     return {
         //site: state.site
     };
 };
+*/
 
-export default connect(mapStateToProps)(SiteLayout);
+//export default connect(mapStateToProps)(SiteLayout);
+export default SiteLayout;

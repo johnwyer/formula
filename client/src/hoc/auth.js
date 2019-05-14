@@ -11,6 +11,7 @@ export default function(ComposedClass, reload, adminRoute = null) {
 
         componentDidMount() {
             this.props.dispatch(auth()).then((response) => {
+                console.log(`Auth `, response);
                 let user = this.props.user.userData;
 
                 if (!user.isAuth) {
@@ -31,13 +32,13 @@ export default function(ComposedClass, reload, adminRoute = null) {
                     loading: false
                 });
             });
-        }
+        };
 
         render() {
             if(this.state.loading){
                 return (
-                    <div className="d-flex justify-content-center">
-                        <CircularProgress style={{'color':'#2196f3'}} thickness={7} />
+                    <div className="d-flex justify-content-center" style={{padding:'100px 0'}}>
+                        <CircularProgress />
                     </div>
                 )
             }
@@ -45,14 +46,14 @@ export default function(ComposedClass, reload, adminRoute = null) {
             return (
                 <ComposedClass {...this.props} user={this.props.user} />
             )
-        }
-    }
+        };
+    };
 
     function mapStateToProps(state) {
         return {
             user: state.user
         }
-    }
+    };
 
     return connect(mapStateToProps)(AuthenticationCheck);
-}
+};

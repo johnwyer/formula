@@ -127,6 +127,7 @@ main>.container-fluid {
 
 .page-not-found {
     color: #455a64;
+    padding: 150px 0;
 }
 
 .page-not-found h1 {

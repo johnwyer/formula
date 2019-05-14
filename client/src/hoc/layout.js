@@ -18,5 +18,5 @@ export default class Layout extends Component {
                 <Footer />
             </React.Fragment>
         )
-    }
-}
+    };
+};

@@ -10,8 +10,12 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import InfoIcon from '@material-ui/icons/Info';
+import LooksOneIcon from '@material-ui/icons/LooksOne';
+import LooksTwoIcon from '@material-ui/icons/LooksTwo';
+import LooksThreeIcon from '@material-ui/icons/Looks3';
+import LooksFourthIcon from '@material-ui/icons/Looks4';
+import LooksFiveIcon from '@material-ui/icons/Looks5';
 
 
 const drawerWidth = 240;
@@ -33,40 +37,52 @@ const styles = (theme) => ({
     toolbar: theme.mixins.toolbar,
 });
 
-const admin = [{
+const adminLinks = [{
         name: 'Site info',
-        linkTo: '/admin/site-info'
+        linkTo: '/admin/site-info',
+        iconComponent: InfoIcon
     },
     {
         name: 'Drivers',
-        linkTo: '/admin/drivers'
+        linkTo: '/admin/drivers',
+        iconComponent: LooksOneIcon
     },
     {
         name: 'Teams',
-        linkTo: '/admin/teams'
+        linkTo: '/admin/teams',
+        iconComponent: LooksTwoIcon
     },
     {
         name: 'Tracks',
-        linkTo: '/admin/tracks'
+        linkTo: '/admin/tracks',
+        iconComponent: LooksThreeIcon
     },
     {
         name: 'Race Calendar',
-        linkTo: '/admin/calendar'
+        linkTo: '/admin/calendar',
+        iconComponent: LooksFourthIcon
     },
     {
         name: 'Race Results',
-        linkTo: '/admin/results'
-    },        
+        linkTo: '/admin/results',
+        iconComponent: LooksFiveIcon
+    }
 ];
 
 const UserLayout = (props) => {
     const { classes } = props;
 
+    const renderIcon = (Icon) => {
+        return (
+           <Icon />
+        )
+    };
+
     return ( 
         <div className="container-fluid admin-panel">
             <div className="d-flex">
                 <Drawer 
-                    className={ classes.drawer }
+                    className={classes.drawer}
                     variant="permanent"
                     classes={{paper: classes.drawerPaper}}
                 >
@@ -77,11 +93,11 @@ const UserLayout = (props) => {
                             <h5 className="sidebar-title">Admin</h5> 
                             <List> 
                             {
-                                admin.map((item, index) => ( 
-                                    <Link to={ item.linkTo } key={ index }>
+                                adminLinks.map((item, index) => ( 
+                                    <Link to={item.linkTo} key={index}>
                                         <ListItem button>
-                                            <ListItemIcon>{ index % 2 === 0 ? <InboxIcon /> : <MailIcon /> }</ListItemIcon> 
-                                            <ListItemText primary={ item.name } />                                                     
+                                            <ListItemIcon>{renderIcon(item.iconComponent)}</ListItemIcon> 
+                                            <ListItemText primary={item.name} />                                                     
                                         </ListItem>                              
                                     </Link>
                                 ))
@@ -91,17 +107,7 @@ const UserLayout = (props) => {
                         : null
                 } 
                 <Divider />
-                <h5 className="sidebar-title">Account info</h5>
-                <List> 
-                {
-                    ['All mail', 'Trash', 'Spam'].map((text, index) => ( 
-                        <ListItem button key={ text }>
-                            <ListItemIcon>{ index % 2 === 0 ? <InboxIcon /> : <MailIcon /> }</ListItemIcon>
-                            <ListItemText primary={ text } /> 
-                        </ListItem>
-                    ))
-                } 
-                </List> 
+
                 </Drawer> 
                 <div className={ classes.content }>{ props.children }</div>
             </div>
@@ -110,7 +116,7 @@ const UserLayout = (props) => {
 };
 
 UserLayout.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
