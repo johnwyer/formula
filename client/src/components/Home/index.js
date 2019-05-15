@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 
-export default class Home extends Component {
+import HomeDriverStandings from './driver-standings';
+import HomeTeamStandings from './team-standings';
+import HomeLastResult from './last-result';
+
+class Home extends Component {
     render() {
         return (
             <div className="container">
-                <section className="last-grand-prix">
-                    <h2>FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2019</h2>
-                
-                </section>          
+                <div className="f1-standings">
+                    <HomeDriverStandings />
+                    <HomeTeamStandings />
+                    <HomeLastResult />
+                </div>          
             </div>
         )
     }
 };
+
+export default Home;

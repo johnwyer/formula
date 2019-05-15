@@ -119,10 +119,10 @@ class Register extends Component {
         let formIsValid = isFormValid(this.state.formdata, 'register');
 
         if (formIsValid) {
-            console.log('submitForm formIsValid ', formIsValid);
-            console.log('submitForm dataToSubmit ', dataToSubmit);
+            //console.log('submitForm formIsValid ', formIsValid);
+            //console.log('submitForm dataToSubmit ', dataToSubmit);
             this.props.dispatch(registerUser(dataToSubmit)).then((response) => {
-                console.log(response);
+                //console.log(response);
                 if (response.payload.success) {
                     this.setState({
                         formError: false,
@@ -143,7 +143,7 @@ class Register extends Component {
                 });
             });
         } else {
-            console.log('submitForm formIsValid ', formIsValid);
+            //console.log('submitForm formIsValid ', formIsValid);
             this.setState({
                 formError: true
             });
@@ -211,7 +211,7 @@ class Register extends Component {
                         <DialogTitle id="alert-dialog-title">{ "Congratulation!" }</DialogTitle> 
                         <DialogContent>
                             <DialogContentText id="alert-dialog-description">
-                                You will ve redirected to the LOGIN in a couple of seconds... 
+                                You will be redirected to the LOGIN in a couple of seconds... 
                             </DialogContentText> 
                         </DialogContent> 
                     </Dialog> 
@@ -219,6 +219,6 @@ class Register extends Component {
             </div>
         )
     }
-}
+};
 
 export default connect()(Register);

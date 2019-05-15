@@ -1,13 +1,13 @@
 import React from 'react';
 
-const CalendarDetailTrackInfo = ({ track }) => {
+const CalendarDetailTrackInfo = ({ track, country }) => {
     return (
         <div className="race-map-wrapper">
             <fieldset className="race-map">
                 <legend>
                     <span className="f1-flag-wrapper">
                         <picture>
-                            <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/australia-flag.png.transform/9col/image.png" alt="australia-flag.png" />
+                            <img src={`/images/flags/${country.code.toLowerCase()}.png`} alt="" />
                         </picture>
                     </span>
                     <span className="f1-track-name">{track.officialName}</span>

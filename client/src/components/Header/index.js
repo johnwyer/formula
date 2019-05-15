@@ -66,7 +66,7 @@ class Header extends Component {
                 public: false
             }            
         ]
-    }
+    };
 
     logoutHandler = (event) => {
         event.preventDefault();
@@ -79,7 +79,7 @@ class Header extends Component {
         });
     };
 
-    renderSublinkItem = (item, key) => (
+    renderSubmenuLinkItem = (item, key) => (
         <Link className="dropdown-item" to={item.linkTo} key={key}>{item.name}</Link>
     );
 
@@ -90,7 +90,7 @@ class Header extends Component {
         if(hasSubmenu) { 
             return (
                 <li className={listClasses} key={key}>
-                    <a href={item.linkTo} 
+                    <Link to={item.linkTo} 
                         className={linkClasses} 
                         id={`${item.id}Button`} 
                         data-toggle="dropdown" 
@@ -98,9 +98,9 @@ class Header extends Component {
                         aria-expanded="false"
                     >
                         {item.name} <span className="caret"></span>
-                    </a>
+                    </Link>
                     <div className="dropdown-menu" aria-labelledby={item.id}>
-                        { item.submenu.map((link, key) => this.renderSublinkItem(link, key * 10)) }
+                        { item.submenu.map((link, key) => this.renderSubmenuLinkItem(link, key * 10)) }
                     </div>
                 </li>                
             )
@@ -121,10 +121,7 @@ class Header extends Component {
                 </li>
             )
         : 
-            item.hasOwnProperty('submenu') ?
-                this.renderLinkItem(item, i, true)
-                : this.renderLinkItem(item, i, false)
-            
+            item.hasOwnProperty('submenu') ? this.renderLinkItem(item, i, true) : this.renderLinkItem(item, i, false)            
     };
 
     showLinks = (type) => {
@@ -173,13 +170,13 @@ class Header extends Component {
                 </nav>
             </header>        
         )
-    }
+    };
 };
 
 const mapStateToProps = (state) => {
     return {
         user: state.user
-    }
+    };
 };
 
 export default connect(mapStateToProps)(withRouter(Header));

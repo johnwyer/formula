@@ -51,6 +51,7 @@ router.get('/drivers', (req, res) => {
                 driver.name = `${driver.firstName} ${driver.lastName}`;
                 delete driver.team_1;
                 delete driver.team_2;
+
                 return driver;
             });
 

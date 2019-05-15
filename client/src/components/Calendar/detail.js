@@ -14,7 +14,7 @@ const CalendarDetail = ({ race }) => {
                     {
                         race.isExpired ? <CalendarDetailResults results={race.result} slug={race.slug} /> : null
                     }                    
-                    <CalendarDetailTrackInfo track={race.track} />
+                    <CalendarDetailTrackInfo track={race.track} country={race.country} />
                 </div>
             </div>
         </React.Fragment>

@@ -34,6 +34,14 @@
     font-style: normal
 }
 
+@font-face {
+    font-family: 'F1Wide';
+    src: url('fonts/F1_Wide/Formula1-Wide.eot');
+    src: url('fonts/F1_Wide/Formula1-Wide.eot?#iefix') format('embedded-opentype'), url('fonts/F1_Wide/Formula1-Wide.woff2') format('woff2'), url('fonts/F1_Wide/Formula1-Wide.woff') format('woff'), url('fonts/F1_Wide/Formula1-Wide.ttf') format('truetype'), url('fonts/F1_Wide/Formula1-Wide.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 /*
 @font-face {
@@ -1587,6 +1595,356 @@ main>.container-fluid {
 
 .results-page .resultsarchive-table .hide-for-desktop {
     display: none;
+}
+
+.f1-standings {
+    text-align: center;
+}
+
+.f1-tab-content-wrapper {
+    position: relative;
+    padding: 20px 0;
+    background-color: #f3f3f3;
+}
+
+.f1-tab-content-wrapper:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 335px;
+    background-image: url('/images/bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.f1-standings .title {
+    font-size: 25px;
+    line-height: 30px;
+    margin: 50px 0 30px 0;
+    font-family: "F1Wide";
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.f1-podium-top-position {
+    padding: 0 10px;
+    margin: 110px 10px 10px 10px;
+}
+
+.f1-podium-top-position.constructors {
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 40px;
+}
+
+.f1-podium-position {
+    display: inline-block;
+    vertical-align: top;
+    margin: 30px 10px 0 0;
+    width: calc(31.7% - 10px);
+    text-decoration: none;
+}
+
+.f1-podium-position:hover {
+    text-decoration: none;
+}
+
+.f1-podium-position.pos-1 {
+    margin-top: 0;
+    width: 35.4%;
+}
+
+.f1-podium-position.pos-3 {
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.f1-podium-position .driver-rank {
+    position: relative;
+    height: 140px;
+    border-radius: 15px 15px 0 0;
+    background-color: #fff;
+}
+
+.f1-podium-position.pos-1 .driver-rank {
+    height: 170px;
+}
+
+.f1-podium-position .driver-rank [class*="icon-slash"] {
+    font-size: 90px;
+    left: 15px;
+    position: absolute;
+    top: 10px;
+}
+
+.f1-podium-position .driver-rank .team-border {
+    position: absolute;
+    bottom: 0;
+    height: 10px;
+    left: 0;
+    right: 0;
+}
+
+.f1-podium-position .driver-rank .driver-image img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.f1-podium-position .driver-name {
+    padding: 25px;
+    border-radius: 0 0 15px 15px;
+    text-align: left;
+    background-color: #38383f;
+    color: #fff;
+}
+
+.f1-podium-position .f1-podium-driver {
+    font-family: "F1Regular";
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.f1-podium-position .f1-podium-flag {
+    display: inline-block;
+    width: 22px;
+}
+
+.f1-podium-position .f1-podium-flag img {
+    border-radius: 2px;
+}
+
+.f1-podium-position .f1-podium-name {
+    margin: 0 5px 0 0;
+}
+
+.f1-podium-position .f1-podium-surname {
+    display: block;
+    font-family: "F1Bold";
+    font-size: 25px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.f1-standings .f1-podium {
+    margin: 0 10px 0 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+    color: #15151e;
+    counter-reset: podium;
+    list-style-type: none;
+}
+
+.f1-standings .f1-podium-item {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 2px;
+    padding: 0;
+    color: #15151e;
+}
+
+.f1-standings .f1-podium-link {
+    display: flex;
+    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.35, 0.15, 0.6, 1);
+    width: 100%;
+    align-items: center;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 15px 10px 15px 20px;
+    background-color: #fff;
+    text-decoration: none;
+    color: #15151e;
+}
+
+.f1-standings .f1-podium-link:hover {
+    text-decoration: none;
+    background-color: #38383f;
+}
+
+.f1-standings .f1-podium-rank {
+    position: relative;
+    top: 1px;
+    text-align: right;
+    width: 20px;
+    font-family: "F1Bold";
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.f1-standings .f1-podium-link:hover .f1-podium-rank {
+    color: #fff;
+}
+
+.f1-standings .f1-podium .team-color-icon {
+    width: 4px;
+    height: 14px;
+    margin: 0 10px;
+}
+
+.f1-standings .f1-podium .f1-podium-driver {
+    font-family: "F1Regular";
+    font-size: 14px;
+    line-height: 17px;
+    width: auto;
+}
+
+.f1-standings .f1-podium-link:hover .f1-podium-driver {
+    color: #fff;
+}
+
+.f1-standings .f1-podium .f1-podium-name {
+    display: inline;
+    text-transform: capitalize;
+}
+
+.f1-standings .f1-podium .f1-podium-surname {
+    font-family: "F1Bold";
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    margin-left: 4px;
+}
+
+.f1-standings .f1-podium-link .f1-podium-subdetail {
+    display: inline;
+    font-family: "Titillium Web";
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.5px;
+    font-weight: normal;
+    color: #67676d;
+    text-transform: capitalize;
+    margin-left: 10px;
+}
+
+.f1-standings .f1-podium-right {
+    margin-left: auto;
+}
+
+.f1-standings .f1-podium-time {
+    display: inline;
+    background-color: #ededed;
+    font-family: "Titillium Web";
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    padding: 2px 10px;
+    margin-left: 10px;
+    width: auto;
+    min-width: 95px;
+    border-radius: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.f1-standings .f1-podium-link .icon-chevron-right {
+    color: #e10600;
+    margin-left: 4px;
+    font-size: 16px;
+    vertical-align: -2px;
+}
+
+.f1-standings .f1-podium-link:hover .icon-chevron-right {
+    color: #fff;
+}
+
+.f1-standings .btn {
+    display: inline-block;
+    position: relative;
+    background: #e10600;
+    box-shadow: none;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: "Titillium Web";
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    line-height: 15px;
+    font-weight: 600;
+    padding: 12px 35px 12px 15px;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    transition: all 0.5s cubic-bezier(0.2, 0, 0.05, 1);
+}
+
+.f1-standings .btn i {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    height: 1em;
+    width: 1em;
+    margin-top: -1px;
+}
+
+.f1-standings .btn:hover {
+    box-shadow: 0 0 0 2px #e10600 inset;
+    background: #fff;
+    color: #15151e;
+}
+
+.f1-standings .btn:hover i {
+    color: #e10600;
+}
+
+.f1-podium-position .constructor-rank {
+    position: relative;
+    border-radius: 15px 15px 0 0;
+    background-color: #fff;
+    padding: 15px 0 10px 0;
+    margin: 0 20px;
+}
+
+.f1-podium-position .constructor-rank .constructor-logo {
+    display: block;
+}
+
+.f1-podium-position .constructor-rank .constructor-logo img {
+    display: inline-block;
+    width: 85%;
+    max-width: 100%;
+}
+
+.constructors .f1-podium-position {
+    position: relative;
+}
+
+.constructors .f1-podium-position.pos-1 .constructor-rank {
+    margin-top: 0;
+    padding-bottom: 20px;
+}
+
+.constructors .f1-podium-position [class*="icon-slash"] {
+    font-size: 120px;
+    line-height: 13px;
+    position: static;
+}
+
+.f1-podium-position .constructors-car {
+    background-color: transparent;
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+.f1-podium-position .constructors-car img {
+    margin: 0 auto;
+    bottom: -30px;
+    max-width: 100%;
+    position: absolute;
 }
 
 @import url("responsive.css");
