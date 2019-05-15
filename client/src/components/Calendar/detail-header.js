@@ -10,7 +10,7 @@ const CalendarDetailHeader = ({ race }) => {
             <div className="hero-content-wrapper">
                 <p className="race-location">{race.country.name}</p>
                 <picture className="hero-image">
-                    <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/year%20icon/2019.png.transform/4col/image.png" alt="2019" />
+                    <img src="/images/year-icon.png" alt="2019" />
                 </picture>
                 <p className="race-weekend-dates">{getRaceDate(race.dateStart, race.dateEnd)}</p>
             </div>

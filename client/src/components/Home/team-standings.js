@@ -48,7 +48,7 @@ const HomeTeamStandings = () => {
                                 </div>
                             </a>
                         </div>
-                        <ul className="f1-podium">
+                        <ul className="f1-podium constructors">
                             <li className="f1-podium-item">
                                 <a href="/" className="f1-podium-link">
                                     <span className="f1-podium-rank">1</span>
@@ -58,7 +58,7 @@ const HomeTeamStandings = () => {
                                     </span>
                                     <span className="f1-podium-subdetail">Hamilton / Bottas</span>
                                     <span className="f1-podium-right">
-                                        <span class="f1-podium-car">
+                                        <span className="f1-podium-car">
                                             <img src="https://formula1.com/content/fom-website/en/teams/Mercedes/_jcr_content/teamCar.img.jpg" alt="Mercedes car" />
                                         </span>
                                         <span className="f1-podium-time">217 PTS</span>

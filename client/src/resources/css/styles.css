@@ -42,23 +42,13 @@
     font-style: normal;
 }
 
-
-/*
-@font-face {
-    font-family: 'F1Wide';
-    src: url('fonts/F1_Wide/Formula1-Wide_web.eot');
-    src: url('fonts/F1_Wide/Formula1-Wide_web.eot?#iefix') format('embedded-opentype'), url('fonts/F1_Wide/Formula1-Wide_web.woff2') format('woff2'), url('fonts/F1_Wide/Formula1-Wide_web.woff') format('woff'), url('fonts/F1_Wide/Formula1-Wide_web.ttf') format('truetype'), url('fonts/F1_Wide/Formula1-Wide_web.svg') format('svg');
-    font-weight: normal;
-    font-style: normal
-}
-
 @font-face {
     font-family: 'F1Black';
     src: url('fonts/F1_Black/Formula1-Black_web.eot');
     src: url('fonts/F1_Black/Formula1-Black_web.eot?#iefix') format('embedded-opentype'), url('fonts/F1_Black/Formula1-Black_web.woff2') format('woff2'), url('fonts/F1_Black/Formula1-Black_web.woff') format('woff'), url('fonts/F1_Black/Formula1-Black_web.ttf') format('truetype'), url('fonts/F1_Black/Formula1-Black_web.svg') format('svg');
     font-weight: normal;
-    font-style: normal
-}*/
+    font-style: normal;
+}
 
 html {
     position: relative;
@@ -1873,6 +1863,7 @@ main>.container-fluid {
     cursor: pointer;
     line-height: 15px;
     font-weight: 600;
+    margin: 10px 0 20px 0;
     padding: 12px 35px 12px 15px;
     border: none;
     border-radius: 5px;
@@ -1945,6 +1936,55 @@ main>.container-fluid {
     bottom: -30px;
     max-width: 100%;
     position: absolute;
+}
+
+.f1-standings .f1-podium-car {
+    width: 130px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.f1-standings .f1-podium.constructors .f1-podium-surname {
+    text-transform: capitalize;
+}
+
+.f1-standings .last-race .title {
+    font-family: "F1Black";
+    letter-spacing: 1;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 42px;
+    line-height: 48px;
+}
+
+.f1-standings .last-race .race-year-image {
+    margin: 0 auto 15px;
+    max-width: 124px;
+}
+
+.f1-standings .last-race .race-year-image img {
+    max-height: 100%;
+}
+
+.f1-standings .last-race .race-title {
+    font-family: "F1Regular";
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.5px;
+    font-weight: normal;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.f1-standings .last-race .race-title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.f1-standings .last-race .icon-chevron-right {
+    margin-left: 5px;
+    color: #e10600;
 }
 
 @import url("responsive.css");
