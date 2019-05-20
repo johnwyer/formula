@@ -13,6 +13,7 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/drivers', (req, res) => {
+    console.log('/site/drivers');
     Driver.aggregate([{
                 $lookup: {
                     from: "teams",

@@ -1597,6 +1597,73 @@ main>.container-fluid {
     background-color: #f3f3f3;
 }
 
+.f1-tab-wrapper {
+    color: #15151e;
+    background-color: #f7f4f1;
+}
+
+.f1-tab-widget .f1-tab-list {
+    display: block;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    border: none;
+}
+
+.f1-tab-widget .f1-tab-list .f1-tab {
+    display: inline-block;
+    position: relative;
+    font-family: "F1Regular";
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.f1-tab-widget .f1-tab-list .f1-tab::before {
+    content: '';
+    position: absolute;
+    border-left: 1px solid #d0d0d2;
+    height: 20px;
+    left: -2px;
+    top: 50%;
+    margin-top: -10px;
+}
+
+.f1-tab-widget .f1-tab-list .f1-tab:first-child::before {
+    border-left: 0;
+}
+
+.f1-tab-widget .f1-tab-list .f1-tab>a {
+    display: block;
+    position: relative;
+    margin: 0 10px;
+    padding: 20px 0;
+    margin: 0 60px;
+    color: #15151e;
+    border: none;
+    transition: all 0.5s cubic-bezier(0.2, 0, 0.05, 1);
+}
+
+.f1-tab-widget .f1-tab-list .f1-tab>a::after {
+    display: none;
+    position: absolute;
+    content: '';
+    background: #e10600;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    transition: all 0.5s cubic-bezier(0.2, 0, 0.05, 1);
+}
+
+.f1-tab-widget .f1-tab-list .f1-tab>a.active {
+    background-color: transparent;
+}
+
+.f1-tab-widget .f1-tab-list .f1-tab>a:hover::after,
+.f1-tab-widget .f1-tab-list .f1-tab>a.active::after {
+    display: block;
+}
+
 .f1-tab-content-wrapper:before {
     position: absolute;
     content: '';
