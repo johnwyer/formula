@@ -320,8 +320,8 @@ router.get('/drivers', (req, res) => {
 
             const teamsDrivers = await Team.find({})
                 .select(['id', 'shortName', 'driver_1', 'driver_2', 'slug', 'teamColor'])
-                .populate({ path: 'driver_1', select: 'id firstName lastName number country' })
-                .populate({ path: 'driver_2', select: 'id firstName lastName number country' })
+                .populate({ path: 'driver_1', select: 'id firstName lastName number country slug' })
+                .populate({ path: 'driver_2', select: 'id firstName lastName number country slug' })
                 .exec();
 
             let drivers = [],
