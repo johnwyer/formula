@@ -2055,4 +2055,9 @@ main>.container-fluid {
     color: #e10600;
 }
 
+.home-page>.loading-indicator,
+.home-page .site-page .loading-indicator {
+    padding: 40px 0;
+}
+
 @import url("responsive.css");
