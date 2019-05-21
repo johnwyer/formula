@@ -33,7 +33,7 @@ const HomeLastResult = ({result}) => {
                     <p className="race-title">
                         <Link to={`/calendar/${result.slug}`}>{result.fullName}<i className="icon2 icon-chevron-right"></i></Link>
                     </p>
-                    <ul className="f1-podium">
+                    <ul className="f1-podium last-race">
                         { renderList(result.result) }                        
                     </ul>
                     <Link to={`/results/${result.slug}`} className="btn">RACE RESULTS<i className="icon2 icon-chevron-right"></i></Link>

@@ -57,11 +57,11 @@ const HomeDriverStandings = ({ drivers }) => {
     };
     
     const renderList = (drivers) => {
-        return drivers.slice(0, 10).map((driver) => {
+        return drivers.slice(0, 10).map((driver, i) => {
             return (
                 <li className="f1-podium-item" key={driver.id}>
                     <Link to={`/drivers/${driver.slug}`} className="f1-podium-link">
-                        <span className="f1-podium-rank">{driver.position}</span>
+                        <span className="f1-podium-rank">{i + 1}</span>
                         <span className="team-color-icon" style={{ background: `${driver.teamColor}` }}></span>
                         <span className="f1-podium-driver">
                             <span className="f1-podium-name">{driver.firstName}</span>

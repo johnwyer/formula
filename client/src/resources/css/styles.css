@@ -1641,6 +1641,7 @@ main>.container-fluid {
     color: #15151e;
     border: none;
     transition: all 0.5s cubic-bezier(0.2, 0, 0.05, 1);
+    text-transform: uppercase;
 }
 
 .f1-tab-widget .f1-tab-list .f1-tab>a::after {
@@ -1734,7 +1735,7 @@ main>.container-fluid {
     font-size: 90px;
     left: 15px;
     position: absolute;
-    top: 10px;
+    top: -15px;
 }
 
 .f1-podium-position .driver-rank .team-border {
@@ -2049,7 +2050,7 @@ main>.container-fluid {
     text-decoration: none;
 }
 
-.f1-standings .last-race .icon-chevron-right {
+.f1-standings .last-race .race-title .icon-chevron-right {
     margin-left: 5px;
     color: #e10600;
 }

@@ -67,23 +67,21 @@ class Home extends Component {
                         <LoadingIndicator />
                     )
                     :
-                    ( 
-                        <div className="container">
-                            <div className="f1-standings">
-                                <div className="f1-tab-widget">
-                                    <div className="f1-tab-wrapper">
-                                        <ul className="f1-tab-list nav nav-tabs">
-                                            { this.renderTabs() }
-                                        </ul>
-                                    </div>
-                                    <div className="f1-tab-content-wrapper tab-content">
-                                        <HomeDriverStandings drivers={this.props.site.driverStandings} />
-                                        <HomeTeamStandings teams={this.props.site.teamStandings} />
-                                        <HomeLastResult result={this.props.site.lastResult} />
-                                    </div>
+                    (                        
+                        <div className="f1-standings">
+                            <div className="f1-tab-widget">
+                                <div className="f1-tab-wrapper">
+                                    <ul className="f1-tab-list nav nav-tabs">
+                                        { this.renderTabs() }
+                                    </ul>
                                 </div>
-                            </div>          
-                        </div>
+                                <div className="f1-tab-content-wrapper tab-content">
+                                    <HomeDriverStandings drivers={this.props.site.driverStandings} />
+                                    <HomeTeamStandings teams={this.props.site.teamStandings} />
+                                    <HomeLastResult result={this.props.site.lastResult} />
+                                </div>
+                            </div>
+                        </div>                    
                     )                    
                 }
             </SiteLayout>
