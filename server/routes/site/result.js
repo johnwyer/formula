@@ -4,6 +4,7 @@ const moment = require('moment');
 const { Race } = require('../../models/race');
 const { Country } = require('../../models/country');
 const { Team } = require('../../models/team');
+const { Driver } = require('../../models/driver');
 
 router.get('/results', (req, res) => {
     Race.aggregate([{
@@ -254,6 +255,155 @@ router.get('/result', (req, res) => {
         });
 });
 
+router.get('/last', (req, res) => {
+    console.log('/site/result/last');
+    Race.aggregate([{
+                $lookup: {
+                    from: "results",
+                    localField: "_id",
+                    foreignField: "race",
+                    as: "result"
+                }
+            },
+            {
+                $lookup: {
+                    from: "countries",
+                    localField: "country",
+                    foreignField: "_id",
+                    as: "country"
+                }
+            },
+            {
+                $lookup: {
+                    from: "tracks",
+                    localField: "track",
+                    foreignField: "_id",
+                    as: "track"
+                }
+            },
+            {
+                $unwind: '$country'
+            },
+            {
+                $unwind: '$track'
+            }
+        ])
+        .exec()
+        .then(async(results2) => {
+            let results = [];
+            results2.forEach((item, i) => {
+                let result = {
+                    id: item._id,
+                    countryName: item.country.name,
+                    slug: item.slug,
+                    fullName: item.fullName,
+                    result: item.result.length > 0 ? item.result : {}
+                };
+
+                if (Object.keys(result.result).length) {
+                    results.push(result);
+                }
+            });
+
+            results = results[results.length - 1];
+            results.result = results.result[0];
+
+            let teamsDrivers = await Team.find({})
+                .select(['id', 'shortName', 'officialName', 'powerUnit', 'chassisNumber', 'teamColor', 'driver_1', 'driver_2'])
+                .populate({ path: 'driver_1', select: 'id firstName lastName slug' })
+                .populate({ path: 'driver_2', select: 'id firstName lastName slug' })
+                .exec();
+
+            const pointsSystem = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
+
+            Array.from({ length: teamsDrivers.length * 2 }).forEach((team, i) => {
+                let key = `position_${i + 1}`;
+                let driverId = results.result[key].driver;
+                let driver = {};
+
+                teamsDrivers.forEach((element) => {
+                    if (element.driver_1.id.toString() === driverId.toString()) {
+                        driver = {
+                            id: element.driver_1.id,
+                            firstName: element.driver_1.firstName,
+                            lastName: element.driver_1.lastName,
+                            slug: element.driver_1.slug,
+                            teamShortName: element.shortName,
+                            teamColor: element.teamColor,
+                            points: (i < 10) ? pointsSystem[i] : 0
+                        };
+                    }
+                    if (element.driver_2.id.toString() === driverId.toString()) {
+                        driver = {
+                            id: element.driver_2.id,
+                            firstName: element.driver_2.firstName,
+                            lastName: element.driver_2.lastName,
+                            slug: element.driver_2.slug,
+                            teamShortName: element.shortName,
+                            teamColor: element.teamColor,
+                            points: (i < 10) ? pointsSystem[i] : 0
+                        };
+                    }
+
+                    results.result[key].driver = driver;
+                });
+            });
+
+            let driver = {};
+            teamsDrivers.forEach((element) => {
+                if (element.driver_1.id.toString() === results.result.fastestLap.driver.toString()) {
+                    driver = {
+                        id: element.driver_1.id,
+                        firstName: element.driver_1.firstName,
+                        lastName: element.driver_1.lastName,
+                        slug: element.driver_1.slug,
+                        teamShortName: element.shortName,
+                        teamColor: element.teamColor,
+                        points: 1
+                    };
+                }
+                if (element.driver_2.id.toString() === results.result.fastestLap.driver.toString()) {
+                    driver = {
+                        id: element.driver_2.id,
+                        firstName: element.driver_2.firstName,
+                        lastName: element.driver_2.lastName,
+                        slug: element.driver_2.slug,
+                        teamShortName: element.shortName,
+                        teamColor: element.teamColor,
+                        points: 1
+                    };
+                }
+            });
+            results.result.fastestLap.driver = driver;
+
+            let result = [];
+            let fastestLap = {};
+            for (let key in results.result) {
+                if (/position_/i.test(key)) {
+                    result.push(results.result[key]);
+                }
+                if (/fastest/i.test(key)) {
+                    fastestLap = results.result[key];
+                }
+            }
+
+            result.map((item) => {
+                if (item.driver.id === fastestLap.driver.id) {
+                    item.driver.points = item.driver.points + fastestLap.driver.points
+                }
+
+                return item;
+            });
+
+            results.result = result;
+
+            return res.status(200).send(results);
+        })
+        .catch((error) => {
+            return res.status(400).send(error);
+        });
+});
+
 router.get('/drivers', (req, res) => {
     console.log('/results/drivers');
     Race.aggregate([{
@@ -475,13 +625,40 @@ router.get('/teams', (req, res) => {
                     "officialName": "$officialName",
                     "driver_1": "$driver_1",
                     "driver_2": "$driver_2",
-                    "teamColor": "$teamColor"
+                    "teamColor": "$teamColor",
+                    "slug": "$slug",
+                    "teamLogo": "$teamLogo"
                 }
             }, {
                 $addFields: {
                     points: 0
                 }
             }]).exec();
+
+            teamsList.map((team) => {
+                return team.teamLogo = team.teamLogo[0].url;
+            });
+
+            const driversList = await Driver.aggregate([{
+                $project: {
+                    'id': "$_id",
+                    'firstName': true,
+                    'lastName': true
+                }
+            }]).exec();
+
+            driversList.forEach((driver) => {
+                teamsList.map((team) => {
+                    if (team.driver_1.toString() === driver.id.toString()) {
+                        team.driver_1_lastName = driver.lastName;
+                    }
+                    if (team.driver_2.toString() === driver.id.toString()) {
+                        team.driver_2_lastName = driver.lastName;
+                    }
+
+                    return team;
+                });
+            });
 
             results.forEach((result) => {
                 result.result.forEach((resultDriver) => {

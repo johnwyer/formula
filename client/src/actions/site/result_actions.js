@@ -3,7 +3,8 @@ import {
     SITE_GET_RESULTS,
     SITE_GET_RESULT_BY_SLUG,
     SITE_GET_DRIVER_STANDINGS_RESULTS,
-    SITE_GET_TEAM_STANDINGS_RESULTS
+    SITE_GET_TEAM_STANDINGS_RESULTS,
+    SITE_GET_LAST_RESULT
 } from './types';
 import { SITE_RESULT_SERVER } from '../../components/utils/misc';
 
@@ -21,6 +22,15 @@ export function getResultBySlug(slug) {
 
     return {
         type: SITE_GET_RESULT_BY_SLUG,
+        payload: request
+    };
+};
+
+export function getLastResult() {
+    const request = axios.get(`${SITE_RESULT_SERVER}/last`).then((response) => response.data);
+
+    return {
+        type: SITE_GET_LAST_RESULT,
         payload: request
     };
 };

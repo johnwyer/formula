@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SiteLayout from '../../hoc/site';
 import LoadingIndicator from '../utils/loading-indicator';
-import { getDriverStandings } from '../../actions/site/result_actions';
+import { getDriverStandings, getTeamStandings, getLastResult } from '../../actions/site/result_actions';
 
 import { connect } from 'react-redux';
 
@@ -11,17 +11,51 @@ import HomeLastResult from './last-result';
 
 class Home extends Component {
     state = {
-        loading: true
+        loading: true,
+        activeTab: 'drivers'
     };
+
+    _tabsList = [
+        {
+            tab: 'drivers',
+            title: 'Drivers'      
+        }, 
+        {
+           tab: 'constructors',
+           title: 'Constructors'
+        }, 
+        {
+            tab: 'last-race',
+            title: 'Last Race'
+        }
+    ];
     
-    componentDidMount(){
-        this.props.dispatch(getDriverStandings()).then(() => {      
-            setTimeout(() => {
-                this.setState({
-                    loading: false
-                });
-            }, 1000);
-        });
+    async componentDidMount(){
+        try {
+            await this.props.dispatch(getDriverStandings());
+            await this.props.dispatch(getTeamStandings());
+            await this.props.dispatch(getLastResult());
+            
+            this.setState({
+                loading: false
+            });
+        }
+        catch(error) {
+            this.setState({
+                loading: false
+            });
+        }        
+    };
+
+    renderTabs = () => {
+        return this._tabsList.map((tab) => {
+            let isActive = tab.tab === this.state.activeTab ? 'active' : '';
+            return (
+                <li className="f1-tab nav-item" key={tab.tab}>
+                    <a href={`#${tab.tab}`} className={`nav-link ${isActive}`} data-toggle="tab">{tab.title}</a>
+                </li> 
+            )
+        })
     };
     
     render() {
@@ -39,21 +73,13 @@ class Home extends Component {
                                 <div className="f1-tab-widget">
                                     <div className="f1-tab-wrapper">
                                         <ul className="f1-tab-list nav nav-tabs">
-                                            <li className="f1-tab nav-item">
-                                                <a href="#drivers" className="nav-link active" data-toggle="tab">DRIVERS</a>
-                                            </li>
-                                            <li className="f1-tab nav-item">
-                                                <a href="#constructors" className="nav-link" data-toggle="tab">CONSTRUCTORS</a>
-                                            </li>
-                                            <li className="f1-tab nav-item">
-                                                <a href="#last-race" className="nav-link" data-toggle="tab">LAST RACE</a>
-                                            </li>
+                                            { this.renderTabs() }
                                         </ul>
                                     </div>
                                     <div className="f1-tab-content-wrapper tab-content">
                                         <HomeDriverStandings drivers={this.props.site.driverStandings} />
-                                        <HomeTeamStandings />
-                                        <HomeLastResult />
+                                        <HomeTeamStandings teams={this.props.site.teamStandings} />
+                                        <HomeLastResult result={this.props.site.lastResult} />
                                     </div>
                                 </div>
                             </div>          

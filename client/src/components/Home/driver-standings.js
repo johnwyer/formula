@@ -29,8 +29,8 @@ const HomeDriverStandings = ({ drivers }) => {
     };
 
     const renderPodium = (drivers) => {
-        const driversPodium = [drivers[1], drivers[0], drivers[2]];
-        return driversPodium.map((driver, i) => {
+        const topDrivers = [drivers[1], drivers[0], drivers[2]];
+        return topDrivers.map((driver, i) => {
             return (
                 <Link to={`/drivers/${driver.slug}`} className={`f1-podium-position ${getPositionClass(i + 1)}`} key={driver.id}>
                     <div className="driver-rank">
@@ -57,28 +57,24 @@ const HomeDriverStandings = ({ drivers }) => {
     };
     
     const renderList = (drivers) => {
-        return drivers.map((driver, i) => {
-            if(i < 10) {
-                return (
-                    <li className="f1-podium-item" key={driver.id}>
-                        <Link to={`/drivers/${driver.slug}`} className="f1-podium-link">
-                            <span className="f1-podium-rank">{driver.position}</span>
-                            <span className="team-color-icon" style={{ background: `${driver.teamColor}` }}></span>
-                            <span className="f1-podium-driver">
-                                <span className="f1-podium-name">{driver.firstName}</span>
-                                <strong className="f1-podium-surname">{driver.lastName}</strong>
-                            </span>
-                            <span className="f1-podium-subdetail">{driver.teamShortName}</span>
-                            <span className="f1-podium-right">
-                                <span className="f1-podium-time">{driver.points} PTS</span>
-                                <i className="icon2 icon-chevron-right"></i>
-                            </span>
-                        </Link>
-                    </li>                    
-                )
-            } else {
-                return null
-            }
+        return drivers.slice(0, 10).map((driver) => {
+            return (
+                <li className="f1-podium-item" key={driver.id}>
+                    <Link to={`/drivers/${driver.slug}`} className="f1-podium-link">
+                        <span className="f1-podium-rank">{driver.position}</span>
+                        <span className="team-color-icon" style={{ background: `${driver.teamColor}` }}></span>
+                        <span className="f1-podium-driver">
+                            <span className="f1-podium-name">{driver.firstName}</span>
+                            <strong className="f1-podium-surname">{driver.lastName}</strong>
+                        </span>
+                        <span className="f1-podium-subdetail">{driver.teamShortName}</span>
+                        <span className="f1-podium-right">
+                            <span className="f1-podium-time">{driver.points} PTS</span>
+                            <i className="icon2 icon-chevron-right"></i>
+                        </span>
+                    </Link>
+                </li>
+            )
         })
     };
 

@@ -8,7 +8,8 @@ import {
     SITE_GET_RESULTS,
     SITE_GET_RESULT_BY_SLUG,
     SITE_GET_DRIVER_STANDINGS_RESULTS,
-    SITE_GET_TEAM_STANDINGS_RESULTS
+    SITE_GET_TEAM_STANDINGS_RESULTS,
+    SITE_GET_LAST_RESULT
 } from '../actions/site/types';
 
 export default function(state = {}, action) {
@@ -63,6 +64,11 @@ export default function(state = {}, action) {
             return {
                 ...state,
                 teamStandings: action.payload
+            };
+        case SITE_GET_LAST_RESULT:
+            return {
+                ...state,
+                lastResult: action.payload
             };
         default:
             return state;
