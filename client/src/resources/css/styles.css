@@ -1670,7 +1670,8 @@ main>.container-fluid {
     content: '';
     left: 0;
     top: 0;
-    width: 100%;
+    width: calc(100% + 30px);
+    margin: 0 -15px;
     height: 335px;
     background-image: url('/images/bg.png');
     background-repeat: no-repeat;

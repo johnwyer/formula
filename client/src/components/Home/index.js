@@ -15,7 +15,7 @@ class Home extends Component {
         activeTab: 'drivers'
     };
 
-    _tabsList = [
+    _tabList = [
         {
             tab: 'drivers',
             title: 'Drivers'      
@@ -48,7 +48,7 @@ class Home extends Component {
     };
 
     renderTabs = () => {
-        return this._tabsList.map((tab) => {
+        return this._tabList.map((tab) => {
             let isActive = tab.tab === this.state.activeTab ? 'active' : '';
             return (
                 <li className="f1-tab nav-item" key={tab.tab}>
