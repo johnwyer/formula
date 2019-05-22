@@ -61,14 +61,14 @@ class Login extends Component {
         event.preventDefault();
         let dataToSubmit = generateData(this.state.formdata, 'login');
         let formIsValid = isFormValid(this.state.formdata, 'login');
-        console.log('dataToSubmit ', dataToSubmit);
-        console.log('formIsValid ', formIsValid);
+        //console.log('dataToSubmit ', dataToSubmit);
+        //console.log('formIsValid ', formIsValid);
 
         if(formIsValid){
             //console.log('formIsValid: ', formIsValid);
             this.props.dispatch(loginUser(dataToSubmit)).then((response) => {
                 if(response.payload.loginSuccess){
-                    console.log(response.payload);
+                    //console.log(response.payload);
                     this.props.history.push('/user/dashboard');
                 } else {
                     this.setState({
@@ -103,10 +103,18 @@ class Login extends Component {
                     : null 
                 }  
                 <button className="btn btn-primary" onClick={(event) => this.submitForm(event)}>Log in</button>
+                {/* 
                 <button className="btn btn-outline-primary" type="button" style={{marginLeft: '10px'}} onClick={() => this.props.history.push('/reset-user')}>Forgot password?</button>                              
+                */}
             </form>
         )
     }
 };
 
-export default connect()(withRouter(Login));
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+};
+
+export default connect(mapStateToProps)(withRouter(Login));

@@ -322,6 +322,7 @@ router.get('/last', (req, res) => {
                 let driver = {};
 
                 teamsDrivers.forEach((element) => {
+                    //console.log(typeof element.driver_1.id, typeof driverId);
                     if (element.driver_1.id.toString() === driverId.toString()) {
                         driver = {
                             id: element.driver_1.id,

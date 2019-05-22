@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"formula.users"},{"v":2,"unique":true,"key":{"email":1},"name":"email_1","ns":"formula.users","background":true}],"uuid":"7528d133d6cc43d892242f85b4c99094"}
