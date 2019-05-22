@@ -13,7 +13,7 @@ import {
 } from '../actions/site/types';
 
 export default function(state = {}, action) {
-    console.log('reducer ', action.payload);
+    //console.log('site reducer ', action.payload);
     switch (action.type) {
         case SITE_GET_TEAMS:
             return {

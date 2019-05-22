@@ -6,6 +6,7 @@ import {
 } from '../actions/admin/types';
 
 export default function(state = {}, action) {
+    //console.log('user reducer ', action.payload);
     switch (action.type) {
         case REGISTER_USER:
             return {

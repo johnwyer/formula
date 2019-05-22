@@ -8,7 +8,7 @@ import {
 } from '../actions/admin/types';
 
 export default function(state = {}, action) {
-    console.log('reducer ', action.payload);
+    //console.log('driver reducer ', action.payload);
     switch (action.type) {
         case GET_DRIVERS:
             return {

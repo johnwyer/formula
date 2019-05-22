@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './resources/css/bootstrap.css';
 import './resources/css/styles.css';
+import './resources/css/responsive.css';
 
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
