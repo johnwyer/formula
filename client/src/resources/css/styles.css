@@ -88,6 +88,15 @@ table {
     display: none;
 }
 
+.nav-link,
+.dropdown-item {
+    text-transform: uppercase;
+}
+
+.ta-center {
+    text-align: center;
+}
+
 #root {
     margin: 0;
     position: relative;
@@ -2059,6 +2068,22 @@ main>.container-fluid {
 .home-page>.loading-indicator,
 .home-page .site-page .loading-indicator {
     padding: 40px 0;
+}
+
+.footer>.container {
+    height: inherit;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.footer-content p {
+    margin: 0;
+    padding: 0;
 }
 
 
