@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import SiteLayout from '../../hoc/site';
 
 import LoadingIndicator from '../utils/loading-indicator';
+import ErrorIndicator from '../utils/error-indicator';
+
 import { getDriverStandings } from '../../actions/site/result_actions';
 import ResultsDriversList from './drivers-list';
 
@@ -9,34 +11,52 @@ import { connect } from 'react-redux';
 
 class ResultsDriversIndex extends Component {
     state = {
-        loading: true
+        loading: true,
+        error: false,
+        errorMessage: ''         
     };
 
     componentDidMount() {
-        this.props.dispatch(getDriverStandings()).then(() => {           
+        this.getData();
+    };
+
+    getData = async() => {
+        this.setState({
+            loading: true,
+            error: false,
+            errorMessage: ''
+        });
+
+        try {
+            await this.props.dispatch(getDriverStandings());        
             setTimeout(() => {
                 this.setState({
                     loading: false
                 });
             }, 1000);
-        });
+        } catch(error) {
+            this.setState({
+                loading: false,
+                error: true,
+                errorMessage: error.toString()
+            });
+        }
     };
 
     render() {
+        const { loading, error, errorMessage } = this.state;
+        const hasData = !(loading || error);
+        const errorIndicator = error ? <ErrorIndicator message={errorMessage} reloadHandler={() => this.getData()} /> : null;
+        const spinner = loading ? <LoadingIndicator /> : null;
+        const content = hasData ? <ResultsDriversList results={this.props.site.driverStandings} /> : null;
+
         return (
             <SiteLayout classes={`results-page`}>
                 <div className="resultsarchive-wrapper">
                     <h2 className="page-title">2019 Driver Standings</h2>
-                    {
-                        this.state.loading ? 
-                        (
-                            <LoadingIndicator />
-                        )
-                        :
-                        ( 
-                            <ResultsDriversList results={this.props.site.driverStandings} />
-                        )                    
-                    }  
+                    { errorIndicator }
+                    { spinner }
+                    { content } 
                 </div>
             </SiteLayout>
         )
