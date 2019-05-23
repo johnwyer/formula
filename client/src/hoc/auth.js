@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { auth } from '../actions/admin/user_actions';
 
 import LoadingIndicator from '../components/utils/loading-indicator';
+import WrappedErrorIndicator from '../components/utils/wrapped-error-indicator';
 import ErrorIndicator from '../components/utils/error-indicator';
 
 export default function(ComposedClass, reload, adminRoute = null) {
@@ -26,7 +27,6 @@ export default function(ComposedClass, reload, adminRoute = null) {
 
             try {
                 await this.props.dispatch(auth());
-
                 let user = this.props.user.userData;
 
                 if (!user.isAuth) {
@@ -51,21 +51,21 @@ export default function(ComposedClass, reload, adminRoute = null) {
                     }
                 }                
             } catch (error) {
-                console.log(error);
-                setTimeout(() => {
+                //console.log(error);
+                //setTimeout(() => {
                     this.setState({
                     loading: false,
                     error: true,
                     errorMessage: error.toString()
                 });
-                }, 20000)
+                //}, 20000)
             }            
         };
 
         render() {
             const { loading, error } = this.state;
             const hasData = !(loading || error);
-            const errorMessage = error ? <ErrorIndicator message={this.state.errorMessage} reloadHandler={() => this.getData()} componentClasses="auth-error" /> : null;
+            const errorMessage = error ? <WrappedErrorIndicator classes="auth-error"><ErrorIndicator message={this.state.errorMessage} reloadHandler={() => this.getData()} /></WrappedErrorIndicator> : null;
             const spinner = loading ? <LoadingIndicator classes={'auth-loader'} /> : null;
             const content = hasData ? <ComposedClass {...this.props} user={this.props.user} /> : null;            
 

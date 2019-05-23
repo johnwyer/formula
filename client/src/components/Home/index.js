@@ -93,7 +93,7 @@ class Home extends Component {
     render() {
         const { loading, error, errorMessage } = this.state;
         const hasData = !(loading || error);
-        const errorIndicator = error ? <ErrorIndicator message={errorMessage} reloadHandler={() => this.getData()} styles={{margin: '100px auto' }} /> : null;
+        const errorIndicator = error ? <ErrorIndicator message={errorMessage} reloadHandler={() => this.getData()} /> : null;
         const spinner = loading ? <LoadingIndicator /> : null;
         const content = hasData ? this.renderContent() : null;
 

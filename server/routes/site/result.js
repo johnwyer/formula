@@ -257,7 +257,7 @@ router.get('/result', (req, res) => {
 
 router.get('/last', (req, res) => {
     console.log('/site/result/last');
-    return res.status(400).send(new Error('Server error'));
+    //return res.status(400).send(new Error('Server error'));
 
     Race.aggregate([{
                 $lookup: {
