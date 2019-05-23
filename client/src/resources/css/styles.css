@@ -97,6 +97,14 @@ table {
     text-align: center;
 }
 
+.auth-loader {
+    padding: 110px 0;
+}
+
+.auth-error {
+    margin: 110px auto;
+}
+
 #root {
     margin: 0;
     position: relative;

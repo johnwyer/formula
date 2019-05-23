@@ -9,6 +9,8 @@ const { cloudinary } = require('../middleware/cloudinary');
 
 
 router.get('/auth', auth, (req, res) => {
+    return res.status(500).send(new Error('Server error'));
+
     res.status(200).json({
         isAdmin: req.user.role === 0 ? false : true,
         isAuth: true,

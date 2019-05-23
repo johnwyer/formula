@@ -2,16 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { auth } from '../actions/admin/user_actions';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
+import LoadingIndicator from '../components/utils/loading-indicator';
+import ErrorIndicator from '../components/utils/error-indicator';
 
 export default function(ComposedClass, reload, adminRoute = null) {
     class AuthenticationCheck extends Component {
         state = {
-            loading: true
+            loading: true, 
+            error: false,
+            errorMessage: ''
         };
-
+        
         componentDidMount() {
-            this.props.dispatch(auth()).then((response) => {
+            this.getData();
+        };       
+
+        getData = async() => {
+            this.setState({
+                loading: true,
+                error: false,
+                errorMessage: ''
+            });   
+
+            try {
+                await this.props.dispatch(auth());
+
                 let user = this.props.user.userData;
 
                 if (!user.isAuth) {
@@ -19,7 +34,7 @@ export default function(ComposedClass, reload, adminRoute = null) {
                         this.props.history.push('/register-login');
                     } else {
                         this.setState({
-                            loading: false
+                            loading: false                            
                         }); 
                     }
                 } else {
@@ -34,21 +49,32 @@ export default function(ComposedClass, reload, adminRoute = null) {
                             });
                         }
                     }
-                }
-            });
+                }                
+            } catch (error) {
+                console.log(error);
+                setTimeout(() => {
+                    this.setState({
+                    loading: false,
+                    error: true,
+                    errorMessage: error.toString()
+                });
+                }, 20000)
+            }            
         };
 
         render() {
-            if(this.state.loading){
-                return (
-                    <div className="d-flex justify-content-center" style={{padding:'100px 0'}}>
-                        <CircularProgress />
-                    </div>
-                )
-            }
+            const { loading, error } = this.state;
+            const hasData = !(loading || error);
+            const errorMessage = error ? <ErrorIndicator message={this.state.errorMessage} reloadHandler={() => this.getData()} componentClasses="auth-error" /> : null;
+            const spinner = loading ? <LoadingIndicator classes={'auth-loader'} /> : null;
+            const content = hasData ? <ComposedClass {...this.props} user={this.props.user} /> : null;            
 
             return (
-                <ComposedClass {...this.props} user={this.props.user} />
+                <React.Fragment>
+                    { errorMessage }
+                    { spinner }
+                    { content }
+                </React.Fragment>
             )
         };
     };
