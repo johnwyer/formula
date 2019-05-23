@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SiteLayout from '../../hoc/site';
 import LoadingIndicator from '../utils/loading-indicator';
 import ErrorIndicator from '../utils/error-indicator';
+
 import { getDriverStandings, getTeamStandings, getLastResult } from '../../actions/site/result_actions';
 
 import { connect } from 'react-redux';
