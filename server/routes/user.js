@@ -26,7 +26,7 @@ router.post('/register', (req, res) => {
     //console.log(user);
     user.save((error, doc) => {
         if (error) {
-            return res.json({
+            return res.status(500).json({
                 success: false,
                 error
             });
@@ -41,7 +41,7 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({ 'email': req.body.email }, (error, user) => {
         if (!user) {
-            return res.json({
+            return res.status(401).json({
                 loginSuccess: false,
                 message: 'Auth failed, email not found.'
             });
@@ -49,7 +49,7 @@ router.post('/login', (req, res) => {
 
         user.comparePassword(req.body.password, (error, isMatch) => {
             if (!isMatch) {
-                return res.json({
+                return res.status(401).json({
                     loginSuccess: false,
                     message: 'Wrong password.'
                 });
@@ -69,13 +69,15 @@ router.post('/login', (req, res) => {
 router.get('/logout', auth, (req, res) => {
     User.findOneAndUpdate({ "_id": req.user.id }, { token: '' }, (error, doc) => {
         if (error) {
-            return res.json({
+            return res.status(401).json({
                 success: false,
                 error
             });
         }
 
-        return res.status(200).send({ success: true });
+        return res.status(200).send({
+            success: true
+        });
     });
 });
 
@@ -98,7 +100,10 @@ router.get('/remove-image', auth, admin, (req, res) => {
         //console.log('result ', result);
         //console.log('error ', error);
         if (error) {
-            return res.json({ success: false, error });
+            return res.status(401).json({
+                success: false,
+                error
+            });
         }
 
         res.status(200).send('ok');

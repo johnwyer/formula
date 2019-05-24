@@ -8,7 +8,7 @@ let auth = (req, res, next) => {
             throw error;
         }
         if (!user) {
-            return res.json({
+            return res.status(401).json({
                 isAuth: false,
                 error: true
             });

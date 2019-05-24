@@ -1,6 +1,8 @@
 /node_modules
 /build
 /client/node_modules
+/db-dump/formula/users.json
+/db-dump/formula/users.metadata.json
 
 .env
 
