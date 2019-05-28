@@ -39,7 +39,7 @@ class CalendarIndex extends Component {
             this.setState({
                 loading: false,
                 error: true,
-                errorMessage: error.toString()
+                errorMessage: String(error)
             });
         }
     };

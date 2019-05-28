@@ -17,7 +17,4 @@ module.exports = async() => {
     } catch (error) {
         console.log(error);
     }
-
-    console.log('after calling readFile');
-    console.log('--------------------');
 };
