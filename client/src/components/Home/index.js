@@ -13,8 +13,8 @@ import HomeLastResult from './last-result';
 
 class Home extends Component {
     state = {
-        loading: true,
         activeTab: 'drivers',
+        loading: true,        
         error: false,
         errorMessage: ''
     };
@@ -39,10 +39,12 @@ class Home extends Component {
     };
 
     getData = async () => {
-        this.setState({
-            loading: true,
-            error: false,
-            errorMessage: ''
+        this.setState(() => {
+            return {
+                loading: true,
+                error: false,
+                errorMessage: ''
+            }
         });
 
         try {

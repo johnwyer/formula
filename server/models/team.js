@@ -99,7 +99,8 @@ const teamSchema = mongoose.Schema({
         default: []
     }
 }, {
-    timestamps: true
+    timestamps: true,
+    strict: true
 });
 
 teamSchema.set('toObject', { virtuals: true });

@@ -121,7 +121,8 @@ class Header extends Component {
                 </li>
             )
         : 
-            item.hasOwnProperty('submenu') ? this.renderLinkItem(item, i, true) : this.renderLinkItem(item, i, false)            
+            Object.prototype.hasOwnProperty.call(item, 'submenu') ? this.renderLinkItem(item, i, true) : this.renderLinkItem(item, i, false)
+            //item.hasOwnProperty('submenu') ? this.renderLinkItem(item, i, true) : this.renderLinkItem(item, i, false)            
     };
 
     showLinks = (type) => {

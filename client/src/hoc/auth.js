@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { auth } from '../actions/admin/user_actions';
 
 import LoadingIndicator from '../components/utils/loading-indicator';
-import WrappedErrorIndicator from '../components/utils/wrapped-error-indicator';
 import ErrorIndicator from '../components/utils/error-indicator';
 
 export default function(ComposedClass, reload, adminRoute = null) {
@@ -51,21 +50,18 @@ export default function(ComposedClass, reload, adminRoute = null) {
                     }
                 }                
             } catch (error) {
-                //console.log(error);
-                //setTimeout(() => {
-                    this.setState({
+                this.setState({
                     loading: false,
                     error: true,
                     errorMessage: error.toString()
                 });
-                //}, 20000)
             }            
         };
 
         render() {
             const { loading, error } = this.state;
             const hasData = !(loading || error);
-            const errorMessage = error ? <WrappedErrorIndicator classes="auth-error"><ErrorIndicator message={this.state.errorMessage} reloadHandler={() => this.getData()} /></WrappedErrorIndicator> : null;
+            const errorMessage = error ? <div className="auth-error"><ErrorIndicator message={this.state.errorMessage} reloadHandler={() => this.getData()} /></div> : null;
             const spinner = loading ? <LoadingIndicator classes={'auth-loader'} /> : null;
             const content = hasData ? <ComposedClass {...this.props} user={this.props.user} /> : null;            
 

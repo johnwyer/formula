@@ -45,6 +45,7 @@ const raceSchema = mongoose.Schema({
     strict: true
 });
 
+raceSchema.set('toObject', { virtuals: true });
 raceSchema.set("toJSON", { virtuals: true });
 const Race = mongoose.model("Race", raceSchema);
 

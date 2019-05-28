@@ -245,6 +245,7 @@ router.get('/result', (req, res) => {
                 if (item.driver.id === result.fastestLap.driver.id) {
                     item.driver.points = item.driver.points + result.fastestLap.driver.points
                 }
+
                 return item;
             });
 
@@ -258,6 +259,7 @@ router.get('/result', (req, res) => {
 router.get('/last', (req, res) => {
     console.log('/site/result/last');
     //return res.status(400).send(new Error('Server error'));
+    //console.time('/results/drivers/last');
 
     Race.aggregate([{
                 $lookup: {
@@ -324,8 +326,7 @@ router.get('/last', (req, res) => {
                 let driver = {};
 
                 teamsDrivers.forEach((element) => {
-                    //console.log(typeof element.driver_1.id, typeof driverId);
-                    if (element.driver_1.id.toString() === driverId.toString()) {
+                    if (element.driver_1.id == driverId) {
                         driver = {
                             id: element.driver_1.id,
                             firstName: element.driver_1.firstName,
@@ -336,7 +337,7 @@ router.get('/last', (req, res) => {
                             points: (i < 10) ? pointsSystem[i] : 0
                         };
                     }
-                    if (element.driver_2.id.toString() === driverId.toString()) {
+                    if (element.driver_2.id == driverId) {
                         driver = {
                             id: element.driver_2.id,
                             firstName: element.driver_2.firstName,
@@ -354,7 +355,7 @@ router.get('/last', (req, res) => {
 
             let driver = {};
             teamsDrivers.forEach((element) => {
-                if (element.driver_1.id.toString() === results.result.fastestLap.driver.toString()) {
+                if (element.driver_1.id == results.result.fastestLap.driver) {
                     driver = {
                         id: element.driver_1.id,
                         firstName: element.driver_1.firstName,
@@ -365,7 +366,7 @@ router.get('/last', (req, res) => {
                         points: 1
                     };
                 }
-                if (element.driver_2.id.toString() === results.result.fastestLap.driver.toString()) {
+                if (element.driver_2.id == results.result.fastestLap.driver) {
                     driver = {
                         id: element.driver_2.id,
                         firstName: element.driver_2.firstName,
@@ -399,6 +400,7 @@ router.get('/last', (req, res) => {
             });
 
             results.result = result;
+            //console.timeEnd('/results/drivers/last');
 
             return res.status(200).send(results);
         })
@@ -515,7 +517,7 @@ router.get('/drivers', (req, res) => {
 
             drivers.map((driver) => {
                 countries.forEach((country) => {
-                    if (driver.countryId.toString() === country._id.toString()) {
+                    if (String(driver.countryId) === String(country._id)) {
                         driver.country = country;
 
                         return driver;
@@ -652,10 +654,10 @@ router.get('/teams', (req, res) => {
 
             driversList.forEach((driver) => {
                 teamsList.map((team) => {
-                    if (team.driver_1.toString() === driver.id.toString()) {
+                    if (String(team.driver_1) === String(driver.id)) {
                         team.driver_1_lastName = driver.lastName;
                     }
-                    if (team.driver_2.toString() === driver.id.toString()) {
+                    if (String(team.driver_2) === String(driver.id)) {
                         team.driver_2_lastName = driver.lastName;
                     }
 
@@ -671,7 +673,7 @@ router.get('/teams', (req, res) => {
                         if (/position_/i.test(entry[0])) {
                             if (entry[1].position <= 10) {
                                 teamsList.map((team) => {
-                                    if (entry[1].driver.toString() == team.driver_1.toString() || entry[1].driver.toString() == team.driver_2.toString()) {
+                                    if (String(entry[1].driver) == String(team.driver_1) || String(entry[1].driver) == String(team.driver_2)) {
                                         team.points = team.points + pointsSystem[entry[1].position];
                                     }
 
