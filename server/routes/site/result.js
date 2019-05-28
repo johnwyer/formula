@@ -684,7 +684,7 @@ router.get('/teams', (req, res) => {
 
                         if (/fastest/i.test(entry[0])) {
                             teamsList.map((team) => {
-                                if (entry[1].driver.toString() == team.driver_1.toString() || entry[1].driver.toString() == team.driver_2.toString()) {
+                                if (String(entry[1].driver) == String(team.driver_1) || String(entry[1].driver) == String(team.driver_2)) {
                                     team.points += 1;
                                 }
 
