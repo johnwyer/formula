@@ -39,12 +39,10 @@ class Home extends Component {
     };
 
     getData = async () => {
-        this.setState(() => {
-            return {
-                loading: true,
-                error: false,
-                errorMessage: ''
-            }
+        this.setState({
+            loading: true,
+            error: false,
+            errorMessage: ''
         });
 
         try {
@@ -60,7 +58,7 @@ class Home extends Component {
             this.setState({
                 loading: false,
                 error: true,
-                errorMessage: error.toString()
+                errorMessage: String(error)
             });
         }
     };

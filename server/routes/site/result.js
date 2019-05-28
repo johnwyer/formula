@@ -98,6 +98,8 @@ router.get('/results', (req, res) => {
 });
 
 router.get('/result', (req, res) => {
+    //console.log('result/result');
+    //console.time('result/result');
     Race.aggregate([
             { $match: { slug: req.query.slug } },
             {
@@ -230,14 +232,14 @@ router.get('/result', (req, res) => {
 
             let results = [];
             let fastestLap = {};
-            for (let key in result.result) {
+            Object.keys(result.result).map(function(key, index) {
                 if (/position_/i.test(key)) {
                     results.push(result.result[key]);
                 }
                 if (/fastest/i.test(key)) {
                     fastestLap = result.result[key];
                 }
-            }
+            });
             result.result = results;
             result.fastestLap = fastestLap;
 
@@ -249,6 +251,8 @@ router.get('/result', (req, res) => {
                 return item;
             });
 
+            //console.timeEnd('result/result');
+
             return res.status(200).send(result);
         })
         .catch((error) => {
@@ -257,7 +261,7 @@ router.get('/result', (req, res) => {
 });
 
 router.get('/last', (req, res) => {
-    console.log('/site/result/last');
+    //console.log('/site/result/last');
     //return res.status(400).send(new Error('Server error'));
     //console.time('/results/drivers/last');
 
@@ -382,14 +386,14 @@ router.get('/last', (req, res) => {
 
             let result = [];
             let fastestLap = {};
-            for (let key in results.result) {
+            Object.keys(results.result).map(function(key, index) {
                 if (/position_/i.test(key)) {
                     result.push(results.result[key]);
                 }
                 if (/fastest/i.test(key)) {
                     fastestLap = results.result[key];
                 }
-            }
+            });
 
             result.map((item) => {
                 if (item.driver.id === fastestLap.driver.id) {
@@ -410,7 +414,7 @@ router.get('/last', (req, res) => {
 });
 
 router.get('/drivers', (req, res) => {
-    console.log('/results/drivers');
+    //console.log('/results/drivers');
     Race.aggregate([{
                 $lookup: {
                     from: "results",
@@ -565,7 +569,7 @@ router.get('/drivers', (req, res) => {
 });
 
 router.get('/teams', (req, res) => {
-    console.log('/results/teams');
+    //console.log('/results/teams');
     Race.aggregate([{
                 $lookup: {
                     from: "results",
@@ -673,7 +677,7 @@ router.get('/teams', (req, res) => {
                         if (/position_/i.test(entry[0])) {
                             if (entry[1].position <= 10) {
                                 teamsList.map((team) => {
-                                    if (String(entry[1].driver) == String(team.driver_1) || String(entry[1].driver) == String(team.driver_2)) {
+                                    if (String(entry[1].driver) === String(team.driver_1) || String(entry[1].driver) === String(team.driver_2)) {
                                         team.points = team.points + pointsSystem[entry[1].position];
                                     }
 
@@ -684,7 +688,7 @@ router.get('/teams', (req, res) => {
 
                         if (/fastest/i.test(entry[0])) {
                             teamsList.map((team) => {
-                                if (String(entry[1].driver) == String(team.driver_1) || String(entry[1].driver) == String(team.driver_2)) {
+                                if (String(entry[1].driver) === String(team.driver_1) || String(entry[1].driver) === String(team.driver_2)) {
                                     team.points += 1;
                                 }
 

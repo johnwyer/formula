@@ -20,7 +20,7 @@ router.get('/teams-drivers', (req, res) => {
 });
 
 router.get('/races', (req, res) => {
-    console.log('get races');
+    //console.log('calendar/races');
     Race.aggregate([{
                 $lookup: {
                     from: "results",
@@ -86,7 +86,8 @@ router.get('/races', (req, res) => {
 });
 
 router.get('/race', (req, res) => {
-    console.log('get race');
+    //console.log('/calendar/race');
+    //console.time('calendar/race');
     Race.aggregate([
             { $match: { slug: req.query.slug } },
             {
@@ -167,13 +168,14 @@ router.get('/race', (req, res) => {
                 });
 
                 let results = [];
-                for (let key in race.result) {
+                Object.keys(race.result).map(function(key, index) {
                     if (/position_/i.test(key)) {
                         results.push(race.result[key]);
                     }
-                }
+                });
                 race.result = results;
             }
+            //console.timeEnd('calendar/race');
 
             return res.status(200).send(race);
         })
