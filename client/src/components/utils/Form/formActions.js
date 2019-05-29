@@ -1,3 +1,5 @@
+const resultSize = 5;
+
 export const validate = (element, formdata = []) => {
     let error = [true, ''];
 
@@ -26,19 +28,18 @@ export const validate = (element, formdata = []) => {
 export const update = (element, formdata, formname) => {
     let id = element.id;
     let keys, newElement;
-    const newFormdata = { 
-        ...formdata 
+    const newFormdata = {
+        ...formdata
     };
 
     if (id.includes('.')) {
         keys = id.split('.');
-        newElement = { 
-            ...newFormdata[keys[0]][keys[1]] 
+        newElement = {
+            ...newFormdata[keys[0]][keys[1]]
         };
-    }
-    else {
-        newElement = { 
-            ...newFormdata[id] 
+    } else {
+        newElement = {
+            ...newFormdata[id]
         };
     }
 
@@ -53,7 +54,7 @@ export const update = (element, formdata, formname) => {
         newFormdata[keys[0]][keys[1]] = newElement;
     } else {
         newFormdata[id] = newElement;
-    }    
+    }
 
     return newFormdata;
 };
@@ -62,7 +63,7 @@ export const generateData = (formdata, formname) => {
     let dataToSubmit = {};
 
     for (let key in formdata) {
-        if (Object.keys(formdata[key]).length > 5) {
+        if (Object.keys(formdata[key]).length > resultSize) {
             if (key !== 'confirmPassword') {
                 dataToSubmit[key] = formdata[key].value;
             }
@@ -70,7 +71,7 @@ export const generateData = (formdata, formname) => {
             dataToSubmit[key] = {};
             for (let key2 in formdata[key]) {
                 dataToSubmit[key][key2] = formdata[key][key2].value;
-            }            
+            }
         }
     }
 
@@ -81,27 +82,27 @@ export const isFormValid = (formdata, formname) => {
     let formIsValid = true;
 
     for (let key in formdata) {
-        if (Object.keys(formdata[key]).length > 5) {
+        if (Object.keys(formdata[key]).length > resultSize) {
             //console.log(formdata[key], formdata[key].valid && formIsValid);
             formIsValid = formdata[key].valid && formIsValid;
         } else {
             for (let key2 in formdata[key]) {
                 //console.log(formdata[key][key2], formdata[key][key2].valid && formIsValid);
                 formIsValid = formdata[key][key2].valid && formIsValid;
-            }            
-        }        
+            }
+        }
     }
 
     return formIsValid;
 };
 
 export const resetFields = (formdata, formname) => {
-    const newFormdata = { 
-        ...formdata 
+    const newFormdata = {
+        ...formdata
     };
 
     for (let key in newFormdata) {
-        if (Object.keys(newFormdata[key]).length > 5) {
+        if (Object.keys(newFormdata[key]).length > resultSize) {
             if (key === 'images') {
                 newFormdata[key].value = [];
             } else {
@@ -111,8 +112,7 @@ export const resetFields = (formdata, formname) => {
             newFormdata[key].valid = false;
             newFormdata[key].touched = false;
             newFormdata[key].validationMessage = '';
-        }
-        else {
+        } else {
             for (let key2 in newFormdata[key]) {
                 newFormdata[key][key2].valid = false;
                 newFormdata[key][key2].touched = false;
@@ -126,8 +126,8 @@ export const resetFields = (formdata, formname) => {
 
 export const populateOptionFields = (formdata, arrayData = [], field) => {
     const newArray = [];
-    const newFormdata = { 
-        ...formdata 
+    const newFormdata = {
+        ...formdata
     };
 
     arrayData.forEach((item) => {
@@ -145,15 +145,14 @@ export const populateOptionFields = (formdata, arrayData = [], field) => {
 };
 
 export const populateFields = (formdata, fields) => {
-    for (let key in formdata) {        
-        if (Object.keys(formdata[key]).length > 5) {
+    for (let key in formdata) {
+        if (Object.keys(formdata[key]).length > resultSize) {
             formdata[key].value = fields[key];
 
-            if(formdata[key].value !== "" || Object.keys(formdata[key].value).length !== 0) {
+            if (formdata[key].value !== "" || Object.keys(formdata[key].value).length !== 0) {
                 formdata[key].valid = true;
                 formdata[key].touched = true;
-            }
-            else {
+            } else {
                 formdata[key].valid = false;
                 formdata[key].touched = false;
             }
@@ -164,7 +163,7 @@ export const populateFields = (formdata, fields) => {
                 //console.log(key, key2, formdata[key][key2].value);
                 formdata[key][key2].value = fields[key][key2];
 
-                if(formdata[key][key2].value !== "" || Object.keys(formdata[key][key2].value).length !== 0){
+                if (formdata[key][key2].value !== "" || Object.keys(formdata[key][key2].value).length !== 0) {
                     formdata[key][key2].valid = true;
                     formdata[key][key2].touched = true;
                 } else {
